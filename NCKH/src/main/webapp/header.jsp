@@ -18,7 +18,7 @@
 						<button class="btn btn-primary" type="button"
 							style="margin-right: 5px;">Hồ sơ</button>
 						<button class="btn btn-primary" type="button"
-							style="margin-left: 5px;">Đăng nhập</button>
+							style="margin-left: 5px;">Đăng xuất</button>
 					</div>
 				</div>
 			</div>

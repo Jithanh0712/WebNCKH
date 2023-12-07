@@ -13,7 +13,6 @@
 </head>
 
 <body>
-	<jsp:include page="./header.jsp"></jsp:include>
 	<!-- SLIDER -->
 	<section class = "m-t-80">
 		<div role="tabpanel">
@@ -37,14 +36,9 @@
 		    	<section class = "mt-25">
 					<div class = "container">
 						<div class = "row">
-							<!-- Góc link -->
-								<jsp:include page="./listlink.jsp"></jsp:include>
-							<!-- Góc hiện thông báo -->
-								<jsp:include page="./listthongbaogv.jsp"></jsp:include>
 						</div>
 					</div>											
 				</section>	
-				<jsp:include page="./footer.jsp"></jsp:include>
 		    </div>
 		  </div>
 		</div>

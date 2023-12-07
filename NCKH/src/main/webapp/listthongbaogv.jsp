@@ -13,9 +13,15 @@
 </head>
 
 <body>
+	<jsp:include page="./header.jsp"></jsp:include>
+	<jsp:include page="./tab.jsp"></jsp:include>
+	
 	<div class = "col-md-9">
 		<div class="container">
 			<div class="row">
+				<div >
+					<jsp:include page="./listlink.jsp"></jsp:include>
+				</div>
 				<div class="col-md-3">
 					<textarea name="my-text-area-1" id="my-text-area-1" cols="125" rows="7.5">Notify</textarea>
 				</div>
@@ -34,4 +40,5 @@
 			</div>
 		</div>
 	</div>
+	<jsp:include page="./footer.jsp"></jsp:include>
 </body>

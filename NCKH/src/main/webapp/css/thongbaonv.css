@@ -1,0 +1,121 @@
+@import url(https://unpkg.com/@webpixels/css@1.0/dist/index.css);
+@import url('https://fonts.googleapis.com/css2?family=Playball&display=swap');
+
+
+
+.m-t-80 {
+  margin-top: 0px; 
+
+}
+
+#myList {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  flex-grow: 1;
+}
+
+.d-flex {
+  width: 100%;
+}
+
+.list-group-item.tab-1 {
+  display: inline-block;
+  width: 20%;
+  text-align: center;
+  padding: 10px;
+  background-color: #ABC4FF;
+  border-color: #ABC4FF;
+}
+
+.list-group-item.tab-1.active {
+  background-color: #E2EAFC;
+  border-color: #E2EAFC;
+  width: 20%;
+  text-align: center;
+  padding: 10px;
+}
+
+.mt-25{
+		margin-top: 30px
+}
+
+.list-group-item{
+	background-color: #ABC4FF;
+  	border: 2px solid #ABC4FF;
+  	color: #000000;
+   	padding: 5px 10px; 
+   	margin-bottom: 10px; 
+   	border-radius: 5px;
+   	font-size: 20px;
+   	font-family: "Playball", sans-serif;
+   	height: 50px;
+  	align-items: center;
+  	display: flex;
+}
+
+.pointer {
+	cursor: pointer;
+}
+
+.card-body {
+	padding: 15px;
+}
+
+.model-title {
+	font-size: 16pt;
+	font-weight: bold;
+}
+
+.model-rate-sale {
+	text-align: center;
+	font-size: 14pt;
+	font-weight: 500;
+	color: rgb(39, 39, 42);
+	display: flex;
+	-webkit-box-align: center;
+	align-items: center;
+	margin-bottom: 10px;
+}
+
+.model-rate-sale .model-rate {
+	margin: 0 auto;
+}
+
+.model-rate-sale .model-rate .checked {
+color: orange;
+padding-right: 5px;
+}
+
+.model-price {
+	text-align: center;
+	font-size: 16pt;
+	font-weight: 500;
+	color: rgb(39, 39, 42);
+	display: flex;
+	-webkit-box-align: center;
+	align-items: center;
+}
+
+
+
+.model-pagination {
+	margin-top: 25px;
+}
+
+.page-item {
+	margin-left: 3px;
+	margin-right: 3px;
+	border-radius: 0;
+}
+
+.page-item.active .page-link {
+	color: white !important;
+	background: blue !important;
+	border-color: blue !important;
+}
+
+.row{
+	margin-top: 10px
+}
+

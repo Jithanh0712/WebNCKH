@@ -33,12 +33,7 @@
 		    <div class="tab-pane fade" id="cbkh" role="tabpanel">...</div>
 		    <div class="tab-pane fade" id="dxdt" role="tabpanel">...</div>
 		    <div class="tab-pane fade show active" id="tb" role="tabpanel">
-		    	<section class = "mt-25">
-					<div class = "container">
-						<div class = "row">
-						</div>
-					</div>											
-				</section>	
+		    	
 		    </div>
 		  </div>
 		</div>

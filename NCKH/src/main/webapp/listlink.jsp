@@ -13,7 +13,6 @@
 </head>
 
 <body>
-	<div class ="col-md-3">
 		<a href="https://hcmute.edu.vn/" class="list-group-item px-3 border-0 rounded-3 list-group-item-info mb-2 pointer">Trang chủ nhà trường</a>
 		<a href="https://thuvien.hcmute.edu.vn/" class="list-group-item px-3 border-0 rounded-3 list-group-item-info mb-2 pointer">Thư viện trường</a>
 		<a href="https://fit.hcmute.edu.vn/" class="list-group-item px-3 border-0 rounded-3 list-group-item-info mb-2 pointer">Khoa công nghệ thông tin</a>
@@ -28,5 +27,5 @@
 		<a href="https://ffl.hcmute.edu.vn/" class="list-group-item px-3 border-0 rounded-3 list-group-item-info mb-2 pointer">Khoa ngoại ngữ</a>
 		<a href="https://fas.hcmute.edu.vn/" class="list-group-item px-3 border-0 rounded-3 list-group-item-info mb-2 pointer">Khoa khoa học ứng dụng</a>
 		<a href="https://fpi.hcmute.edu.vn/" class="list-group-item px-3 border-0 rounded-3 list-group-item-info mb-2 pointer">Khoa chính trị - luật</a>
-	</div>
+
 </body>

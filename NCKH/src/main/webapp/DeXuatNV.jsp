@@ -38,7 +38,8 @@
 								<td class = "text">GV1</td>
 								<td class = "text">Date1</td>
 								<td>
-									<a class="button" href="DeXuatGV.jsp">Xem chi tiết</a>
+									<a class="button" onmouseover="this.style.color='red'" onmouseout="this.style.color=''"
+									href="DeXuatGV.jsp" style="text-decoration: underline;">Xem chi tiết</a>
 								</td>
 							</tr>
 						</tbody>

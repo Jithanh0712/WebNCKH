@@ -14,7 +14,11 @@
 
 <body>
 	<section class = "m-t-80">
+<<<<<<< HEAD
 	  <div class="d-flex">
+=======
+		<div class="d-flex">
+>>>>>>> 7962ba0cbafffc7dd73688972d6bdbb25bbdf31d
 	    <!-- List group -->
 	    <div class="list-group flex-row" id="myList">
 			<a href="https://thuvien.hcmute.edu.vn/" class="list-group-item tab-1 px-3 border-0 rounded-3 list-group-item-info mb-2 pointer">Trang chủ</a>
@@ -23,6 +27,10 @@
 			<a href="./login.jsp" class="list-group-item tab-1 px-3 border-0 rounded-3 list-group-item-info mb-2 pointer">Đề xuất đề tài</a>
 			<a href="./ThongBaoGV.jsp" class="list-group-item tab-1 px-3 border-0 rounded-3 list-group-item-info mb-2 pointer">Thông báo</a>
 	    </div>
+<<<<<<< HEAD
 	  </div>	 
+=======
+	  </div>	
+>>>>>>> 7962ba0cbafffc7dd73688972d6bdbb25bbdf31d
 	</section>
 </body>

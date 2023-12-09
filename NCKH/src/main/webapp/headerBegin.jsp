@@ -16,7 +16,9 @@
 				<div class="collapse navbar-collapse" id="navbarCollapse">
 					<div class="navbar-nav ms-lg-0">
 						<button class="btn btn-primary" type="button"
-							style="margin-left: 125px;">Đăng nhập</button>
+
+							style="margin-left: 125px;" onclick="window.location.href='login.jsp'">Đăng nhập</button>
+
 					</div>
 				</div>
 			</div>

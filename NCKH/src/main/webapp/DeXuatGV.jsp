@@ -14,7 +14,7 @@
 </head>
 <body>
 	<jsp:include page="./header.jsp"></jsp:include>
-	<jsp:include page="./tab.jsp"></jsp:include>
+	<jsp:include page="./tabGV.jsp"></jsp:include>
 	<div class="container">
 		<div class="row">
 			<div class="col-md-3">

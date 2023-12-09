@@ -53,8 +53,11 @@
 					<div class="col-md-2"></div>
 					<div class="col-md-10">
 						<div class="rectangle">
-							<input type="file" id="fileInput" style="display: none;">
-							<button onclick="openFileExplorer()" style="border:solid; font-size:20; background-color:#C1D3FE;">Upload file...</button>
+							<form method="post" action="UploadFileServlet"
+								enctype="multipart/form-data">
+								Select file to upload: <input type="file" name="file"> <br>
+								<input type="submit" value="Upload">
+							</form>
 						</div>
 					</div>
 				</div>

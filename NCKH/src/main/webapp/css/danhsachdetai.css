@@ -5,14 +5,15 @@
     border-collapse: collapse;
   }
 
-  .table th,
-  .table td {
-    padding: 20px;
+ .table th .table td {
+    padding: 12x !important;
     border: 1px solid #ccc;
-    font-size: 36px;
-    text-align: center;
   }
 
+.text
+{
+	font-size: 18px !important;
+}
   .table .green-row td:nth-child(2) {
     background-color: green;
   }
@@ -20,3 +21,125 @@
   .table .yellow-row td:nth-child(2) {
     background-color: yellow;
   }
+  
+  .my-class{
+  width: 750px;
+  height: 100px;
+  border: 1px solid black;
+  border-radius: 10px;
+  overflow: auto;
+  word-wrap: break-word;
+  box-sizing: border-box;
+  padding: 5px;
+}
+
+.my-class-1{
+	background-color: #ABC4FF;
+  	border: 2px solid #ABC4FF;
+  	border-radius: 10px;
+  	font-size: 16pt;
+}
+
+.my-class-1:hover {
+  background-color: #5c60f5;
+  border-color: #5c60f5;
+  color:white;
+}
+
+.my-class-2{
+	background-color: #ABC4FF;
+  	border: 2px solid #ABC4FF;
+  	border-radius: 10px;
+  	font-size: 16pt;
+}
+
+.my-class-2:hover {
+  background-color: #5c60f5;
+  border-color: #5c60f5;
+  color:white;
+}
+
+#modal {
+    display: none; 
+    position: fixed;
+    border: 1px solid black;
+    z-index: 1;
+    top: 200px; 
+    left: 500px;
+    width: 600px; 
+    height: 400px; 
+    overflow: auto; 
+    background-color: rgba(0,0,0,0.4); 
+    border-radius: 10px;
+}
+
+#modal .modal-content {
+    background-color: #fefefe;
+    border: 1px solid black;
+    border-radius: 10px;
+    width: 100%; 
+    height: 100%;
+}
+
+.modal-content input[type="button"]{
+	background-color: #ABC4FF;
+  	border: 2px solid #ABC4FF;
+  	border-radius: 10px;
+  	font-size: 16pt;
+  	margin-top: auto;
+  	margin-bottom: auto;
+  	margin-left: 75%;
+  	width: 100px;
+}
+
+.modal-content input[type="button"]:hover {
+  background-color: #5c60f5;
+  border-color: #5c60f5;
+  color:white;
+}
+
+.change
+{
+	background-color: red !important;
+  	font-size: 28px !important;
+  	margin-left: 92% !important;
+  	border-color : red !important;
+  	padding: 0 !important;
+	width: 50px !important;
+	height: 45px !important;
+	margin-top: 0 !important;
+	border-radius:0 !important
+}
+
+#checkbox-list {
+  color: black;
+  margin-top:45px;
+  margin-left:20px;
+  display: left;
+  flex-direction: column;
+  justify-content: left;
+  align-items: left;
+  font-size: 22px;
+}
+
+#date-from-new {
+  color: black;
+  margin-top:50px;
+  margin-left:20px;
+  display: left;
+  flex-direction: column;
+  justify-content: left;
+  align-items: left;
+  font-size: 22px;
+}
+
+#date-to-new {
+  color: black;
+  margin-top:45px;
+  margin-left:20px;
+  display: left;
+  flex-direction: column;
+  justify-content: left;
+  align-items: left;
+  font-size: 22px;
+}

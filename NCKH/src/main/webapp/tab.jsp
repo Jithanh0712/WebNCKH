@@ -13,29 +13,16 @@
 </head>
 
 <body>
-	<!-- SLIDER -->
 	<section class = "m-t-80">
-		<div role="tabpanel">
-		  <div class="d-flex">
-		    <!-- List group -->
-		    <div class="list-group flex-row" id="myList" role="tablist">
-		      <a class="list-group-item list-group-item-action tab-1" data-bs-toggle="list" href="#home" role="tab">Trang chủ</a>
-		      <a class="list-group-item list-group-item-action tab-1" data-bs-toggle="list" href="#dtNCKH" role="tab">Đề tài NCKH</a>
-		      <a class="list-group-item list-group-item-action tab-1" data-bs-toggle="list" href="#cbkh" role="tab">Công bố khoa học</a>
-		      <a class="list-group-item list-group-item-action tab-1" data-bs-toggle="list" href="#dxdt" role="tab">Đề xuất đề tài</a>
-		      <a class="list-group-item list-group-item-action tab-1 active" data-bs-toggle="list" href="#tb" role="tab">Thông báo</a>
-		    </div>
-		  </div>
-		  <!-- Tab panes -->
-		  <div class="tab-content">
-		    <div class="tab-pane fade" id="home" role="tabpanel">...</div>
-		    <div class="tab-pane fade" id="dtNCKH" role="tabpanel">...</div>
-		    <div class="tab-pane fade" id="cbkh" role="tabpanel">...</div>
-		    <div class="tab-pane fade" id="dxdt" role="tabpanel">...</div>
-		    <div class="tab-pane fade show active" id="tb" role="tabpanel">
-		    	
-		    </div>
-		  </div>
-		</div>
+		<div class="d-flex">
+	    <!-- List group -->
+	    <div class="list-group flex-row" id="myList">
+			<a href="https://thuvien.hcmute.edu.vn/" class="list-group-item tab-1 px-3 border-0 rounded-3 list-group-item-info mb-2 pointer">Trang chủ</a>
+			<a href="https://fit.hcmute.edu.vn/" class="list-group-item tab-1 px-3 border-0 rounded-3 list-group-item-info mb-2 pointer">Đề tài NCKH</a>
+			<a href="https://feee.hcmute.edu.vn/" class="list-group-item tab-1 px-3 border-0 rounded-3 list-group-item-info mb-2 pointer">Công bố khoa học</a>
+			<a href="./login.jsp" class="list-group-item tab-1 px-3 border-0 rounded-3 list-group-item-info mb-2 pointer">Đề xuất đề tài</a>
+			<a href="./ThongBaoGV.jsp" class="list-group-item tab-1 px-3 border-0 rounded-3 list-group-item-info mb-2 pointer">Thông báo</a>
+	    </div>
+	  </div>	
 	</section>
 </body>

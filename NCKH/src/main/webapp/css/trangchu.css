@@ -1,7 +1,7 @@
 @import url(https://unpkg.com/@webpixels/css@1.0/dist/index.css);
 
 .container-xl{
-	margin-left:70%;
+	margin-left:75% !important;
 }
 
 .btn {
@@ -31,7 +31,7 @@
   text-align: center;
   padding: 10px;
   background-color: #ABC4FF;
-  border-color: #1D3557;
+  border-color: #1D3557 !important;
 }
 
 .list-group-item.tab-1.active {
@@ -48,7 +48,7 @@
 
 .list-group-item{
 	background-color: #ABC4FF;
-  	border: 2px solid #1D3557;
+  	border: 2px solid #1D3557 !important;
   	color: #000000;
    	padding: 5px 10px; 
    	margin-bottom: 10px; 
@@ -125,3 +125,6 @@
 	margin-top: 10px
 }
 
+.square-list-group-item {
+    border-radius: 0;
+  }

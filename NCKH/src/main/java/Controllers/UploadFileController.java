@@ -1,7 +1,7 @@
 package Controllers;
 
-import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -19,7 +19,7 @@ import javax.servlet.http.Part;
 @MultipartConfig(fileSizeThreshold = 1024 * 1024 * 10, // 10 MB
                  maxFileSize = 1024 * 1024 * 50,      // 50 MB
                  maxRequestSize = 1024 * 1024 * 100)   // 100 MB
-public class UploadFileServlet extends HttpServlet {
+public class UploadFileController extends HttpServlet {
 
     private static final long serialVersionUID = 1L;
 
@@ -40,7 +40,8 @@ public class UploadFileServlet extends HttpServlet {
                 }
             }
         }
-        response.sendRedirect("DeXuatGV.jsp");
+        
+        response.sendRedirect("DanhSachDeTaiGV.jsp");
     }
 
     private String getFileName(Part part) {

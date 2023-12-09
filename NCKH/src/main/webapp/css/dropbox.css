@@ -8,3 +8,15 @@
   	height:200px;
   	border:solid;
 }
+
+.table {
+	width: 100%;
+	border-collapse: collapse;
+}
+
+.table th, .table td {
+	padding: 20px;
+	border: 1px solid #ccc;
+	font-size: 36px;
+	text-align: center;
+}

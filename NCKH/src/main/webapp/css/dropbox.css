@@ -1,0 +1,10 @@
+@charset "ISO-8859-1";
+
+.rectangle{
+	display: flex;
+  	justify-content: center;
+  	align-items: center;
+	width:820px;
+  	height:200px;
+  	border:solid;
+}

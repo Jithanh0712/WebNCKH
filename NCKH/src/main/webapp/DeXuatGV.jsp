@@ -53,15 +53,25 @@
 					<div class="col-md-2"></div>
 					<div class="col-md-10">
 						<div class="rectangle">
-							<input type="file" id="fileInput" style="display: none;">
-							<button onclick="openFileExplorer()" style="border:solid; font-size:20; background-color:#C1D3FE;">Upload file...</button>
+							<form method="post" action="UploadFileServlet"
+								enctype="multipart/form-data"
+								id="uploadform">
+								Select file to upload: <input type="file" name="file">
+							</form>
 						</div>
 					</div>
 				</div>
 				<div class="row">
 					<div class="col-md-11"></div>
 					<div class="col-md-1">
-						<button type="button" style="border:solid; font-size:20;">Submit</button>
+						<input type="submit" value="Submit"
+							style="border: solid; font-size: 20;" id="fileupload">
+						<script>
+							document.getElementById('fileupload').addEventListener('click',function() 
+									{
+										document.getElementById('uploadform').submit();
+									});
+						</script>
 					</div>
 				</div>
 			</div>

@@ -1,0 +1,22 @@
+@import url(https://unpkg.com/@webpixels/css@1.0/dist/index.css);
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  .table th,
+  .table td {
+    padding: 14px;
+    border: 1px solid #ccc;
+    font-size: 18px;
+    text-align: center;
+  }
+
+  .table .green-row td:nth-child(2) {
+    background-color: green;
+  }
+
+  .table .yellow-row td:nth-child(2) {
+    background-color: yell;
+  }

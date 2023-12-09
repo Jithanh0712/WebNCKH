@@ -14,15 +14,15 @@
 
 <body>
 	<section class = "m-t-80">
-		<div class="d-flex">
+	  <div class="d-flex">
 	    <!-- List group -->
 	    <div class="list-group flex-row" id="myList">
-			<a href="https://thuvien.hcmute.edu.vn/" class="list-group-item tab-1 px-3 border-0 rounded-3 list-group-item-info mb-2 pointer">Trang chủ</a>
-			<a href="https://fit.hcmute.edu.vn/" class="list-group-item tab-1 px-3 border-0 rounded-3 list-group-item-info mb-2 pointer">Đề tài NCKH</a>
-			<a href="https://feee.hcmute.edu.vn/" class="list-group-item tab-1 px-3 border-0 rounded-3 list-group-item-info mb-2 pointer">Công bố khoa học</a>
-			<a href="./login.jsp" class="list-group-item tab-1 px-3 border-0 rounded-3 list-group-item-info mb-2 pointer">Đề xuất đề tài</a>
+			<a href="" class="list-group-item tab-1 px-3 border-0 rounded-3 list-group-item-info mb-2 pointer">Trang chủ</a>
+			<a href="" class="list-group-item tab-1 px-3 border-0 rounded-3 list-group-item-info mb-2 pointer">Đề tài NCKH</a>
+			<a href="" class="list-group-item tab-1 px-3 border-0 rounded-3 list-group-item-info mb-2 pointer">Công bố khoa học</a>
+			<a href="" class="list-group-item tab-1 px-3 border-0 rounded-3 list-group-item-info mb-2 pointer">Đề xuất đề tài</a>
 			<a href="./ThongBaoGV.jsp" class="list-group-item tab-1 px-3 border-0 rounded-3 list-group-item-info mb-2 pointer">Thông báo</a>
 	    </div>
-	  </div>	
+	  </div>	 
 	</section>
 </body>

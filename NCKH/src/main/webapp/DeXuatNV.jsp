@@ -34,9 +34,9 @@
 						</thead>
 						<tbody>
 							<tr>
-								<td>Đề tài 1</td>
-								<td>GV1</td>
-								<td>Date1</td>
+								<td class = "text">Đề tài 1</td>
+								<td class = "text">GV1</td>
+								<td class = "text">Date1</td>
 								<td>
 									<a class="button" href="DeXuatGV.jsp">Xem chi tiết</a>
 								</td>

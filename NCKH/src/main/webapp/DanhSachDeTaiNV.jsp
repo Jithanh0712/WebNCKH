@@ -75,6 +75,7 @@
 				</div>
 			</div>
 		</div>
+	</div>
 		<script>
     function showModal() {
       document.getElementById("modal").style.display = "block";

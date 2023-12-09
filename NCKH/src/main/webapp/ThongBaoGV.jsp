@@ -15,7 +15,7 @@
 
 <body>
 	<jsp:include page="./header.jsp"></jsp:include>
-	<jsp:include page="./tab.jsp"></jsp:include>
+	<jsp:include page="./tabGV.jsp"></jsp:include>
 
 	<div class="container">
 		<div class="row">
@@ -24,16 +24,16 @@
 			</div>
 			<div class="col-md-9">
 				<textarea name="my-text-area-1" id="my-text-area-1" cols="125"
-					rows="7.5">Notify</textarea>
+					rows="7.5" readonly>Notify</textarea>
 				<hr style="border: 1px solid #2c313c;">
 				<textarea name="my-text-area-2" id="my-text-area-2" cols="125"
-					rows="7.5">Notify</textarea>
+					rows="7.5" readonly>Notify</textarea>
 				<hr style="border: 1px solid #2c313c;">
 				<textarea name="my-text-area-3" id="my-text-area-3" cols="125"
-					rows="7.5">Notify</textarea>
+					rows="7.5" readonly>Notify</textarea>
 				<hr style="border: 1px solid #2c313c;">
 				<textarea name="my-text-area-4" id="my-text-area-4" cols="125"
-					rows="7.5">Notify</textarea>
+					rows="7.5" readonly>Notify</textarea>
 			</div>
 		</div>
 	</div>

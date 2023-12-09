@@ -16,11 +16,11 @@
 				<div class="collapse navbar-collapse" id="navbarCollapse">
 					<div class="navbar-nav ms-lg-0">
 						<button class="btn btn-primary" type="button"
-							style="margin-right: 5px; white-space: nowrap;">Thêm tài khoản</button>
+							style="margin-right: 5px; margin-left: 30px; white-space: nowrap;">Thêm tài khoản</button>
 						<button class="btn btn-primary" type="button"
 							style="margin-right: 5px; white-space: nowrap;">Hồ sơ</button>
 						<button class="btn btn-primary" type="button"
-							style="; white-space: nowrap;">Đăng xuất</button>
+							style="white-space: nowrap;">Đăng xuất</button>
 					</div>
 				</div>
 			</div>

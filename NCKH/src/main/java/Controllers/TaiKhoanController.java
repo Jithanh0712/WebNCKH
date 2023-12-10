@@ -12,7 +12,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import DAO.GiangVienDAO;
+import DAO.NVPQLKHDAO;
 import DAO.TaiKhoanDAO;
+import Models.GIANGVIEN;
+import Models.NVPQLKH;
 import Models.TAIKHOAN;
 
 
@@ -20,7 +24,9 @@ import Models.TAIKHOAN;
 public class TaiKhoanController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
     private TaiKhoanDAO taikhoanDAO; 
-
+    private GiangVienDAO gvDAO;
+    private NVPQLKHDAO nvDAO;
+    
     public TaiKhoanController() {
         super();
     }
@@ -28,6 +34,8 @@ public class TaiKhoanController extends HttpServlet {
 	
 	public void init() {
 		taikhoanDAO = new TaiKhoanDAO();
+		gvDAO = new GiangVienDAO();
+		nvDAO = new NVPQLKHDAO();
 	}
 
 	
@@ -82,10 +90,29 @@ public class TaiKhoanController extends HttpServlet {
         String IDDangNhap = request.getParameter("IDDangNhap");
         String MatKhau = request.getParameter("MatKhau");
         String ROLE_User = request.getParameter("ROLE_User");
-
-        
+               
         TAIKHOAN tk = new TAIKHOAN(IDDangNhap, MatKhau, ROLE_User);
         taikhoanDAO.insertTK(tk);
+        if(ROLE_User.equals("GV"))
+        {	
+        	String MaGV = gvDAO.findNextMaGV();
+        	String TenGV = " ";
+        	String TrinhDo = " ";
+        	String ID = IDDangNhap;
+        	String MaKhoa = request.getParameter("MaKhoa");
+        	GIANGVIEN gv = new GIANGVIEN(MaGV, TenGV, TrinhDo, ID, MaKhoa);
+        	gvDAO.insertGV(gv);
+        }
+        else if(ROLE_User.equals("NV"))
+        {
+        	String MaNV = nvDAO.findNextMaNV();
+        	String TenNV = " ";
+        	int KinhNghiem = 0;
+        	String Email = " ";
+        	String ID = IDDangNhap;
+        	NVPQLKH nv = new NVPQLKH(MaNV, TenNV, KinhNghiem, Email, ID);
+        	nvDAO.insertNVPQLKH(nv);
+        }
         response.sendRedirect("list");
     }
 }

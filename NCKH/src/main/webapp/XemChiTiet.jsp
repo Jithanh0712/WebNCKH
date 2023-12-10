@@ -11,6 +11,16 @@
 <script
 	src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"></script>
 <link rel="stylesheet" href="css/dropbox.css">
+<script>
+	function downloadFile() {
+		var a = document.createElement('a');
+		a.href = 'XemChiTiet.jsp';
+		a.download = 'test.jsp';
+		document.body.appendChild(a);
+		a.click();
+		document.body.removeChild(a);
+	}
+</script>
 </head>
 <body>
 	<jsp:include page="./header.jsp"></jsp:include>
@@ -33,7 +43,6 @@
 						<textarea disabled style="margin-top:10px; font-size:20px; border:2px solid; width:300px" rows=1>ABC</textarea>
 						<textarea disabled style="margin-top:10px; font-size:20px; border:2px solid; width:300px" rows=1>ABC</textarea>
 						<textarea disabled style="margin-top:10px; font-size:20px; border:2px solid; width:300px" rows=1>ABC</textarea>
-						<textarea disabled style="margin-top:10px; font-size:20px; border:2px solid; width:300px" rows=1>ABC</textarea>
 					</div>
 				</div>
 				<div class="row">
@@ -43,16 +52,6 @@
 							<p style="font-size: 20px; white-space: pre;">Ấn để tải về tập tin </p>
 							<a onmouseover="this.style.color='red'" onmouseout="this.style.color=''" 
 							style="font-size: 20px; text-decoration: underline;" class="button" onclick="downloadFile()">tenthumuc.abc</a>
-							<script>
-								function downloadFile() {
-									var a = document.createElement('a');
-									a.href = 'XemChiTiet.jsp';
-									a.download = 'test.jsp';
-									document.body.appendChild(a);
-									a.click();
-									document.body.removeChild(a);
-								}
-							</script>
 						</div>
 					</div>
 				</div>

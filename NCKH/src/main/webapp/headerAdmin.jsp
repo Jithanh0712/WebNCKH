@@ -16,7 +16,7 @@
 				<div class="collapse navbar-collapse" id="navbarCollapse">
 					<div class="navbar-nav ms-lg-0">
 						<button class="btn btn-primary" type="button"
-							style="margin-right: 5px; margin-left: 30px; white-space: nowrap;" onclick="window.location.href='<%=request.getContextPath()%>/list'">Danh sách tài khoản</button>
+							style="margin-right: 5px; margin-left: 30px; white-space: nowrap;" onclick="window.location.href='<%=request.getContextPath()%>/TaiKhoan/list'">Danh sách tài khoản</button>
 						<button class="btn btn-primary" type="button"
 							style="white-space: nowrap;" onclick="window.location.href='<%=request.getContextPath()%>/logout'">Đăng xuất</button>
 					</div>

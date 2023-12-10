@@ -21,14 +21,14 @@ public class LoginDAO {
         	// Step 2:Create a statement using connection object
         	PreparedStatement preparedStatement = conn
         			.prepareStatement("select * from nckh.taikhoan where IDDangNhap = ? and MatKhau = ? ");
-            preparedStatement.setString(1, loginData.getIDDangNhap());
+            preparedStatement.setString(1, loginData.getiDDangNhap());
             preparedStatement.setString(2, loginData.getMatKhau());
 
             ResultSet rs = preparedStatement.executeQuery();
 			while(rs.next()) {
 				tk = new TAIKHOAN();
-				tk.setIDDangNhap(rs.getString(1));
-				tk.setROLE_User(rs.getString(3));
+				tk.setiDDangNhap(rs.getString(1));
+				tk.setrOLE_User(rs.getString(3));
 			}
 
         } catch (SQLException e) {

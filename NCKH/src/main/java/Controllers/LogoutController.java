@@ -22,7 +22,7 @@ public class LogoutController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
 		session.removeAttribute("IDDangNhap");
-		response.sendRedirect("login.jsp");
+		response.sendRedirect("TrangChu.jsp");
 	}
 
 	

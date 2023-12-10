@@ -26,3 +26,8 @@
 	text-align: center !important;
   	vertical-align: middle !important;
 }
+
+.textarena:disabled{
+	color: gray;
+	background-color: lightgray;
+}

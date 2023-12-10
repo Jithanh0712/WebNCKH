@@ -15,6 +15,18 @@ public class THONGBAO implements Serializable {
 	public THONGBAO() {
 		super();
 	}
+	
+	
+
+	public THONGBAO(String maThongBao, String tenThongBao, String noiDung, Date ngayGui) {
+		super();
+		this.maThongBao = maThongBao;
+		this.tenThongBao = tenThongBao;
+		this.noiDung = noiDung;
+		this.ngayGui = ngayGui;
+	}
+
+
 
 	public THONGBAO(String maThongBao, String tenThongBao, String noiDung, Date ngayGui, String nguoiNhan,
 			String nguoiGui) {

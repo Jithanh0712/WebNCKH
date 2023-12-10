@@ -21,7 +21,7 @@
 			<a href="./DanhSachDeTaiGV.jsp" class="list-group-item tab-1 px-3 border-0 rounded-0 list-group-item-info mb-2 pointer">Đề tài NCKH</a>
 			<a href="./CongBoUser.jsp" class="list-group-item tab-1 px-3 border-0 rounded-0 list-group-item-info mb-2 pointer">Công bố khoa học</a>
 			<a href="./DeXuatGV.jsp" class="list-group-item tab-1 px-3 border-0 rounded-0 list-group-item-info mb-2 pointer">Đề xuất đề tài</a>
-			<a href="./ThongBaoGV.jsp" class="list-group-item tab-1 px-3 border-0 rounded-0 list-group-item-info mb-2 pointer">Thông báo</a>
+			<a href='<%=request.getContextPath()%>/ThongBaoGVController' class="list-group-item tab-1 px-3 border-0 rounded-0 list-group-item-info mb-2 pointer">Thông báo</a>
 	    </div>
 	  </div>	 
 	</section>

@@ -1,6 +1,7 @@
 <%@page contentType="text/html; charset=UTF-8"%>
-<%@page language="java"%>
-
+<%@ page language="java"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ page import="Models.THONGBAO"%>
 <html>
 <head>
 	<meta charset="UTF-8">
@@ -16,24 +17,21 @@
 <body>
 	<jsp:include page="./header.jsp"></jsp:include>
 	<jsp:include page="./tabGV.jsp"></jsp:include>
-
 	<div class="container">
 		<div class="row">
 			<div class="col-md-3">
 				<jsp:include page="./listlink.jsp"></jsp:include>
 			</div>
 			<div class="col-md-9">
-				<textarea name="my-text-area-1" id="my-text-area-1" cols="125"
-					rows="7.5" readonly>Notify</textarea>
-				<hr style="border: 1px solid #2c313c;">
-				<textarea name="my-text-area-2" id="my-text-area-2" cols="125"
-					rows="7.5" readonly>Notify</textarea>
-				<hr style="border: 1px solid #2c313c;">
-				<textarea name="my-text-area-3" id="my-text-area-3" cols="125"
-					rows="7.5" readonly>Notify</textarea>
-				<hr style="border: 1px solid #2c313c;">
-				<textarea name="my-text-area-4" id="my-text-area-4" cols="125"
-					rows="7.5" readonly>Notify</textarea>
+			<form action="ThongBaoGVController" method="post">
+				<c:forEach var="thongbao" items="${listTB}">
+				    <textarea name="my-text-area-${thongbao.maThongBao}" id="my-text-area-${thongbao.maThongBao}" cols="125"
+				        rows="7.5" readonly>Tên thông báo: ${thongbao.tenThongBao}
+Nội dung: ${thongbao.noiDung}
+Ngày gửi: ${thongbao.ngayGui}</textarea>
+				    <hr style="border: 1px solid #2c313c;">
+				</c:forEach>
+			</form>
 			</div>
 		</div>
 	</div>

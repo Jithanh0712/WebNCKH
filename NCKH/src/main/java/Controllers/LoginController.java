@@ -50,16 +50,16 @@ public class LoginController extends HttpServlet {
 				String userRole = acc.getrOLE_User();
 				if("Admin".equals(userRole))
 				{
-					HttpSession session = request.getSession();
+					//HttpSession session = request.getSession();
 					//session.setAttribute("user", users);
 					response.sendRedirect("TrangChuAdmin.jsp");
 				}else if("NV".equals(userRole)){
-					HttpSession session = request.getSession();
+					//HttpSession session = request.getSession();
 					//session.setAttribute("user", users);
 					response.sendRedirect("TrangChuUser.jsp");
 				}else if("GV".equals(userRole)){
 					HttpSession session = request.getSession();
-					//session.setAttribute("user", users);
+					session.setAttribute("IDDangNhap", IDDangNhap);
 					response.sendRedirect("TrangChuUser.jsp");
 				}else {
 					request.setAttribute("errMsg", "Bạn không có quyền truy cập!");

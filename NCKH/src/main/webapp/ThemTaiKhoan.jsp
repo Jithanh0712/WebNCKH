@@ -10,7 +10,7 @@
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-<title>Thêm tài khoản</title>
+<title>Danh sách tài khoản</title>
 
 <style><%@include file="/css/trangchu.css"%></style>
 <link rel="stylesheet"
@@ -30,7 +30,7 @@
 	    <div class="col-md-9">
 	        
 	          <h1>Danh sách tài khoản</h1>
-
+	          
 		      <table class="table table-bordered">
 		        <thead>
 		          <tr>
@@ -50,7 +50,7 @@
 		        </tbody>
 		      </table>
 		      <button type="submit" class="btn btn-primary" style ="margin-top:10px; margin-left: 90%;"
-		      onclick="window.location.href='<%=request.getContextPath()%>/new'">Thêm</button>
+		      onclick="window.location.href='<%=request.getContextPath()%>/TaiKhoan/new'">Thêm</button>
 	      </div>
 	    </div>
 	  </div>

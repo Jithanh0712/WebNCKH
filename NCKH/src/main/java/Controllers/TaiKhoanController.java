@@ -20,7 +20,7 @@ import Models.NVPQLKH;
 import Models.TAIKHOAN;
 
 
-@WebServlet("/")
+@WebServlet("/TaiKhoan/*")
 public class TaiKhoanController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
     private TaiKhoanDAO taikhoanDAO; 
@@ -40,25 +40,27 @@ public class TaiKhoanController extends HttpServlet {
 
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String action = request.getServletPath();
+		String action = request.getPathInfo();
 		System.out.println("action error :"+ action );
    
         try {
-            switch (action) {
-                case "/new":
-                    showNewForm(request, response);
-                    break;
-                case "/insert":
-                    insertTK(request, response);
-                    break;
-                case "/list":
-                    listTK(request, response);
-                    break;
-                default:
-                    RequestDispatcher dispatcher = request.getRequestDispatcher("/TrangChuAdmin.jsp");
-                    dispatcher.forward(request, response);
-                    break;
-            }
+        	if (action.equals("/new"))
+        	{
+        		showNewForm(request, response);
+        	}
+        	else if (action.equals("/insert"))
+        	{
+        		insertTK(request, response);
+        	}
+        	else if (action.equals("/list"))
+        	{
+        		listTK(request, response);
+        	}
+        	else
+        	{
+        		RequestDispatcher dispatcher = request.getRequestDispatcher("/TrangChuAdmin.jsp");
+                dispatcher.forward(request, response);
+        	}      
         } catch (SQLException ex) {
             throw new ServletException(ex);
         }

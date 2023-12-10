@@ -5,7 +5,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<link rel="stylesheet" href="css/thongbaogv.css">
+	<style><%@include file="/css/thongbaogv.css"%></style>
 </head>
 
 <!-- HEADER -->
@@ -18,7 +18,7 @@
 						<button class="btn btn-primary" type="button"
 							style="margin-right: 5px;">Hồ sơ</button>
 						<button class="btn btn-primary" type="button"
-							style="margin-left: 5px;">Đăng xuất</button>
+							style="margin-left: 5px;" onclick="window.location.href='<%=request.getContextPath()%>/logout'">Đăng xuất</button>
 					</div>
 				</div>
 			</div>

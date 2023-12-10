@@ -39,7 +39,7 @@ public class LoginController extends HttpServlet {
         
         //Step 2: Khởi tạo model
         TAIKHOAN tk = new TAIKHOAN();
-        tk.setIDDangNhap(IDDangNhap);
+        tk.setiDDangNhap(IDDangNhap);
         tk.setMatKhau(MatKhau);
         //Step 3: Kết nối CSDL -> trả về kết quả
         try {
@@ -47,7 +47,7 @@ public class LoginController extends HttpServlet {
 			//User users = new User();
 			acc = loginDAO.onLogin(tk);
 			if (acc != null) {
-				String userRole = acc.getROLE_User();
+				String userRole = acc.getrOLE_User();
 				if("Admin".equals(userRole))
 				{
 					HttpSession session = request.getSession();

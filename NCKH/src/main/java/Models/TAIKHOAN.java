@@ -4,36 +4,43 @@ import java.io.Serializable;
 
 public class TAIKHOAN implements Serializable {
 	private static final long serialVersionUID = 1L;
-	private String IDDangNhap;
-	private String MatKhau;
-	private String ROLE_User;
+	
+	private String iDDangNhap;
+	private String matKhau;
+	private String rOLE_User;
 	
 	public TAIKHOAN() {
 		super();
 	}
+
 	public TAIKHOAN(String iDDangNhap, String matKhau, String rOLE_User) {
 		super();
-		IDDangNhap = iDDangNhap;
-		MatKhau = matKhau;
-		ROLE_User = rOLE_User;
+		this.iDDangNhap = iDDangNhap;
+		this.matKhau = matKhau;
+		this.rOLE_User = rOLE_User;
 	}
-	public String getIDDangNhap() {
-		return IDDangNhap;
+
+	public String getiDDangNhap() {
+		return iDDangNhap;
 	}
-	public void setIDDangNhap(String iDDangNhap) {
-		IDDangNhap = iDDangNhap;
+
+	public void setiDDangNhap(String iDDangNhap) {
+		this.iDDangNhap = iDDangNhap;
 	}
+
 	public String getMatKhau() {
-		return MatKhau;
+		return matKhau;
 	}
+
 	public void setMatKhau(String matKhau) {
-		MatKhau = matKhau;
+		this.matKhau = matKhau;
 	}
-	public String getROLE_User() {
-		return ROLE_User;
+
+	public String getrOLE_User() {
+		return rOLE_User;
 	}
-	public void setROLE_User(String rOLE_User) {
-		ROLE_User = rOLE_User;
+
+	public void setrOLE_User(String rOLE_User) {
+		this.rOLE_User = rOLE_User;
 	}
-	
 }

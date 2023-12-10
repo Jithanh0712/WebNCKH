@@ -6,7 +6,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Đăng nhập</title>
-    <link rel="stylesheet" href="css/login.css">
+    <style><%@include file="/css/login.css"%></style>
 </head>
 <body>
 	<button type="submit" class="btnTC btn-primary" onclick="window.location.href='TrangChu.jsp'">Trang chủ</button>

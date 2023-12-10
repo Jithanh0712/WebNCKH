@@ -49,11 +49,40 @@
 					  <option value="GV">Giảng viên</option>
 					</select>
 	        </div>
+	        <div class="form-group">
+	           	<label for="MaKhoa" style = "color: black; font-size: 20px; margin-left:150px;">MaKhoa</label>
+	           	<select class="form-control" id="MaKhoa" name="MaKhoa" style="display: none; margin-left:250px; width:500px; height: 50px;">
+						<option value="MK001">Khoa CNTT</option>
+						<option value="MK002">Khoa Kinh tế</option>
+						<option value="MK003">Khoa Ngoại ngữ</option>
+						<option value="MK004">Khoa Điện - điện tử</option>
+						<option value="MK005">Khoa Cơ khí chế tạo máy</option>
+						<option value="MK006">Khoa Cơ khí động lực</option>
+						<option value="MK007">Khoa Xây dựng</option>
+						<option value="MK008">Khoa Công nghệ hóa học và thực phẩm</option>
+						<option value="MK009">Khoa Thời trang và du lịch</option>
+						<option value="MK010">Khoa In và truyền thông</option>
+						<option value="MK011">Khoa Khoa học và ứng dụng</option>
+						<option value="MK012">Khoa Chính trị và luật</option>
+					</select>
+	        </div>
     	<button type="submit" class="btn btn-primary" style = "margin-top: 10px; margin-left:68%;">Save</button>
     </form>
    </div>
   </div>
  </div>
+ <script>
+ function checkROLE_User() {
+		var ROLE_User = document.getElementById("ROLE_User").value;
+		if (ROLE_User == "GV") {
+			document.getElementById("MaKhoa").style.display = "block";
+		} else {
+			document.getElementById("MaKhoa").style.display = "none";
+		}
+	}
+
+	document.getElementById("ROLE_User").addEventListener("change", checkROLE_User);
+ </script>
  <jsp:include page="./footer.jsp"></jsp:include>
 </body>
 </html>

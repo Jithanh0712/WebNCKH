@@ -73,7 +73,7 @@ public class TaiKhoanController extends HttpServlet {
 
     private void showNewForm(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/tk-form.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/FormThemTK.jsp");
         dispatcher.forward(request, response);
     }
 

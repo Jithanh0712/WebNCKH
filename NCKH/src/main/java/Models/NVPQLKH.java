@@ -4,51 +4,63 @@ import java.io.Serializable;
 
 public class NVPQLKH implements Serializable {
 	private static final long serialVersionUID = 1L;
-	private String MaNV;
-	private String TenNV;
-	private int KinhNghiem;
-	private String Email;
-	private String ID;
+	private String maNV;
+	private String tenNV;
+	private int kinhNghiem;
+	private String email;
+	private String iD;
 	
 	public NVPQLKH() {
 		super();
 	}
+	
 	public NVPQLKH(String maNV, String tenNV, int kinhNghiem, String email, String iD) {
 		super();
-		MaNV = maNV;
-		TenNV = tenNV;
-		KinhNghiem = kinhNghiem;
-		Email = email;
-		ID = iD;
+		this.maNV = maNV;
+		this.tenNV = tenNV;
+		this.kinhNghiem = kinhNghiem;
+		this.email = email;
+		this.iD = iD;
 	}
+
 	public String getMaNV() {
-		return MaNV;
+		return maNV;
 	}
+
 	public void setMaNV(String maNV) {
-		MaNV = maNV;
+		this.maNV = maNV;
 	}
+
 	public String getTenNV() {
-		return TenNV;
+		return tenNV;
 	}
+
 	public void setTenNV(String tenNV) {
-		TenNV = tenNV;
+		this.tenNV = tenNV;
 	}
+
 	public int getKinhNghiem() {
-		return KinhNghiem;
+		return kinhNghiem;
 	}
+
 	public void setKinhNghiem(int kinhNghiem) {
-		KinhNghiem = kinhNghiem;
+		this.kinhNghiem = kinhNghiem;
 	}
+
 	public String getEmail() {
-		return Email;
+		return email;
 	}
+
 	public void setEmail(String email) {
-		Email = email;
+		this.email = email;
 	}
-	public String getID() {
-		return ID;
+
+	public String getiD() {
+		return iD;
 	}
-	public void setID(String iD) {
-		ID = iD;
+
+	public void setiD(String iD) {
+		this.iD = iD;
 	}
+	
 }

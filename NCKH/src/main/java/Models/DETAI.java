@@ -5,69 +5,84 @@ import java.sql.Date;
 
 public class DETAI implements Serializable {
 	private static final long serialVersionUID = 1L;
-	private String MaDeTai;
-	private String TieuDe;
-	private String MoTa;
-	private String TrangThai;
-	private int KinhPhi;
-	private Date NgayDKTC;
-	private String MaNV;
+	private String maDeTai;
+	private String tieuDe;
+	private String moTa;
+	private String trangThai;
+	private int kinhPhi;
+	private Date ngayDKTC;
+	private String maNV;
 	
 	public DETAI() {
 		super();
 	}
+	
 	public DETAI(String maDeTai, String tieuDe, String moTa, String trangThai, int kinhPhi, Date ngayDKTC,
 			String maNV) {
 		super();
-		MaDeTai = maDeTai;
-		TieuDe = tieuDe;
-		MoTa = moTa;
-		TrangThai = trangThai;
-		KinhPhi = kinhPhi;
-		NgayDKTC = ngayDKTC;
-		MaNV = maNV;
+		this.maDeTai = maDeTai;
+		this.tieuDe = tieuDe;
+		this.moTa = moTa;
+		this.trangThai = trangThai;
+		this.kinhPhi = kinhPhi;
+		this.ngayDKTC = ngayDKTC;
+		this.maNV = maNV;
 	}
+
 	public String getMaDeTai() {
-		return MaDeTai;
+		return maDeTai;
 	}
+
 	public void setMaDeTai(String maDeTai) {
-		MaDeTai = maDeTai;
+		this.maDeTai = maDeTai;
 	}
+
 	public String getTieuDe() {
-		return TieuDe;
+		return tieuDe;
 	}
+
 	public void setTieuDe(String tieuDe) {
-		TieuDe = tieuDe;
+		this.tieuDe = tieuDe;
 	}
+
 	public String getMoTa() {
-		return MoTa;
+		return moTa;
 	}
+
 	public void setMoTa(String moTa) {
-		MoTa = moTa;
+		this.moTa = moTa;
 	}
+
 	public String getTrangThai() {
-		return TrangThai;
+		return trangThai;
 	}
+
 	public void setTrangThai(String trangThai) {
-		TrangThai = trangThai;
+		this.trangThai = trangThai;
 	}
+
 	public int getKinhPhi() {
-		return KinhPhi;
+		return kinhPhi;
 	}
+
 	public void setKinhPhi(int kinhPhi) {
-		KinhPhi = kinhPhi;
+		this.kinhPhi = kinhPhi;
 	}
+
 	public Date getNgayDKTC() {
-		return NgayDKTC;
+		return ngayDKTC;
 	}
+
 	public void setNgayDKTC(Date ngayDKTC) {
-		NgayDKTC = ngayDKTC;
+		this.ngayDKTC = ngayDKTC;
 	}
+
 	public String getMaNV() {
-		return MaNV;
+		return maNV;
 	}
+
 	public void setMaNV(String maNV) {
-		MaNV = maNV;
+		this.maNV = maNV;
 	}
 	
 }

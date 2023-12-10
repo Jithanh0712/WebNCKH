@@ -4,61 +4,74 @@ import java.io.Serializable;
 
 public class DEXUATDETAI implements Serializable {
 	private static final long serialVersionUID = 1L;
-	private String MaDeXuat;
-	private String TieuDeDeTai;
-	private String MoTaDeTai;
-	private String MaGV;
-	private boolean TrangThai;
-	private String MaDeTai;
+	private String maDeXuat;
+	private String tieuDeDeTai;
+	private String moTaDeTai;
+	private String maGV;
+	private boolean trangThai;
+	private String maDeTai;
 	
 	public DEXUATDETAI() {
 		super();
 	}
+	
 	public DEXUATDETAI(String maDeXuat, String tieuDeDeTai, String moTaDeTai, String maGV, boolean trangThai,
 			String maDeTai) {
 		super();
-		MaDeXuat = maDeXuat;
-		TieuDeDeTai = tieuDeDeTai;
-		MoTaDeTai = moTaDeTai;
-		MaGV = maGV;
-		TrangThai = trangThai;
-		MaDeTai = maDeTai;
+		this.maDeXuat = maDeXuat;
+		this.tieuDeDeTai = tieuDeDeTai;
+		this.moTaDeTai = moTaDeTai;
+		this.maGV = maGV;
+		this.trangThai = trangThai;
+		this.maDeTai = maDeTai;
 	}
+
 	public String getMaDeXuat() {
-		return MaDeXuat;
+		return maDeXuat;
 	}
+
 	public void setMaDeXuat(String maDeXuat) {
-		MaDeXuat = maDeXuat;
+		this.maDeXuat = maDeXuat;
 	}
+
 	public String getTieuDeDeTai() {
-		return TieuDeDeTai;
+		return tieuDeDeTai;
 	}
+
 	public void setTieuDeDeTai(String tieuDeDeTai) {
-		TieuDeDeTai = tieuDeDeTai;
+		this.tieuDeDeTai = tieuDeDeTai;
 	}
+
 	public String getMoTaDeTai() {
-		return MoTaDeTai;
+		return moTaDeTai;
 	}
+
 	public void setMoTaDeTai(String moTaDeTai) {
-		MoTaDeTai = moTaDeTai;
+		this.moTaDeTai = moTaDeTai;
 	}
+
 	public String getMaGV() {
-		return MaGV;
+		return maGV;
 	}
+
 	public void setMaGV(String maGV) {
-		MaGV = maGV;
+		this.maGV = maGV;
 	}
+
 	public boolean isTrangThai() {
-		return TrangThai;
+		return trangThai;
 	}
+
 	public void setTrangThai(boolean trangThai) {
-		TrangThai = trangThai;
+		this.trangThai = trangThai;
 	}
+
 	public String getMaDeTai() {
-		return MaDeTai;
+		return maDeTai;
 	}
+
 	public void setMaDeTai(String maDeTai) {
-		MaDeTai = maDeTai;
+		this.maDeTai = maDeTai;
 	}
 	
 }

@@ -4,51 +4,63 @@ import java.io.Serializable;
 
 public class SINHVIEN implements Serializable {
 	private static final long serialVersionUID = 1L;
-	private String MSSV;
-	private String HoTen;
-	private String MaNhom;
-	private String NienKhoa;
-	private String MaKhoa;
+	private String mSSV;
+	private String hoTen;
+	private String maNhom;
+	private String nienKhoa;
+	private String maKhoa;
 	
 	public SINHVIEN() {
 		super();
 	}
+	
 	public SINHVIEN(String mSSV, String hoTen, String maNhom, String nienKhoa, String maKhoa) {
 		super();
-		MSSV = mSSV;
-		HoTen = hoTen;
-		MaNhom = maNhom;
-		NienKhoa = nienKhoa;
-		MaKhoa = maKhoa;
+		this.mSSV = mSSV;
+		this.hoTen = hoTen;
+		this.maNhom = maNhom;
+		this.nienKhoa = nienKhoa;
+		this.maKhoa = maKhoa;
 	}
-	public String getMSSV() {
-		return MSSV;
+
+	public String getmSSV() {
+		return mSSV;
 	}
-	public void setMSSV(String mSSV) {
-		MSSV = mSSV;
+
+	public void setmSSV(String mSSV) {
+		this.mSSV = mSSV;
 	}
+
 	public String getHoTen() {
-		return HoTen;
+		return hoTen;
 	}
+
 	public void setHoTen(String hoTen) {
-		HoTen = hoTen;
+		this.hoTen = hoTen;
 	}
+
 	public String getMaNhom() {
-		return MaNhom;
+		return maNhom;
 	}
+
 	public void setMaNhom(String maNhom) {
-		MaNhom = maNhom;
+		this.maNhom = maNhom;
 	}
+
 	public String getNienKhoa() {
-		return NienKhoa;
+		return nienKhoa;
 	}
+
 	public void setNienKhoa(String nienKhoa) {
-		NienKhoa = nienKhoa;
+		this.nienKhoa = nienKhoa;
 	}
+
 	public String getMaKhoa() {
-		return MaKhoa;
+		return maKhoa;
 	}
+
 	public void setMaKhoa(String maKhoa) {
-		MaKhoa = maKhoa;
+		this.maKhoa = maKhoa;
 	}
+	
 }

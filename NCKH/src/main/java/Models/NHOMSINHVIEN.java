@@ -4,28 +4,34 @@ import java.io.Serializable;
 
 public class NHOMSINHVIEN implements Serializable {
 	private static final long serialVersionUID = 1L;
-	private String MaNhom;
-	private int SoLuongSV;
+	private String maNhom;
+	private int soLuongSV;
 	
 	public NHOMSINHVIEN() {
 		super();
 	}
+	
 	public NHOMSINHVIEN(String maNhom, int soLuongSV) {
 		super();
-		MaNhom = maNhom;
-		SoLuongSV = soLuongSV;
+		this.maNhom = maNhom;
+		this.soLuongSV = soLuongSV;
 	}
+
 	public String getMaNhom() {
-		return MaNhom;
+		return maNhom;
 	}
+
 	public void setMaNhom(String maNhom) {
-		MaNhom = maNhom;
+		this.maNhom = maNhom;
 	}
+
 	public int getSoLuongSV() {
-		return SoLuongSV;
+		return soLuongSV;
 	}
+
 	public void setSoLuongSV(int soLuongSV) {
-		SoLuongSV = soLuongSV;
+		this.soLuongSV = soLuongSV;
 	}
+	
 	
 }

@@ -4,52 +4,63 @@ import java.io.Serializable;
 
 public class DANGKY implements Serializable {
 	private static final long serialVersionUID = 1L;
-	private String MaDK;
-	private String MaDeTai;
-	private String MaGV;
-	private String MaNhom;
-	private boolean TrangThai;
+	private String maDK;
+	private String maDeTai;
+	private String maGV;
+	private String maNhom;
+	private boolean trangThai;
 	
 	public DANGKY() {
 		super();
 	}
+	
 	public DANGKY(String maDK, String maDeTai, String maGV, String maNhom, boolean trangThai) {
 		super();
-		MaDK = maDK;
-		MaDeTai = maDeTai;
-		MaGV = maGV;
-		MaNhom = maNhom;
-		TrangThai = trangThai;
+		this.maDK = maDK;
+		this.maDeTai = maDeTai;
+		this.maGV = maGV;
+		this.maNhom = maNhom;
+		this.trangThai = trangThai;
 	}
+
 	public String getMaDK() {
-		return MaDK;
+		return maDK;
 	}
+
 	public void setMaDK(String maDK) {
-		MaDK = maDK;
+		this.maDK = maDK;
 	}
+
 	public String getMaDeTai() {
-		return MaDeTai;
+		return maDeTai;
 	}
+
 	public void setMaDeTai(String maDeTai) {
-		MaDeTai = maDeTai;
+		this.maDeTai = maDeTai;
 	}
+
 	public String getMaGV() {
-		return MaGV;
+		return maGV;
 	}
+
 	public void setMaGV(String maGV) {
-		MaGV = maGV;
+		this.maGV = maGV;
 	}
+
 	public String getMaNhom() {
-		return MaNhom;
+		return maNhom;
 	}
+
 	public void setMaNhom(String maNhom) {
-		MaNhom = maNhom;
+		this.maNhom = maNhom;
 	}
+
 	public boolean isTrangThai() {
-		return TrangThai;
+		return trangThai;
 	}
+
 	public void setTrangThai(boolean trangThai) {
-		TrangThai = trangThai;
+		this.trangThai = trangThai;
 	}
 	
 }

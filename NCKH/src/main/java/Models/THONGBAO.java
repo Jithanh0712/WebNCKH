@@ -5,61 +5,75 @@ import java.sql.Date;
 
 public class THONGBAO implements Serializable {
 	private static final long serialVersionUID = 1L;
-	private String MaThongBao;
-	private String TenThongBao;
-	private String NoiDung;
-	private Date NgayGui;
-	private String NguoiNhan;
-	private String NguoiGui;
+	private String maThongBao;
+	private String tenThongBao;
+	private String noiDung;
+	private Date ngayGui;
+	private String nguoiNhan;
+	private String nguoiGui;
 	
 	public THONGBAO() {
 		super();
 	}
+
 	public THONGBAO(String maThongBao, String tenThongBao, String noiDung, Date ngayGui, String nguoiNhan,
 			String nguoiGui) {
 		super();
-		MaThongBao = maThongBao;
-		TenThongBao = tenThongBao;
-		NoiDung = noiDung;
-		NgayGui = ngayGui;
-		NguoiNhan = nguoiNhan;
-		NguoiGui = nguoiGui;
+		this.maThongBao = maThongBao;
+		this.tenThongBao = tenThongBao;
+		this.noiDung = noiDung;
+		this.ngayGui = ngayGui;
+		this.nguoiNhan = nguoiNhan;
+		this.nguoiGui = nguoiGui;
 	}
+
 	public String getMaThongBao() {
-		return MaThongBao;
+		return maThongBao;
 	}
+
 	public void setMaThongBao(String maThongBao) {
-		MaThongBao = maThongBao;
+		this.maThongBao = maThongBao;
 	}
+
 	public String getTenThongBao() {
-		return TenThongBao;
+		return tenThongBao;
 	}
+
 	public void setTenThongBao(String tenThongBao) {
-		TenThongBao = tenThongBao;
+		this.tenThongBao = tenThongBao;
 	}
+
 	public String getNoiDung() {
-		return NoiDung;
+		return noiDung;
 	}
+
 	public void setNoiDung(String noiDung) {
-		NoiDung = noiDung;
+		this.noiDung = noiDung;
 	}
+
 	public Date getNgayGui() {
-		return NgayGui;
+		return ngayGui;
 	}
+
 	public void setNgayGui(Date ngayGui) {
-		NgayGui = ngayGui;
+		this.ngayGui = ngayGui;
 	}
+
 	public String getNguoiNhan() {
-		return NguoiNhan;
+		return nguoiNhan;
 	}
+
 	public void setNguoiNhan(String nguoiNhan) {
-		NguoiNhan = nguoiNhan;
+		this.nguoiNhan = nguoiNhan;
 	}
+
 	public String getNguoiGui() {
-		return NguoiGui;
+		return nguoiGui;
 	}
+
 	public void setNguoiGui(String nguoiGui) {
-		NguoiGui = nguoiGui;
+		this.nguoiGui = nguoiGui;
 	}
+	
 	
 }

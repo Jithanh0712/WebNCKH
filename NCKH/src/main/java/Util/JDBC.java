@@ -13,7 +13,7 @@ public class JDBC {
 			
 			String url = "jdbc:mysql://localhost:3306/nckh?useSSL=false";
 			String username = "root";
-			String password = "Thanh07122904";
+			String password = "Nhi@2003";
 			
 			conn = DriverManager.getConnection(url, username, password);
 			

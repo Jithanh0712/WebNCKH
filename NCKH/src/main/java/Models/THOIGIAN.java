@@ -5,36 +5,44 @@ import java.sql.Date;
 
 public class THOIGIAN implements Serializable {
 	private static final long serialVersionUID = 1L;
-	private String LoaiTG;
-	private Date NgayBatDau;
-	private Date NgayKetThuc;
+	private String loaiTG;
+	private Date ngayBatDau;
+	private Date ngayKetThuc;
 	
 	public THOIGIAN() {
 		super();
 	}
+
 	public THOIGIAN(String loaiTG, Date ngayBatDau, Date ngayKetThuc) {
 		super();
-		LoaiTG = loaiTG;
-		NgayBatDau = ngayBatDau;
-		NgayKetThuc = ngayKetThuc;
+		this.loaiTG = loaiTG;
+		this.ngayBatDau = ngayBatDau;
+		this.ngayKetThuc = ngayKetThuc;
 	}
+
 	public String getLoaiTG() {
-		return LoaiTG;
+		return loaiTG;
 	}
+
 	public void setLoaiTG(String loaiTG) {
-		LoaiTG = loaiTG;
+		this.loaiTG = loaiTG;
 	}
+
 	public Date getNgayBatDau() {
-		return NgayBatDau;
+		return ngayBatDau;
 	}
+
 	public void setNgayBatDau(Date ngayBatDau) {
-		NgayBatDau = ngayBatDau;
+		this.ngayBatDau = ngayBatDau;
 	}
+
 	public Date getNgayKetThuc() {
-		return NgayKetThuc;
+		return ngayKetThuc;
 	}
+
 	public void setNgayKetThuc(Date ngayKetThuc) {
-		NgayKetThuc = ngayKetThuc;
+		this.ngayKetThuc = ngayKetThuc;
 	}
+	
 	
 }

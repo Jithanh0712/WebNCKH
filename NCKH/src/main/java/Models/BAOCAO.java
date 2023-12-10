@@ -5,51 +5,62 @@ import java.sql.Date;
 
 public class BAOCAO implements Serializable {
 	private static final long serialVersionUID = 1L;
-	private String MaBaoCao;
-	private String MaDeTai;
-	private Date NgayNop;
-	private String LoaiBaoCao;
-	private String FileURL;
+	private String maBaoCao;
+	private String maDeTai;
+	private Date ngayNop;
+	private String loaiBaoCao;
+	private String fileURL;
 	
 	public BAOCAO() {
 		super();
 	}
+	
 	public BAOCAO(String maBaoCao, String maDeTai, Date ngayNop, String loaiBaoCao, String fileURL) {
 		super();
-		MaBaoCao = maBaoCao;
-		MaDeTai = maDeTai;
-		NgayNop = ngayNop;
-		LoaiBaoCao = loaiBaoCao;
-		FileURL = fileURL;
+		this.maBaoCao = maBaoCao;
+		this.maDeTai = maDeTai;
+		this.ngayNop = ngayNop;
+		this.loaiBaoCao = loaiBaoCao;
+		this.fileURL = fileURL;
 	}
+
 	public String getMaBaoCao() {
-		return MaBaoCao;
+		return maBaoCao;
 	}
+
 	public void setMaBaoCao(String maBaoCao) {
-		MaBaoCao = maBaoCao;
+		this.maBaoCao = maBaoCao;
 	}
+
 	public String getMaDeTai() {
-		return MaDeTai;
+		return maDeTai;
 	}
+
 	public void setMaDeTai(String maDeTai) {
-		MaDeTai = maDeTai;
+		this.maDeTai = maDeTai;
 	}
+
 	public Date getNgayNop() {
-		return NgayNop;
+		return ngayNop;
 	}
+
 	public void setNgayNop(Date ngayNop) {
-		NgayNop = ngayNop;
+		this.ngayNop = ngayNop;
 	}
+
 	public String getLoaiBaoCao() {
-		return LoaiBaoCao;
+		return loaiBaoCao;
 	}
+
 	public void setLoaiBaoCao(String loaiBaoCao) {
-		LoaiBaoCao = loaiBaoCao;
+		this.loaiBaoCao = loaiBaoCao;
 	}
+
 	public String getFileURL() {
-		return FileURL;
+		return fileURL;
 	}
+
 	public void setFileURL(String fileURL) {
-		FileURL = fileURL;
+		this.fileURL = fileURL;
 	}
 }

@@ -1,27 +1,33 @@
 package Models;
 
 public class KHOA {
-	private String MaKhoa;
-	private String TenKhoa;
+	private String maKhoa;
+	private String tenKhoa;
 	
 	public KHOA() {
 		super();
 	}
+	
 	public KHOA(String maKhoa, String tenKhoa) {
 		super();
-		MaKhoa = maKhoa;
-		TenKhoa = tenKhoa;
+		this.maKhoa = maKhoa;
+		this.tenKhoa = tenKhoa;
 	}
+
 	public String getMaKhoa() {
-		return MaKhoa;
+		return maKhoa;
 	}
+
 	public void setMaKhoa(String maKhoa) {
-		MaKhoa = maKhoa;
+		this.maKhoa = maKhoa;
 	}
+
 	public String getTenKhoa() {
-		return TenKhoa;
+		return tenKhoa;
 	}
+
 	public void setTenKhoa(String tenKhoa) {
-		TenKhoa = tenKhoa;
+		this.tenKhoa = tenKhoa;
 	}
+	
 }

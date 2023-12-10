@@ -49,6 +49,8 @@
 		          </c:forEach>
 		        </tbody>
 		      </table>
+		      <button type="submit" class="btn btn-primary" style ="margin-top:10px; margin-left: 90%;"
+		      onclick="window.location.href='<%=request.getContextPath()%>/new'">Thêm</button>
 	      </div>
 	    </div>
 	  </div>

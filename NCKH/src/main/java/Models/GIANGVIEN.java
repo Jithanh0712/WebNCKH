@@ -4,52 +4,64 @@ import java.io.Serializable;
 
 public class GIANGVIEN implements Serializable {
 	private static final long serialVersionUID = 1L;
-	private String MaGV;
-	private String TenGV;
-	private String TrinhDo;
-	private String ID;
-	private String MaKhoa;
+	private String maGV;
+	private String tenGV;
+	private String trinhDo;
+	private String iD;
+	private String maKhoa;
 	
 	public GIANGVIEN() {
 		super();
 	}
+	
 	public GIANGVIEN(String maGV, String tenGV, String trinhDo, String iD, String maKhoa) {
 		super();
-		MaGV = maGV;
-		TenGV = tenGV;
-		TrinhDo = trinhDo;
-		ID = iD;
-		MaKhoa = maKhoa;
+		this.maGV = maGV;
+		this.tenGV = tenGV;
+		this.trinhDo = trinhDo;
+		this.iD = iD;
+		this.maKhoa = maKhoa;
 	}
+
 	public String getMaGV() {
-		return MaGV;
+		return maGV;
 	}
+
 	public void setMaGV(String maGV) {
-		MaGV = maGV;
+		this.maGV = maGV;
 	}
+
 	public String getTenGV() {
-		return TenGV;
+		return tenGV;
 	}
+
 	public void setTenGV(String tenGV) {
-		TenGV = tenGV;
+		this.tenGV = tenGV;
 	}
+
 	public String getTrinhDo() {
-		return TrinhDo;
+		return trinhDo;
 	}
+
 	public void setTrinhDo(String trinhDo) {
-		TrinhDo = trinhDo;
+		this.trinhDo = trinhDo;
 	}
-	public String getID() {
-		return ID;
+
+	public String getiD() {
+		return iD;
 	}
-	public void setID(String iD) {
-		ID = iD;
+
+	public void setiD(String iD) {
+		this.iD = iD;
 	}
+
 	public String getMaKhoa() {
-		return MaKhoa;
+		return maKhoa;
 	}
+
 	public void setMaKhoa(String maKhoa) {
-		MaKhoa = maKhoa;
+		this.maKhoa = maKhoa;
 	}
+	
 	
 }

@@ -86,7 +86,6 @@
 					style="margin-top: 10px">
 					<div>
 						<button type = "submit" class = "btn btn-primary">Save</button>
-						<input type="submit" value="Lưu" class = "setbtn">
 					</div>
 				</div>
 				</form>

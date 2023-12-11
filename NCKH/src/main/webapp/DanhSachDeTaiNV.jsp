@@ -1,5 +1,6 @@
 <%@page contentType="text/html; charset=UTF-8"%>
 <%@page language="java"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <html>
 <head>
@@ -10,7 +11,7 @@
 	<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"></script>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-	<link rel="stylesheet" href="css/danhsachdetai.css">
+	<style><%@include file="/css/danhsachdetai.css"%></style>
 </head>
 
 <body>
@@ -29,31 +30,23 @@
 				<table class="table">
 					<thead>
 						<tr>
-							<th width="80%" class="text">Tên đề tài</th>
-							<th class="text">Trạng thái</th>
+							<th>Mã đề tài</th>
+							<th>Tên đề tài</th>
+							<th>Trạng thái</th>
 						</tr>
 					</thead>
 					<tbody>
-						<tr class="green-row">
-							<td class="text">Đề tài 1</td>
-							<td></td>
-						</tr>
-						<tr class="yellow-row">
-							<td class="text">Đề tài 2</td>
-							<td></td>
-						</tr>
-						<tr class="green-row">
-							<td class="text">Đề tài 3</td>
-							<td></td>
-						</tr>
-						<tr class="yellow-row">
-							<td class="text">Đề tài 4</td>
-							<td></td>
-						</tr>
-						<!-- Thêm các hàng khác -->
+						<c:forEach var="detai" items="${listDT}">
+							<tr>
+								<td><c:out value="${detai.maDeTai}" /></td>
+								<td><c:out value="${detai.tieuDe}" /></td>
+								<td class="<c:if test="${detai.trangThai}">green-row</c:if> <c:if test="${!detai.trangThai}">yellow-row</c:if>">
+								</td>
+							</tr>
+						</c:forEach>
 					</tbody>
 				</table>
-
+				
 				<div class="d-flex justify-content-end mb-3 col-md-9"
 					style="margin-top: 10px">
 					<div>

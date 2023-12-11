@@ -27,8 +27,9 @@
 				<c:forEach var="thongbao" items="${listTB}">
 				    <textarea name="my-text-area-${thongbao.maThongBao}" id="my-text-area-${thongbao.maThongBao}" cols="125"
 				        rows="7.5" readonly>Tên thông báo: ${thongbao.tenThongBao}
+Ngày gửi: ${thongbao.ngayGui}
 Nội dung: ${thongbao.noiDung}
-Ngày gửi: ${thongbao.ngayGui}</textarea>
+</textarea>
 				    <hr style="border: 1px solid #2c313c;">
 				</c:forEach>
 			</form>

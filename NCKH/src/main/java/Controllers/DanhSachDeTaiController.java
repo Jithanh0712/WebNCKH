@@ -35,9 +35,17 @@ public class DanhSachDeTaiController extends HttpServlet {
 		System.out.println("action error :"+ action );
 		
 		try {
-			if (action.equals("/listDSDT"))
+			if (action.equals("/listDSDT_GV"))
 			{
-				listDT(request, response);
+				listDT_GV(request, response);
+			} 
+			if (action.equals("/listDSDT_NV"))
+			{
+				listDT_NV(request, response);
+			} 
+			if (action.equals("/listDSDT_Ad"))
+			{
+				listDT_Ad(request, response);
 			} 
 		} catch (SQLException ex) {
             throw new ServletException(ex);
@@ -48,7 +56,7 @@ public class DanhSachDeTaiController extends HttpServlet {
 		doGet(request, response);
 	}
 
-	private void listDT(HttpServletRequest request, HttpServletResponse response)
+	private void listDT_GV(HttpServletRequest request, HttpServletResponse response)
 		    throws SQLException, IOException, ServletException {
 		    	HttpSession session = request.getSession();
 		        List <DETAI> listDT = detaiDAO.selectAllDeTais();
@@ -56,5 +64,22 @@ public class DanhSachDeTaiController extends HttpServlet {
 		        RequestDispatcher dispatcher = request.getRequestDispatcher("/DanhSachDeTaiGV.jsp");
 		        dispatcher.forward(request, response);
     }
+	
+	private void listDT_NV(HttpServletRequest request, HttpServletResponse response)
+		    throws SQLException, IOException, ServletException {
+		    	HttpSession session = request.getSession();
+		        List <DETAI> listDT = detaiDAO.selectAllDeTais();
+		        request.setAttribute("listDT", listDT);
+		        RequestDispatcher dispatcher = request.getRequestDispatcher("/DanhSachDeTaiNV.jsp");
+		        dispatcher.forward(request, response);
+    }
 
+	private void listDT_Ad(HttpServletRequest request, HttpServletResponse response)
+		    throws SQLException, IOException, ServletException {
+		    	HttpSession session = request.getSession();
+		        List <DETAI> listDT = detaiDAO.selectAllDeTais();
+		        request.setAttribute("listDT", listDT);
+		        RequestDispatcher dispatcher = request.getRequestDispatcher("/DanhSachDeTaiAd.jsp");
+		        dispatcher.forward(request, response);
+    }
 }

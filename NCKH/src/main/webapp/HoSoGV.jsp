@@ -1,14 +1,15 @@
 <%@page contentType="text/html; charset=UTF-8"%>
 <%@page language="java"%>
-<%@ page import="Models.GIANGVIEN, DAO.GiangVienDAO" %>
-
-<%
-    String maGV = "GV001";
-    GIANGVIEN gv = GiangVienDAO.layThongTinGV(maGV);
-%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ page import="Models.GIANGVIEN" %>
+<%@ page import="DAO.GiangVienDAO" %>
 
 <html>
 <head>
+	<link rel="stylesheet"
+ href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+ crossorigin="anonymous">
 	<meta charset="UTF-8">
 	<title>Hồ sơ</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -30,7 +31,7 @@
 			</div>
 			<div class="col-md-9">
 				<h2 class="d-flex align-items-center justify-content-center">THÔNG TIN CÁ NHÂN</h2>
-				<form class="personal-info-form" action="thongtingv" method="POST">
+				<form class="personal-info-form" action="update" method="post">
 					<div class="row">
 						<div class="col-md-3">
 							<div class="row">
@@ -63,29 +64,28 @@
 
 						<div class="col-md-6">
 							<div class="form-group"> 
-								<input type="text" id="magv" name="magv" maxlength="10" class="form-control" value="<%= gv.getMaGV()%>">
+								<input type="text" id="magv" name="magv" maxlength="10" class="form-control" value="<c:out value='${giangvien.maGV}'/>">
 								
 							</div>
 							<div class="form-group">
-								<input type="text" id="tengv" name="tengv" maxlength="30" class="form-control" value="<%= gv.getTenGV()%>">
+								<input type="text" id="tengv" name="tengv" maxlength="30" class="form-control" value="<c:out value='${giangvien.tenGV}'/>">
 							</div>
 							<div class="form-group">
-								<input type="text" id="trinhdo" name="trinhdo" maxlength="15" class="form-control" value="<%= gv.getTrinhDo()%>">
+								<input type="text" id="trinhdo" name="trinhdo" maxlength="15" class="form-control" value="<c:out value='${giangvien.trinhDo}'/>">
 							</div>
 							<div class="form-group"> 
-								<input type="text" id="id" name="id" maxlength="10" class="form-control" value="<%= gv.getiD()%>">
+								<input type="text" id="id" name="id" maxlength="10" class="form-control" value="<c:out value='${giangvien.iD}'/>">
 							</div>
 							
-							<div class="form-group"> 
-								<input type="text" id="makhoa" name="makhoa" maxlength="10" class="form-control" value="<%= gv.getMaKhoa()%>">
+							<div class="form-group">
+								<input type="text" id="makhoa" name="makhoa" maxlength="10" class="form-control" value="<c:out value='${giangvien.maKhoa}'/>">
 							</div>
 						</div>
 					</div>
 					<div class="d-flex justify-content-end mb-3 col-md-9"
 					style="margin-top: 10px">
 					<div>
-						<input type="button" value="Chỉnh sửa" class = "setbtn"> 
-						<input type="submit" value="Lưu" class = "setbtn" onclick="window.location.href='HoSoGV.jsp'">
+						<button type = "submit" class = "btn btn-primary">Save</button>
 					</div>
 				</div>
 				</form>

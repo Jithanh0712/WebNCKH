@@ -56,7 +56,7 @@ public class LoginController extends HttpServlet {
 				}else if("NV".equals(userRole)){
 					HttpSession session = request.getSession();
 					session.setAttribute("IDDangNhap", IDDangNhap);
-					response.sendRedirect("TrangChuUser.jsp");
+					response.sendRedirect("TrangChuNV.jsp");
 				}else if("GV".equals(userRole)){
 					HttpSession session = request.getSession();
 					session.setAttribute("IDDangNhap", IDDangNhap);

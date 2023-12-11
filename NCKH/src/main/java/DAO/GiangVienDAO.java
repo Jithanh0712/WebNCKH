@@ -12,6 +12,9 @@ import Util.JDBC;
 public class GiangVienDAO {
 	private static final String INSERT_GIANGVIEN_SQL = "INSERT INTO nckh.giangvien" +
 	        "  (MaGV, TenGV, TrinhDo, ID, MaKhoa) VALUES " + " (?, ?, ?, ?, ?);";
+	
+	private static final String SELECT_GIANGVIEN_BYID = "SELECT * FROM GIANGVIEN WHERE ID = ?";
+	private static final String UPDATE_GV = "UPDATE GIANGVIEN SET TenGV = ?, TrinhDo = ?, MaKhoa = ? WHERE ID = ?";
 	public GiangVienDAO() {}
 	public void insertGV(GIANGVIEN gv) throws SQLException {
 		System.out.println(INSERT_GIANGVIEN_SQL);
@@ -52,22 +55,21 @@ public class GiangVienDAO {
 	    String numberStr = String.format("%03d", number);
 	    return "GV" + numberStr;
 	}
-	public static GIANGVIEN layThongTinGV(String MaGV) {
+	public GIANGVIEN layThongTinGV(String ID) throws SQLException{
 		GIANGVIEN gv = null;
         ResultSet rs = null;
         
-		String query = "SELECT * FROM GIANGVIEN WHERE MaGV = ?";
-        try {
-        	Connection connection = JDBC.getConnection(); 
-        	PreparedStatement preparedStatement = connection.prepareStatement(query);
-        	preparedStatement.setString(1, MaGV);
+        try (Connection connection = JDBC.getConnection();PreparedStatement preparedStatement = connection.prepareStatement(SELECT_GIANGVIEN_BYID);)
+        {
+        	preparedStatement.setString(1, ID);
         	rs = preparedStatement.executeQuery();
-        	if (rs.next()) {
+        	while (rs.next()) {
                 String tenGV = rs.getString("TenGV");
                 String trinhdo = rs.getString("TrinhDo");
-                String id = rs.getString("ID");
+                String MaGV = rs.getString("MaGV");
                 String makhoa = rs.getString("MaKhoa");
-                gv = new GIANGVIEN(MaGV, tenGV, trinhdo, id, makhoa);
+                gv = new GIANGVIEN(MaGV, tenGV, trinhdo, ID, makhoa);
+               
             }
             
         } catch (SQLException exception) {
@@ -76,18 +78,16 @@ public class GiangVienDAO {
         return gv;
 	}
 	
-	public static boolean capNhatThongTinGV(GIANGVIEN gv) {
+	public boolean capNhatThongTinGV(GIANGVIEN gv) throws SQLException{
+		
         boolean updated = false;
-        String query = "UPDATE GIANGVIEN SET TenGV = ?, TrinhDo = ?, ID = ?, MaKhoa = ? WHERE MaGV = ?";
-        try {
-            Connection connection = JDBC.getConnection();
-            PreparedStatement preparedStatement = connection.prepareStatement(query);
-            preparedStatement.setString(1, gv.getTenGV());
-            preparedStatement.setString(2, gv.getTrinhDo());
-            preparedStatement.setString(3, gv.getiD());
-            preparedStatement.setString(4, gv.getMaKhoa());
-            preparedStatement.setString(5, gv.getMaGV());
-            int rowsAffected = preparedStatement.executeUpdate();
+        try (Connection connection = JDBC.getConnection(); PreparedStatement statement = connection.prepareStatement(UPDATE_GV);) {
+        	statement.setString(1, gv.getTenGV());
+        	//System.out.println(gv.getTenGV());
+        	statement.setString(2, gv.getTrinhDo());
+        	statement.setString(3, gv.getMaKhoa());
+        	statement.setString(4, gv.getiD());
+            int rowsAffected = statement.executeUpdate();
             updated = (rowsAffected > 0);
         } catch (SQLException exception) {
             HandleException.printSQLException(exception);

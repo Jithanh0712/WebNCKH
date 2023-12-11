@@ -1,6 +1,6 @@
 <%@page contentType="text/html; charset=UTF-8"%>
 <%@page language="java"%>
-
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <html>
 <head>
 	<meta charset="UTF-8">
@@ -10,7 +10,11 @@
 	<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"></script>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-	<link rel="stylesheet" href="css/danhsachdetai.css">
+	<style><%@include file="/css/danhsachdetai.css"%></style>
+	<link rel="stylesheet"
+ href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+ crossorigin="anonymous">
 </head>
 
 <body>
@@ -30,33 +34,23 @@
 				<table class="table">
 					<thead>
 						<tr>
+							<th>Mã đề tài</th>
 							<th>Tên đề tài</th>
 							<th>Trạng thái</th>
 							<th></th>
 						</tr>
 					</thead>
 					<tbody>
-						<tr class="green-row">
-							<td>Đề tài 1</td>
-							<td></td>
-							<td><input type="checkbox"></td>
-						</tr>
-						<tr class="yellow-row">
-							<td>Đề tài 2</td>
-							<td></td>
-							<td><input type="checkbox"></td>
-						</tr>
-						<tr class="green-row">
-							<td>Đề tài 3</td>
-							<td></td>
-							<td><input type="checkbox"></td>
-						</tr>
-						<tr class="yellow-row">
-							<td>Đề tài 4</td>
-							<td></td>
-							<td><input type="checkbox"></td>
-						</tr>
-						<!-- Thêm các hàng khác -->
+						<c:forEach var="detai" items="${listDT}">
+							<tr>
+								<td><c:out value="${detai.maDeTai}" /></td>
+								<td><c:out value="${detai.tieuDe}" /></td>
+								<td class="<c:if test="${detai.trangThai}">green-row</c:if> <c:if test="${!detai.trangThai}">yellow-row</c:if>">
+								</td>
+								<td><input type="radio" name="radiobutton">
+								</td>
+							</tr>
+						</c:forEach>
 					</tbody>
 				</table>
 				<div class="d-flex justify-content-end mb-3">

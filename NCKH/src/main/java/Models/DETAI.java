@@ -8,7 +8,7 @@ public class DETAI implements Serializable {
 	private String maDeTai;
 	private String tieuDe;
 	private String moTa;
-	private String trangThai;
+	private boolean trangThai;
 	private int kinhPhi;
 	private Date ngayDKTC;
 	private String maNV;
@@ -17,8 +17,7 @@ public class DETAI implements Serializable {
 		super();
 	}
 	
-	public DETAI(String maDeTai, String tieuDe, String moTa, String trangThai, int kinhPhi, Date ngayDKTC,
-			String maNV) {
+	public DETAI(String maDeTai, String tieuDe, String moTa, boolean trangThai, int kinhPhi, Date ngayDKTC, String maNV) {
 		super();
 		this.maDeTai = maDeTai;
 		this.tieuDe = tieuDe;
@@ -53,11 +52,11 @@ public class DETAI implements Serializable {
 		this.moTa = moTa;
 	}
 
-	public String getTrangThai() {
+	public boolean getTrangThai() {
 		return trangThai;
 	}
 
-	public void setTrangThai(String trangThai) {
+	public void setTrangThai(boolean trangThai) {
 		this.trangThai = trangThai;
 	}
 

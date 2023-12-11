@@ -14,6 +14,12 @@ public class GIANGVIEN implements Serializable {
 		super();
 	}
 	
+	public GIANGVIEN(String maGV, String tenGV) {
+		super();
+		this.maGV = maGV;
+		this.tenGV = tenGV;
+	}
+
 	public GIANGVIEN(String maGV, String tenGV, String trinhDo, String iD, String maKhoa) {
 		super();
 		this.maGV = maGV;

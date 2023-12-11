@@ -16,7 +16,7 @@
 				<div class="collapse navbar-collapse" id="navbarCollapse">
 					<div class="navbar-nav ms-lg-0">
 						<button class="btn btn-primary" type="button"
-							style="margin-right: 5px;">Hồ sơ</button>
+							style="margin-right: 5px;" onclick="window.location.href='<%=request.getContextPath()%>/thongtingv/thongtin'">Hồ sơ</button>
 						<button class="btn btn-primary" type="button"
 							style="margin-left: 5px;" onclick="window.location.href='<%=request.getContextPath()%>/logout'">Đăng xuất</button>
 					</div>

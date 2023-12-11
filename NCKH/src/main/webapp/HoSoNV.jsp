@@ -1,5 +1,13 @@
+<%@page import="DAO.GiangVienDAO"%>
 <%@page contentType="text/html; charset=UTF-8"%>
 <%@page language="java"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ page import="Models.NVPQLKH" %>
+<%@ page import="DAO.NVPQLKHDAO" %>
+<%
+    String maNV = "NV001";
+	NVPQLKH nv = NVPQLKHDAO.layThongTinNV(maNV);
+%>
 
 <html>
 <head>
@@ -59,7 +67,7 @@
 
 						<div class="col-md-6">
 							<div class="form-group"> 
-								<input type="text" id="manv" name="manv" maxlength="10" class="form-control">
+								<input type="text" id="manv" name="manv" maxlength="10" class="form-control" value=>
 								
 							</div>
 							<div class="form-group">

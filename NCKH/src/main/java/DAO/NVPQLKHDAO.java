@@ -52,4 +52,28 @@ public class NVPQLKHDAO {
 	    String numberStr = String.format("%03d", number);
 	    return "NV" + numberStr;
 	}
+	public static NVPQLKH layThongTinNV(String MaNV) {
+		NVPQLKH gv = null;
+        ResultSet rs = null;
+        
+		String query = "SELECT * FROM NVPQLKH WHERE MaNV = ?";
+        try {
+        	Connection connection = JDBC.getConnection(); 
+        	PreparedStatement preparedStatement = connection.prepareStatement(query);
+        	preparedStatement.setString(1, MaNV);
+        	rs = preparedStatement.executeQuery();
+        	if (rs.next()) {
+                String tenNV = rs.getString("TenNV");
+                int kn = rs.getInt("KinhNghiem");
+                String email = rs.getString("Email");
+                String id = rs.getString("ID");
+                gv = new NVPQLKH(MaNV, tenNV, kn, email, id);
+            }
+            
+        } catch (SQLException exception) {
+            HandleException.printSQLException(exception);
+        }
+        return gv;
+	}
+	
 }

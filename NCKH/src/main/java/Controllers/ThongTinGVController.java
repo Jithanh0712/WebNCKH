@@ -30,24 +30,22 @@ public class ThongTinGVController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
         String IDDangNhap = (String) session.getAttribute("IDDangNhap");
-        
         String action = request.getPathInfo();
 		System.out.println("action error :"+ action );
    
         if (IDDangNhap != null) {
             try {
-            	if (action.equals("/thongtin"))
-            	{
-            		GIANGVIEN gv = gvDAO.layThongTinGV(IDDangNhap);
+        	if (action.equals("/thongtin"))
+        		{
+        			GIANGVIEN gv = gvDAO.layThongTinGV(IDDangNhap);
                     RequestDispatcher dispatcher = request.getRequestDispatcher("/HoSoGV.jsp");
             		request.setAttribute("giangvien", gv);
             		//System.out.println(gv.getMaGV());
                     dispatcher.forward(request, response);
-                    
-            	}
-            	if (action.equals("/update"))
-            	{
-            		String maGV = request.getParameter("magv");
+        		}
+        		if (action.equals("/update"))
+        		{
+        			String maGV = request.getParameter("magv");
                     String tenGV = request.getParameter("tengv");
                     String trinhDo = request.getParameter("trinhdo");
                     String maKhoa = request.getParameter("makhoa");
@@ -60,7 +58,7 @@ public class ThongTinGVController extends HttpServlet {
                 		request.setAttribute("giangvien", gv);
                 		dispatcher.forward(request, response);
                     }
-            	}
+        		}
             } catch (SQLException e) {
                 e.printStackTrace();
             }

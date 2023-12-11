@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import Models.GIANGVIEN;
 import Models.NVPQLKH;
 import Util.HandleException;
 import Util.JDBC;
@@ -12,6 +13,9 @@ import Util.JDBC;
 public class NVPQLKHDAO {
 	private static final String INSERT_NVPQLKH_SQL = "INSERT INTO nckh.nvpqlkh" +
 	        "  (MaNV, TenNV, KinhNghiem, Email, ID) VALUES " + " (?, ?, ?, ?, ?);";
+	
+	private static final String SELECT_NHANVIEN_BYID = "SELECT * FROM NVPQLKH WHERE ID = ?";
+	private static final String UPDATE_NV = "UPDATE NVPQLKH SET TenNV = ?, KinhNghiem = ?, Email = ? WHERE ID = ?";
 	public NVPQLKHDAO() {}
 	public void insertNVPQLKH(NVPQLKH nv) throws SQLException {
 		System.out.println(INSERT_NVPQLKH_SQL);
@@ -52,28 +56,42 @@ public class NVPQLKHDAO {
 	    String numberStr = String.format("%03d", number);
 	    return "NV" + numberStr;
 	}
-	public static NVPQLKH layThongTinNV(String MaNV) {
-		NVPQLKH gv = null;
+	public NVPQLKH layThongTinNV(String ID) {
+		NVPQLKH nv = null;
         ResultSet rs = null;
         
-		String query = "SELECT * FROM NVPQLKH WHERE MaNV = ?";
         try {
         	Connection connection = JDBC.getConnection(); 
-        	PreparedStatement preparedStatement = connection.prepareStatement(query);
-        	preparedStatement.setString(1, MaNV);
+        	PreparedStatement preparedStatement = connection.prepareStatement(SELECT_NHANVIEN_BYID );
+        	preparedStatement.setString(1, ID);
         	rs = preparedStatement.executeQuery();
-        	if (rs.next()) {
+        	while (rs.next()) {
+        		 String MaNV = rs.getString("MaNV");
                 String tenNV = rs.getString("TenNV");
                 int kn = rs.getInt("KinhNghiem");
                 String email = rs.getString("Email");
-                String id = rs.getString("ID");
-                gv = new NVPQLKH(MaNV, tenNV, kn, email, id);
+                nv = new NVPQLKH(MaNV, tenNV, kn, email, ID);
             }
             
         } catch (SQLException exception) {
             HandleException.printSQLException(exception);
         }
-        return gv;
+        return nv;
 	}
-	
+	public boolean capNhatThongTinNV(NVPQLKH nv) throws SQLException{
+		
+        boolean updated = false;
+        try (Connection connection = JDBC.getConnection(); PreparedStatement statement = connection.prepareStatement(UPDATE_NV);) {
+        	statement.setString(1, nv.getTenNV());
+        	//System.out.println(gv.getTenGV());
+        	statement.setInt(2, nv.getKinhNghiem());
+        	statement.setString(3, nv.getEmail());
+        	statement.setString(4, nv.getiD());
+            int rowsAffected = statement.executeUpdate();
+            updated = (rowsAffected > 0);
+        } catch (SQLException exception) {
+            HandleException.printSQLException(exception);
+        }
+        return updated;
+    }
 }

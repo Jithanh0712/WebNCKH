@@ -1,12 +1,19 @@
 package Controllers;
 
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.UnsupportedEncodingException;
+import java.net.URL;
+import java.net.URLDecoder;
+import java.nio.file.FileSystem;
+import java.nio.file.FileSystems;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
@@ -26,7 +33,8 @@ public class UploadFileController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        Path uploadDirectory = Paths.get(request.getServletContext().getRealPath("/") + "/uploads");
+        Path uploadDirectory = Paths.get(getServletContext().getRealPath("/").toString() + "/webapp/files");
+        System.out.println(uploadDirectory.toString());
         if (!Files.exists(uploadDirectory)) {
             Files.createDirectories(uploadDirectory);
         }

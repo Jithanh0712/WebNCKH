@@ -1,8 +1,5 @@
 @import url(https://unpkg.com/@webpixels/css@1.0/dist/index.css);
 
-body {
-  font-family: initial !important;
-}
 
 h3 {
   text-align: center !important;
@@ -16,7 +13,6 @@ h3 {
 .personal-info-form label {
   display: block;
   font-size: 24px !important;
-  font-family: initial !important;
   color: black;
   margin-top: 70px !important;
 }

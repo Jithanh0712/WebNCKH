@@ -14,11 +14,11 @@
 {
 	font-size: 18px !important;
 }
-  .table .green-row td:nth-child(2) {
+  .table .green-row {
     background-color: green;
   }
 
-  .table .yellow-row td:nth-child(2) {
+  .table .yellow-row{
     background-color: yellow;
   }
   

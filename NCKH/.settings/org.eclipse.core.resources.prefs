@@ -1,4 +1,13 @@
 eclipse.preferences.version=1
+encoding//src/main/java/Controllers=UTF-8
 encoding//src/main/java/Controllers/LoginController.java=UTF-8
+encoding//src/main/java/Controllers/ThongTinGVController.java=UTF-8
+encoding//src/main/java/Controllers/ThongTinNVController.java=UTF-8
 encoding//src/main/java/DAO/GiangVienDAO.java=UTF-8
 encoding//src/main/java/DAO/LoginDAO.java=UTF-8
+encoding//src/main/java/DAO/NVPQLKHDAO.java=UTF-8
+encoding//src/main/java/Models/GIANGVIEN.java=UTF-8
+encoding//src/main/java/Models/NVPQLKH.java=UTF-8
+encoding//src/main/java/Util=UTF-8
+encoding//src/main/java/Util/JDBC.java=UTF-8
+encoding//src/main/webapp/css/hosogv.css=UTF-8

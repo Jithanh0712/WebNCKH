@@ -11,9 +11,10 @@ public class JDBC {
 		try {
 			DriverManager.registerDriver(new com.mysql.jdbc.Driver());
 			
-			String url = "jdbc:mysql://localhost:3306/nckh?useSSL=false";
+			String url = "jdbc:mysql://localhost:3306/nckh?characterEncoding=UTF-8";
 			String username = "root";
-			String password = "Thanh07122904";
+			String password = "0984029574Phat!";
+
 			
 			conn = DriverManager.getConnection(url, username, password);
 			

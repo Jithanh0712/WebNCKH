@@ -1,6 +1,7 @@
 <%@page contentType="text/html; charset=UTF-8"%>
 <%@page language="java"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
 <html>
 <head>
 	<meta charset="UTF-8">
@@ -11,15 +12,11 @@
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"></script>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 	<style><%@include file="/css/danhsachdetai.css"%></style>
-	<link rel="stylesheet"
- href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
- integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
- crossorigin="anonymous">
 </head>
 
 <body>
-	<jsp:include page="./header.jsp"></jsp:include>
-	<jsp:include page="./tabGV.jsp"></jsp:include>
+	<jsp:include page="./headerAdmin.jsp"></jsp:include>
+	<jsp:include page="./tabAdmin.jsp"></jsp:include>
 
 	<div class="container">
 		<div class="row">
@@ -29,7 +26,6 @@
 			<div class="col-md-9">
 				<div class="d-flex justify-content-between mb-3">
 					<h3>Danh sách đề tài</h3>
-					<button class="btn btn-primary">Đề tài của bạn</button>
 				</div>
 				<table class="table">
 					<thead>
@@ -37,7 +33,6 @@
 							<th>Mã đề tài</th>
 							<th>Tên đề tài</th>
 							<th>Trạng thái</th>
-							<th></th>
 						</tr>
 					</thead>
 					<tbody>
@@ -47,17 +42,23 @@
 								<td><c:out value="${detai.tieuDe}" /></td>
 								<td class="<c:if test="${detai.trangThai}">green-row</c:if> <c:if test="${!detai.trangThai}">yellow-row</c:if>">
 								</td>
-								<td><input type="radio" name="radiobutton">
-								</td>
 							</tr>
 						</c:forEach>
 					</tbody>
 				</table>
-				<div class="d-flex justify-content-end mb-3">
-					<button class="btn btn-primary">Đăng ký</button>
+				
+				<div class="d-flex justify-content-end mb-3 col-md-9"
+					style="margin-top: 10px">
+					<div>
+						<input type="button" value="Chỉnh sửa thời gian đăng ký"
+							onclick="showModal()" class="my-class-2"> 
+						<input type="button" value="Đăng đề tài" class="my-class-1">
+					</div>
 				</div>
+
 			</div>
 		</div>
 	</div>
+		
 	<jsp:include page="./footer.jsp"></jsp:include>
 </body>

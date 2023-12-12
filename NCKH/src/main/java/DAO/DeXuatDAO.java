@@ -11,7 +11,7 @@ import Util.JDBC;
 
 public class DeXuatDAO {
 	private static final String INSERT_DEXUATDETAI_SQL = "INSERT INTO nckh.dexuatdetai" +
-	        "  (MaDeXuat, TieuDeDeTai, MoTaDeTai, MaGV, MaDeTai) VALUES " + " (?, ?, ?, ?, ?, ?);";
+	        "  (MaDeXuat, TieuDeDeTai, MoTaDeTai, MaGV, MaDeTai) VALUES " + " (?, ?, ?, ?, ?);";
 	
 	public DeXuatDAO() {}
 	public void dexuat(DEXUATDETAI dxdt) throws SQLException{
@@ -32,7 +32,7 @@ public class DeXuatDAO {
 	
 	public String GenerateMaDeXuat() {
 	    String sql = "SELECT MAX(MaDeXuat) FROM nckh.dexuatdetai";
-	    String nextMaGV = "DX000";
+	    String nextMaDX = "DX001";
 
 	    try {
 	    	Connection connection = JDBC.getConnection();
@@ -40,7 +40,7 @@ public class DeXuatDAO {
 	        ResultSet rs = pstmt.executeQuery();
 
 	        if (rs.next()) {
-	            nextMaGV = rs.getString(1);
+	            nextMaDX = rs.getString(1);
 	        }
 
 	        rs.close();
@@ -50,7 +50,7 @@ public class DeXuatDAO {
 	        System.out.println("Error: " + e);
 	    }
 
-	    int number = Integer.parseInt(nextMaGV.substring(2)) + 1;
+	    int number = Integer.parseInt(nextMaDX.substring(2)) + 1;
 	    String numberStr = String.format("%03d", number);
 	    return "DX" + numberStr;
 	}

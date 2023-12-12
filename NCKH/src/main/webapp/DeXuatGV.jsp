@@ -21,6 +21,7 @@
 				<jsp:include page="./listlink.jsp"></jsp:include>
 			</div>
 			<div class="col-md-9">
+				<form method="post" action="dexuat">
 				<div class="row">
 					<div class="col-md-2"></div>
 					<div class="col-md-2">
@@ -53,23 +54,18 @@
 					<div class="col-md-2"></div>
 					<div class="col-md-10">
 						<div class="rectangle">
-							<form method="post" action="UploadFileServlet"
-								enctype="multipart/form-data"
-								id="uploadform">
-								Select file to upload: <input type="file" name="file">
-							</form>
+
 						</div>
 					</div>
 				</div>
 				<div class="row">
 					<div class="col-md-11"></div>
 					<div class="col-md-1">
-						<form method="post" action="DeXuatGVController">
 							<input type="submit" value="Submit"
 								style="border: solid; font-size: 20;" id="fileupload">
-						</form>
 					</div>
 				</div>
+				</form>
 			</div>
 		</div>
 	</div>

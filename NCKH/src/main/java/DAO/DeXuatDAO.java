@@ -11,17 +11,18 @@ import Util.JDBC;
 
 public class DeXuatDAO {
 	private static final String INSERT_DEXUATDETAI_SQL = "INSERT INTO nckh.dexuatdetai" +
-	        "  (MaDeXuat, TieuDeDeTai, MoTaDeTai, MaGV, FileUrl, MaDeTai) VALUES " + " (?, ?, ?, ?, ?, ?);";
+	        "  (MaDeXuat, TieuDeDeTai, MoTaDeTai, MaGV, MaDeTai) VALUES " + " (?, ?, ?, ?, ?, ?);";
 	
 	public DeXuatDAO() {}
-	private void dexuatdetai(DEXUATDETAI dxdt) {
+	public void dexuat(DEXUATDETAI dxdt) throws SQLException{
+		System.out.println(INSERT_DEXUATDETAI_SQL);
+		
 		try (Connection connection = JDBC.getConnection(); PreparedStatement preparedStatement = connection.prepareStatement(INSERT_DEXUATDETAI_SQL)) {
             preparedStatement.setString(1, dxdt.getMaDeXuat());
             preparedStatement.setString(2, dxdt.getTieuDeDeTai());
             preparedStatement.setString(3, dxdt.getMoTaDeTai());
             preparedStatement.setString(4, dxdt.getMaGV());
-            preparedStatement.setString(5, dxdt.getFileurl());
-            preparedStatement.setString(6, dxdt.getMaDeTai());
+            preparedStatement.setString(5, dxdt.getMaDeTai());
             System.out.println(preparedStatement);
             preparedStatement.executeUpdate();
         } catch (SQLException exception) {

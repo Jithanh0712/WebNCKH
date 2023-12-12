@@ -64,17 +64,10 @@
 				<div class="row">
 					<div class="col-md-11"></div>
 					<div class="col-md-1">
-						<input type="submit" value="Submit"
-							style="border: solid; font-size: 20;" id="fileupload">
-						<script>
-							document.getElementById('fileupload')
-									.addEventListener(
-											'click',
-											function() {
-												document.getElementById(
-														'uploadform').submit();
-											});
-						</script>
+						<form method="post" action="DeXuatGVController">
+							<input type="submit" value="Submit"
+								style="border: solid; font-size: 20;" id="fileupload">
+						</form>
 					</div>
 				</div>
 			</div>

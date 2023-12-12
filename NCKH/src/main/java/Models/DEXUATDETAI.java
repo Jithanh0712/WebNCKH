@@ -9,7 +9,6 @@ public class DEXUATDETAI implements Serializable {
 	private String moTaDeTai;
 	private String maGV;
 	private boolean trangThai;
-	private String fileurl;
 	private String maDeTai;
 	
 	public DEXUATDETAI() {
@@ -24,22 +23,17 @@ public class DEXUATDETAI implements Serializable {
 		this.moTaDeTai = moTaDeTai;
 		this.maGV = maGV;
 		this.trangThai = trangThai;
-		this.fileurl = fileurl;
 		this.maDeTai = maDeTai;
-	}
-
-	public String getFileurl() {
-		return fileurl;
-	}
-
-	public void setFileurl(String fileurl) {
-		this.fileurl = fileurl;
 	}
 
 	public String getMaDeTai() {
 		return maDeTai;
 	}
 
+	public void setMaDeTai(String maDeTai) {
+		this.maDeTai = maDeTai;
+	}
+	
 	public String getMaDeXuat() {
 		return maDeXuat;
 	}

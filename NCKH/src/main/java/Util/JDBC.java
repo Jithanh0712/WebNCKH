@@ -14,6 +14,7 @@ public class JDBC {
 			String url = "jdbc:mysql://localhost:3306/nckh?characterEncoding=UTF-8";
 			String username = "root";
 			String password = "0984029574Phat!";
+
 			
 			conn = DriverManager.getConnection(url, username, password);
 			

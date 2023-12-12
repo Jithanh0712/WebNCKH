@@ -1,5 +1,6 @@
 package DAO;
 
+import java.io.UnsupportedEncodingException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -91,7 +92,7 @@ public class GiangVienDAO {
             updated = (rowsAffected > 0);
         } catch (SQLException exception) {
             HandleException.printSQLException(exception);
-        }
+        } 
         return updated;
     }
 }

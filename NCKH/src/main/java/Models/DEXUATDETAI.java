@@ -16,7 +16,7 @@ public class DEXUATDETAI implements Serializable {
 	}
 	
 	public DEXUATDETAI(String maDeXuat, String tieuDeDeTai, String moTaDeTai, String maGV, boolean trangThai,
-			String maDeTai) {
+			String fileurl, String maDeTai) {
 		super();
 		this.maDeXuat = maDeXuat;
 		this.tieuDeDeTai = tieuDeDeTai;
@@ -26,6 +26,14 @@ public class DEXUATDETAI implements Serializable {
 		this.maDeTai = maDeTai;
 	}
 
+	public String getMaDeTai() {
+		return maDeTai;
+	}
+
+	public void setMaDeTai(String maDeTai) {
+		this.maDeTai = maDeTai;
+	}
+	
 	public String getMaDeXuat() {
 		return maDeXuat;
 	}
@@ -65,13 +73,4 @@ public class DEXUATDETAI implements Serializable {
 	public void setTrangThai(boolean trangThai) {
 		this.trangThai = trangThai;
 	}
-
-	public String getMaDeTai() {
-		return maDeTai;
-	}
-
-	public void setMaDeTai(String maDeTai) {
-		this.maDeTai = maDeTai;
-	}
-	
 }

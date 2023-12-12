@@ -38,8 +38,10 @@ public class DeXuatGVController extends HttpServlet {
 			throws ServletException, IOException {
 		HttpSession session = request.getSession();
         String IDDangNhap = (String) session.getAttribute("IDDangNhap");
+        System.out.println("id" + IDDangNhap);
         String action = request.getPathInfo();
 		System.out.println("action error :"+ action );
+	
 		if(IDDangNhap != null) {
 			try {
 				String MaDX = dexuatdao.GenerateMaDeXuat();
@@ -55,9 +57,9 @@ public class DeXuatGVController extends HttpServlet {
 				dxdt.setMaDeTai(MaDeTai);
 				
 				dexuatdao.dexuat(dxdt);
-				//RequestDispatcher dispatcher = request.getRequestDispatcher("/DeXuatGV.jsp");
-        		//dispatcher.forward(request, response);
 				
+				RequestDispatcher dispatcher = request.getRequestDispatcher("/DeXuatGV.jsp");
+				dispatcher.forward(request, response);			
 			} catch(SQLException e) {
 				e.printStackTrace();
 			}

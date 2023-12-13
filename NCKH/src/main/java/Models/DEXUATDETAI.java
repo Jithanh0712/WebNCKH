@@ -15,8 +15,7 @@ public class DEXUATDETAI implements Serializable {
 		super();
 	}
 	
-	public DEXUATDETAI(String maDeXuat, String tieuDeDeTai, String moTaDeTai, String maGV, boolean trangThai,
-			String fileurl, String maDeTai) {
+	public DEXUATDETAI(String maDeXuat, String tieuDeDeTai, String moTaDeTai, String maGV, boolean trangThai, String maDeTai) {
 		super();
 		this.maDeXuat = maDeXuat;
 		this.tieuDeDeTai = tieuDeDeTai;

@@ -72,7 +72,7 @@
 						</div>
 						<div class="col-md-5">
 							<div class="form-group">
-								<input type="text" id="ngaykt" name="ngaykt" maxlength="30" class="form-control" readonly>
+								<input type="text" id="ngaykt" name="ngaykt" maxlength="30" class="form-control" value="${thoigian.ngayBatDau.toLocalDate().toString()}" readonly>
 							</div>
 						</div>
 					</div>

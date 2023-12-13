@@ -7,6 +7,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import Models.GIANGVIEN;
 import Models.THOIGIAN;
 import Util.HandleException;
 import Util.JDBC;
@@ -14,7 +15,10 @@ import Util.JDBC;
 
 public class ThoiGianDAO {
 	private static final String SELECT_THOIGIAN_DK = "SELECT * FROM nckh.THOIGIAN WHERE LoaiTG = ?";
+
 	private static final String SELECT_THOIGIAN_BC = "SELECT * FROM nckh.THOIGIAN WHERE LoaiTG = ?";
+	private static final String UPDATE_THOIGIAN_DK = "UPDATE nckh.THOIGIAN SET NgayBatDau = ?, NgayKetThuc = ? WHERE LoaiTG = ?";
+
 	
 	public ThoiGianDAO() {}
 
@@ -39,6 +43,7 @@ public class ThoiGianDAO {
 	}
 	
 
+
 	public THOIGIAN layThoiGianBaoCao() throws SQLException{
 		THOIGIAN tg = null;
         ResultSet rs = null;
@@ -58,4 +63,20 @@ public class ThoiGianDAO {
         }
         return tg;
 	}
+
+	public boolean capNhatThoiGianDK(THOIGIAN tg) throws SQLException{
+        boolean updated = false;
+        try (Connection connection = JDBC.getConnection(); PreparedStatement statement = connection.prepareStatement(UPDATE_THOIGIAN_DK);) {
+        	statement.setDate(1, tg.getNgayBatDau());
+        	//System.out.println(gv.getTenGV());
+        	statement.setDate(2, tg.getNgayKetThuc());
+        	statement.setString(3, "TGDK");
+            int rowsAffected = statement.executeUpdate();
+            updated = (rowsAffected > 0);
+        } catch (SQLException exception) {
+            HandleException.printSQLException(exception);
+        } 
+        return updated;
+    }
+
 }

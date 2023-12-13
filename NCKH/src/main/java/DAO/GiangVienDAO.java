@@ -5,6 +5,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import Models.GIANGVIEN;
 import Util.HandleException;
@@ -16,6 +18,14 @@ public class GiangVienDAO {
 	
 	private static final String SELECT_GIANGVIEN_BYID = "SELECT * FROM GIANGVIEN WHERE ID = ?";
 	private static final String UPDATE_GV = "UPDATE GIANGVIEN SET TenGV = ?, TrinhDo = ?, MaKhoa = ? WHERE ID = ?";
+	
+	private static final String SELECT_ALL_DETAICANHAN = "SELECT 'Đề tài' AS Loai, MaDeTai as Ma, TrangThai"
+														+ "FROM nckh.DANGKY"
+														+ "WHERE MaGV = 'GV001'"
+														+ "UNION ALL"
+														+ "SELECT 'Đề xuất' AS Loai, MaDeXuat as Ma, TrangThai"
+														+ "FROM nckh.DEXUATDETAI"
+														+ "WHERE MaGV = ?;";
 	public GiangVienDAO() {}
 	public void insertGV(GIANGVIEN gv) throws SQLException {
 		System.out.println(INSERT_GIANGVIEN_SQL);
@@ -95,4 +105,27 @@ public class GiangVienDAO {
         } 
         return updated;
     }
+	
+	public List<String> retrieveResults() throws SQLException {
+	    List<String> results = new ArrayList<>();
+
+	    // Step 1: Establish a Connection
+	    try (Connection connection = JDBC.getConnection();
+	         PreparedStatement preparedStatement = connection.prepareStatement(SELECT_ALL_DETAICANHAN)) {
+	        // Step 3: Execute the query and process the ResultSet
+	        ResultSet rs = preparedStatement.executeQuery();
+	        while (rs.next()) {
+	            String loai = rs.getString("Loai");
+	            String ma = rs.getString("Ma");
+	            boolean trangThai = rs.getBoolean("TrangThai");
+
+	            String result = String.format("Loai: %s, Ma: %s, TrangThai: %s", loai, ma, trangThai);
+	            results.add(result);
+	        }
+	    } catch (SQLException exception) {
+	        HandleException.printSQLException(exception);
+	    }
+
+	    return results;
+	}
 }

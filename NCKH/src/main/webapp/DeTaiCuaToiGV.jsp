@@ -15,8 +15,8 @@
 </head>
 
 <body>
-	<jsp:include page="./headerNV.jsp"></jsp:include>
-	<jsp:include page="./tabNV.jsp"></jsp:include>
+	<jsp:include page="./header.jsp"></jsp:include>
+	<jsp:include page="./tabGV.jsp"></jsp:include>
 
 	<div class="container">
 		<div class="row">
@@ -28,20 +28,19 @@
 					<table class="table table-bordered">
 					    <thead>
 					     <tr>
-					      <th style = "color: black;">Mã đề tài</th>
-					      <th style = "color: black;">Tiêu đề</th>
-					      <th style = "color: black;">Đặt deadline</th>
+					      <th style = "color: black;">Loại</th>
+					      <th style = "color: black;">Mã</th>
+					      <th style = "color: black;">Đặt thời gian</th>
 					      <th style = "color: black;">Xem chi tiết đề tài</th>
 					     </tr>
 					    </thead>
 					    <tbody>
-					     <c:forEach var="listDTCN" items="${listDTCN}">
+					     <c:forEach var="detaicanhan" items="${listdetai}">
 					      <tr>
-					       <td><c:out value="${listDTCN.maDeTai}" /></td>
-						   <td><c:out value="${listDTCN.tieuDe}" /></td>
-					       <td><a href="DatDL?id=<c:out value='${detai.maDeTai}' />">Đặt deadline</a>
-					        &nbsp;&nbsp;&nbsp;&nbsp; <a
-					        href="Xemchitiet.jsp?id=<c:out value='${detai.maDeTai}' />">Xem chi tiết</a></td>
+					       <td><c:out value="${detaicanhan.Loai}" /></td>
+						   <td><c:out value="${detaicanhan.Ma}" /></td>
+					       <td><a>Đặt deadline</a></td>
+					       <td&nbsp;&nbsp;&nbsp;&nbsp;> <a href="Xemchitiet.jsp?id=<c:out value='${detai.maDeTai}' />">Xem chi tiết</a></td>
 					
 					      </tr>
 					     </c:forEach>

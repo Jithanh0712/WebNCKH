@@ -4,7 +4,10 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
+import Models.DETAI;
 import Models.GIANGVIEN;
 import Models.NVPQLKH;
 import Util.HandleException;
@@ -16,6 +19,7 @@ public class NVPQLKHDAO {
 	
 	private static final String SELECT_NHANVIEN_BYID = "SELECT * FROM NVPQLKH WHERE ID = ?";
 	private static final String UPDATE_NV = "UPDATE NVPQLKH SET TenNV = ?, KinhNghiem = ?, Email = ? WHERE ID = ?";
+	private static final String SELECT_ALL_DETAICANHAN = "SELECT * FROM nckh.DETAI WHERE MaNV = ?";
 	public NVPQLKHDAO() {}
 	public void insertNVPQLKH(NVPQLKH nv) throws SQLException {
 		System.out.println(INSERT_NVPQLKH_SQL);
@@ -94,4 +98,27 @@ public class NVPQLKHDAO {
         }
         return updated;
     }
+	
+	public List<DETAI> selectAllDTCN(String MaNV) {
+		// using try-with-resources to avoid closing resources (boiler plate code)
+        List <DETAI> tendetais = new ArrayList < > ();
+
+        // Step 1: Establishing a Connection
+        try (Connection connection = JDBC.getConnection();PreparedStatement preparedStatement = connection.prepareStatement(SELECT_ALL_DETAICANHAN);) {
+            System.out.println(preparedStatement);
+            preparedStatement.setString(1, MaNV);
+            // Step 3: Execute the query or update query
+            ResultSet rs = preparedStatement.executeQuery();
+
+            // Step 4: Process the ResultSet object.
+            while (rs.next()) {
+                String MaDeTai = rs.getString("MaDeTai");
+                String TieuDe = rs.getString("TieuDe");
+                tendetais.add(new DETAI(MaDeTai, TieuDe));
+            }
+        } catch (SQLException exception) {
+        	 HandleException.printSQLException(exception);
+        }
+        return tendetais;
+	}
 }

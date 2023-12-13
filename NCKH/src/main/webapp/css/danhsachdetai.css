@@ -143,3 +143,14 @@
   align-items: left;
   font-size: 22px;
 }
+
+
+.hidden {
+	display: none;
+}
+
+.message {
+        color: red;
+        font-weight: bold;
+        font-size: 26px;
+    }

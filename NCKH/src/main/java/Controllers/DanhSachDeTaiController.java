@@ -73,6 +73,8 @@ public class DanhSachDeTaiController extends HttpServlet {
 		    throws SQLException, IOException, ServletException {
 		    	HttpSession session = request.getSession();
 		        List <DETAI> listDT = detaiDAO.selectAllDeTais();
+		        THOIGIAN thoigian = tgDAO.layThoiGian();
+				request.setAttribute("thoigian", thoigian);
 		        request.setAttribute("listDT", listDT);
 		        RequestDispatcher dispatcher = request.getRequestDispatcher("/DanhSachDeTaiGV.jsp");
 		        dispatcher.forward(request, response);

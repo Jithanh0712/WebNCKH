@@ -64,51 +64,6 @@
 	cursor: pointer;
 }
 
-.card-body {
-	padding: 15px;
-}
-
-.model-title {
-	font-size: 16pt;
-	font-weight: bold;
-}
-
-.model-rate-sale {
-	text-align: center;
-	font-size: 14pt;
-	font-weight: 500;
-	color: rgb(39, 39, 42);
-	display: flex;
-	-webkit-box-align: center;
-	align-items: center;
-	margin-bottom: 10px;
-}
-
-.model-rate-sale .model-rate {
-	margin: 0 auto;
-}
-
-.model-rate-sale .model-rate .checked {
-	color: orange;
-	padding-right: 5px;
-}
-
-.model-price {
-	text-align: center;
-	font-size: 16pt;
-	font-weight: 500;
-	color: rgb(39, 39, 42);
-	display: flex;
-	-webkit-box-align: center;
-	align-items: center;
-}
-
-
-
-.model-pagination {
-	margin-top: 25px;
-}
-
 .page-item {
 	margin-left: 3px;
 	margin-right: 3px;

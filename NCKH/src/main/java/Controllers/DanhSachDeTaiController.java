@@ -14,20 +14,22 @@ import javax.servlet.http.HttpSession;
 
 import DAO.DeTaiDAO;
 import Models.DETAI;
-
+import Models.THOIGIAN;
+import DAO.ThoiGianDAO;
 
 @WebServlet("/")
 public class DanhSachDeTaiController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
     private DeTaiDAO detaiDAO;
-    
+    private ThoiGianDAO tgDAO;
     public DanhSachDeTaiController() {
         super();
     }
     
     public void init() {
 		detaiDAO = new DeTaiDAO();
+		tgDAO = new ThoiGianDAO();
 	}
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -69,6 +71,8 @@ public class DanhSachDeTaiController extends HttpServlet {
 		    throws SQLException, IOException, ServletException {
 		    	HttpSession session = request.getSession();
 		        List <DETAI> listDT = detaiDAO.selectAllDeTais();
+		        THOIGIAN thoigian = tgDAO.layThoiGian();
+				request.setAttribute("thoigian", thoigian);
 		        request.setAttribute("listDT", listDT);
 		        RequestDispatcher dispatcher = request.getRequestDispatcher("/DanhSachDeTaiNV.jsp");
 		        dispatcher.forward(request, response);

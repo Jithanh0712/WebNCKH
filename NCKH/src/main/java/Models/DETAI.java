@@ -17,6 +17,12 @@ public class DETAI implements Serializable {
 		super();
 	}
 	
+	public DETAI(String maDeTai, String tieuDe) {
+		super();
+		this.maDeTai = maDeTai;
+		this.tieuDe = tieuDe;
+	}
+
 	public DETAI(String maDeTai, String tieuDe, String moTa, boolean trangThai, int kinhPhi, Date ngayDKTC, String maNV) {
 		super();
 		this.maDeTai = maDeTai;

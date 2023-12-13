@@ -25,57 +25,54 @@
 			</div>
 			<div class="col-md-9">
 			<form action="ThongBaoNVController" method="post">
-				<textarea name="my-text-area-1" id="my-text-area-1" cols="125"
-					rows="7.5" readonly>Notify</textarea>
-				<hr style="border: 1px solid #2c313c;">
-				<textarea name="my-text-area-2" id="my-text-area-2" cols="125"
-					rows="7.5" readonly>Notify</textarea>
-				<hr style="border: 1px solid #2c313c;">
-				<input type="text" name="content" class="my-class" placeholder="Nội dung">
-				<input type="button" value="Submit" class="my-class-1">
-				
-    			<input type="button" value="Người nhận" onclick = "showModal()" class="my-class-2">
-    			<div id="modal" class="modal">
-			    <div class="modal-content">
-			      <h2 style= "text-align: center;">Chọn người nhận</h2>
-			      <div id="checkbox-list"></div>
-			      <input type="button" value="Xác nhận" onclick="confirm()">
-			    </div>
-			  </div>
-			  </form>
+				<c:forEach var="thongbao" items="${listTB}">
+				    <textarea name="my-text-area-${thongbao.maThongBao}" id="my-text-area-${thongbao.maThongBao}" cols="125"
+				        rows="7.5" readonly>Tên thông báo: ${thongbao.tenThongBao}
+Người nhận: ${thongbao.nguoiNhan}
+Ngày gửi: ${thongbao.ngayGui}
+Nội dung: ${thongbao.noiDung}
+</textarea>
+				    <hr style="border: 1px solid #2c313c;">
+				    
+				</c:forEach>
+				<ul id="checkbox-list" style="display: none;">
+		            <c:forEach items="${listGV}" var="giangvien">
+		                <li>
+		                    <input type="checkbox" name="nguoiNhan" value="${giangvien.maGV}">
+		                    ${giangvien.tenGV}
+		                </li>
+		            </c:forEach>
+		        </ul>
+		        <input type="hidden" name="selectedNguoiNhan" id="selectedNguoiNhan">
+		        <div class="form-group">
+	           		<label for="TenThongBao" style = "color: black; font-size: 20px;">Tiêu đề</label>
+	           		<input type="text" class="form-control" id="TenThongBao" name="TenThongBao" 
+	           		style = "width:500px; height: 50px;" placeholder="Nhập tiêu đề thông báo">
+	        	</div>
+				<input type="text" id="NoiDung" name="NoiDung" class="my-class" style = "margin-top: 10px;" placeholder="Nội dung">
+				<button type="submit" class="btn btn-primary">Submit</button>
+    			<input type="button" value="Người nhận" onclick = "showCheckbox()" class="my-class-2">
+			</form>
 			</div>
-		</div>
+		</div>		  
 	</div>
-		<script>
-    	function showModal() {
-	    	document.getElementById("modal").style.display = "block";
-	
-	    	  // Xóa các checkbox cũ
-	    	  let checkboxList = document.getElementById('checkbox-list');
-	    	  for (let i = checkboxList.children.length - 1; i >= 0; i--) {
-	    	    checkboxList.removeChild(checkboxList.children[i]);
-	    	  }
-	
-	    	  // Gửi request AJAX để lấy danh sách người dùng
-	    	  $.ajax({
-	    		  url: "/ThongBaoNVController/listgv",
-	    		  method: "post",
-	    		  success: function(data) {
-	    		   	var html = "";
-	    		     for (let giangvien of data) {
-	    		      html += `<label><input type="checkbox" id="checkbox-${giangvien.maGV}" name="recipients" value="${giangvien.maGV}"> ${giangvien.tenGV}</label>`;
-	    		     }
-	    		     $("#checkbox-list").html(html);
-	    		  }
-	    		 });
-    	}
-
-	    function confirm() {
-	      document.getElementById("modal").style.display = "none";
-	      document.forms[0].submit();
+	<script>
+	function showCheckbox() {
+	    var checkboxList = document.getElementById("checkbox-list");
+	    checkboxList.style.display = "block";
+	}
+	function getSelectedCheckBoxes() {
+	    var checkboxes = document.getElementById("checkbox-list").getElementsByTagName("input");
+	    var selectedValues = [];
+	    for (var i = 0; i < checkboxes.length; i++) {
+	        if (checkboxes[i].checked) {
+	            selectedValues.push(checkboxes[i].value);
+	        }
 	    }
-	    
-	    
-  		</script>
+	    System.out.println(selectedValues);
+	    return selectedValues;
+	}
+	document.getElementById("selectedNguoiNhan").value = getSelectedCheckBoxes();
+	</script>
   <jsp:include page="./footer.jsp"></jsp:include>
 </body>

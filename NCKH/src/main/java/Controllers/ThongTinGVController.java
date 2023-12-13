@@ -34,6 +34,7 @@ public class ThongTinGVController extends HttpServlet {
 		System.out.println("action error :"+ action );
    
         if (IDDangNhap != null) {
+        	request.setCharacterEncoding("UTF-8");
             try {
         	if (action.equals("/thongtin"))
         		{
@@ -47,14 +48,16 @@ public class ThongTinGVController extends HttpServlet {
         		{
         			String maGV = request.getParameter("magv");
                     String tenGV = request.getParameter("tengv");
+
+        			System.out.println(tenGV);
                     String trinhDo = request.getParameter("trinhdo");
-                    String maKhoa = request.getParameter("makhoa");
+                    String maKhoa = request.getParameter("makhoa"); 
 
                     GIANGVIEN gv = new GIANGVIEN(maGV, tenGV, trinhDo, IDDangNhap, maKhoa);
 
                     boolean updated = gvDAO.capNhatThongTinGV(gv);
                     if (updated) {
-                    	RequestDispatcher dispatcher = request.getRequestDispatcher("/HoSoGV.jsp");
+                    	RequestDispatcher dispatcher = request.getRequestDispatcher("/thongtingv/thongtin");
                 		request.setAttribute("giangvien", gv);
                 		dispatcher.forward(request, response);
                     }

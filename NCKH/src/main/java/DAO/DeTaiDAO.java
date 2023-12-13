@@ -17,6 +17,7 @@ import Util.JDBC;
 public class DeTaiDAO {
 	private static final String SELECT_ALL_DETAI = "SELECT * FROM nckh.detai";
 	private static final String SELECT_DETAI = "SELECT * FROM nckh.detai WHERE MaDeTai = ?";
+	private static final String SELECT_TenDeTai = "SELECT TieuDe FROM nckh.detai WHERE MaNV = (SELECT MaNV FROM nckh.nvpqlkh WHERE ID = ?)";
 	
 	public DeTaiDAO() {}
 	
@@ -46,8 +47,8 @@ public class DeTaiDAO {
         }
         return detais;
 	}
-	
-	public DETAI laychitietdetai(DETAI dt) {
+  
+  public DETAI laychitietdetai(DETAI dt) {
 		DETAI detai = null;
 		try (Connection connection = JDBC.getConnection();PreparedStatement preparedStatement = connection.prepareStatement(SELECT_DETAI);) {
 			preparedStatement.setString(1, dt.getMaDeTai());
@@ -71,4 +72,26 @@ public class DeTaiDAO {
         }
 		return detai;
 	}
+	
+	public List<DETAI> selectAllTenDeTais() {
+		// using try-with-resources to avoid closing resources (boiler plate code)
+        List <DETAI> tendetais = new ArrayList < > ();
+
+        // Step 1: Establishing a Connection
+        try (Connection connection = JDBC.getConnection();PreparedStatement preparedStatement = connection.prepareStatement(SELECT_TenDeTai);) {
+            System.out.println(preparedStatement);
+            // Step 3: Execute the query or update query
+            ResultSet rs = preparedStatement.executeQuery();
+
+            // Step 4: Process the ResultSet object.
+            while (rs.next()) {
+                String MaDeTai = rs.getString("MaDeTai");
+                String TieuDe = rs.getString("TieuDe");
+                tendetais.add(new DETAI(MaDeTai, TieuDe));
+            }
+        } catch (SQLException exception) {
+        	 HandleException.printSQLException(exception);
+        }
+        return tendetais;
+  }
 }

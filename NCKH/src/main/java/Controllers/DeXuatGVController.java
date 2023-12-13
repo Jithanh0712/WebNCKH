@@ -38,13 +38,13 @@ public class DeXuatGVController extends HttpServlet {
 			throws ServletException, IOException {
 		HttpSession session = request.getSession();
         String IDDangNhap = (String) session.getAttribute("IDDangNhap");
-        System.out.println("id" + IDDangNhap);
         String action = request.getPathInfo();
 		System.out.println("action error :"+ action );
 	
 		if(IDDangNhap != null) {
 			try {
-				String MaDX = dexuatdao.GenerateMaDeXuat();
+				request.setCharacterEncoding("UTF-8");
+				String MaDX = dexuatdao.GenerateMaDeXuat();		
 				String TenDeTai = request.getParameter("tendetai");
 				String MoTa = request.getParameter("mota");
 				String MaGV = gvdao.layThongTinGV(IDDangNhap).getMaGV();

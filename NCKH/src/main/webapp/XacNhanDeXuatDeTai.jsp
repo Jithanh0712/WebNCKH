@@ -45,10 +45,21 @@
 					</div>
 				</div>
 				<div class="row">
-					<div class="col-md-11"></div>
-					<div class="col-md-1">
+					<div class="col-md-2"></div>
+					<div class="col-md-2">
+						<label for="kinhphi"
+							style="margin-top: 50px; font-size: 20px; color: black"><b>Kinh phí</b></label>
+					</div>
+					<div class="col-md-8">
+						<input type="text" id="kinhphi" name="kinhphi"
+							style="border: solid; margin-top: 50px; font-size: 20px; width: 500px;">
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-9"></div>
+					<div class="col-md-3">
 							<input type="submit" value="Submit"
-								style="border: solid; font-size: 20;" id="fileupload">
+								style="border: solid; margin-left:15px; margin-top:20px;">
 					</div>
 				</div>
 				</form>

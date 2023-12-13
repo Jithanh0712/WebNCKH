@@ -26,6 +26,7 @@
 			<div class="col-md-9">
 				<div class="d-flex justify-content-between mb-3">
 					<h3>Danh sách đề tài</h3>
+					<button class="btn btn-primary">Đề tài của bạn</button>
 				</div>
 				<table class="table">
 					<thead>
@@ -58,7 +59,7 @@
 				</div>
 
 
-				<form id="edit-time-form" style="display: none;">
+				<form id="edit-time-form" style="display: none;" action="updateTGDK" method = "post">
 					<div class="row">
 						<div class="col-md-2">
 							<div class="form-group">
@@ -72,7 +73,7 @@
 						</div>
 						<div class="col-md-5">
 							<div class="form-group">
-								<input type="text" id="ngaykt" name="ngaykt" maxlength="30" class="form-control" value="${thoigian.ngayBatDau.toLocalDate().toString()}" readonly>
+								<input type="text" id="ngaykt" name="ngaykt" maxlength="30" class="form-control" value="${thoigian.ngayKetThuc.toLocalDate().toString()}" readonly>
 							</div>
 						</div>
 					</div>
@@ -94,7 +95,7 @@
 							</div>
 						</div>
 					</div>
-					<input type="button" value="Xác nhận">
+					<input type="submit" value="Xác nhận" class="my-class-1">
 				</form>
 			</div>
 		</div>

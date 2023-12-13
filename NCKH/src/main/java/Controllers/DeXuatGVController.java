@@ -42,7 +42,7 @@ public class DeXuatGVController extends HttpServlet {
 		System.out.println("action error :"+ action );
 	
 		if(IDDangNhap != null) {
-			try {
+			/*try {
 				request.setCharacterEncoding("UTF-8");
 				String MaDX = dexuatdao.GenerateMaDeXuat();		
 				String TenDeTai = request.getParameter("tendetai");
@@ -62,7 +62,7 @@ public class DeXuatGVController extends HttpServlet {
 				dispatcher.forward(request, response);			
 			} catch(SQLException e) {
 				e.printStackTrace();
-			}
+			}*/
 		}
 		else {
 			response.sendRedirect("/login.jsp");

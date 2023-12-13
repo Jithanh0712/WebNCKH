@@ -24,15 +24,17 @@
 			</div>
 			<div class="col-md-9">
 				<div class="col-md-3">
-					<div class="form-group">
-						<label for="manv" style= "color:black;">Ngày bắt đầu:</label> 
-						<input type="NgayBatDau" id="NgayBatDau" name="NgayBatDau" class="form-control" value="<c:out value='${thoigian.ngayBatDau}'/>" readonly>
-					</div>
-	
-					<div class="form-group">
-						<label for="NgayKetThuc" style= "color:black;">Ngày kết thúc:</label>
-						<input type="text" id="NgayKetThuc" name="NgayKetThuc" class="form-control" value="<c:out value='${thoigian.ngayKetThuc}'/>" readonly>
-					</div>
+					<form action="FromDL" method="post">
+						<div class="form-group">
+							<label for="NgayBatDau" style= "color:black;">Ngày bắt đầu:</label> 
+							<input type="text" id="NgayBatDau" name="NgayBatDau" class="form-control" value="<c:out value='${thoigian.ngayBatDau.toLocalDate().toString()}'/>" readonly>
+						</div>
+		
+						<div class="form-group">
+							<label for="NgayKetThuc" style= "color:black;">Ngày kết thúc:</label>
+							<input type="text" id="NgayKetThuc" name="NgayKetThuc" class="form-control" value="<c:out value='${thoigian.ngayKetThuc.toLocalDate().toString()}'/>" readonly>
+						</div>
+					</form>
 					<div class="rectangle" style = "margin-top: 10px">
 						<form method="post" action="UploadFileServlet"
 							enctype="multipart/form-data"

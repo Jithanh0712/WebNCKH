@@ -99,12 +99,12 @@
 
 			<div class="col-md-3">
 				<a href="https://hcmute.edu.vn/" class="list-group-item px-3 rounded-0 list-group-item-info mb-0 pointer">Trang chủ nhà trường</a>
-		<a href="https://thuvien.hcmute.edu.vn/" class="list-group-item px-3 rounded-0 list-group-item-info mb-0 pointer">Thư viện trường</a>
-		<a href="https://fit.hcmute.edu.vn/" class="list-group-item px-3 rounded-0 list-group-item-info mb-0 pointer">Khoa công nghệ thông tin</a>
-		<a href="https://feee.hcmute.edu.vn/" class="list-group-item px-3 rounded-0 list-group-item-info mb-0 pointer">Khoa điện - điện tử</a>
-		<a href="https://fme.hcmute.edu.vn/" class="list-group-item px-3 rounded-0 list-group-item-info mb-0 pointer">Khoa cơ khí chế tạo máy</a>
-		<a href="https://fe.hcmute.edu.vn/" class="list-group-item px-3 rounded-0 list-group-item-info mb-0 pointer">Khoa kinh tế</a>
-		<a href="https://fae.hcmute.edu.vn/" class="list-group-item px-3 rounded-0 list-group-item-info mb-0 pointer">Khoa cơ khí động lực</a>
+				<a href="https://thuvien.hcmute.edu.vn/" class="list-group-item px-3 rounded-0 list-group-item-info mb-0 pointer">Thư viện trường</a>
+				<a href="https://fit.hcmute.edu.vn/" class="list-group-item px-3 rounded-0 list-group-item-info mb-0 pointer">Khoa công nghệ thông tin</a>
+				<a href="https://feee.hcmute.edu.vn/" class="list-group-item px-3 rounded-0 list-group-item-info mb-0 pointer">Khoa điện - điện tử</a>
+				<a href="https://fme.hcmute.edu.vn/" class="list-group-item px-3 rounded-0 list-group-item-info mb-0 pointer">Khoa cơ khí chế tạo máy</a>
+				<a href="https://fe.hcmute.edu.vn/" class="list-group-item px-3 rounded-0 list-group-item-info mb-0 pointer">Khoa kinh tế</a>
+				<a href="https://fae.hcmute.edu.vn/" class="list-group-item px-3 rounded-0 list-group-item-info mb-0 pointer">Khoa cơ khí động lực</a>
 			</div>
 		</div>
 	</div>

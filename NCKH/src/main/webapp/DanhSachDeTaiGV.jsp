@@ -29,7 +29,7 @@
 			<div class="col-md-9">
 				<div class="d-flex justify-content-between mb-3">
 					<h3>Danh sách đề tài</h3>
-					<button class="btn btn-primary">Đề tài của bạn</button>
+					<button class="btn btn-primary" onclick="window.location.href='<%=request.getContextPath()%>/FromDL'">Đề tài của bạn</button>
 				</div>
 				<table class="table">
 					<thead>

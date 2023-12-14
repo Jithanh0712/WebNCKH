@@ -10,19 +10,23 @@
 	rel="stylesheet">
 <script
 	src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"></script>
-<style><%@include file="/css/dropbox.css"%></style>
+<style><%@include file="../css/dropbox.css"%></style>
 <script>
 	function activate() {
-		var GV = document.getElementById("GV");
 		for(var i = 1; i < 5; i++){
 			var SV = document.getElementById("SV" + i.toString());
 			SV.disabled=false;
+			var MSSV = document.getElementById("MaSV" + i.toString());
+			MSSV.disabled=false;
+			var NK = document.getElementById("NKSV" + i.toString());
+			NK.disabled=false;
+			var Khoa = document.getElementById("KhoaSV" + i.toString());
+			Khoa.disabled=false;
 		}
 		var suabtn = document.getElementById("sua");
 		var thembtn = document.getElementById("them");
 		var luubtn = document.getElementById("luu");
 		var xoabtn = document.getElementById("xoa");
-		GV.disabled=false;
 		thembtn.disabled=false;
 		luubtn.disabled=false;
 		xoabtn.disabled=false;
@@ -31,24 +35,37 @@
 	function add(){
 		for(var i = 2; i < 5; i++){
 			var SV = document.getElementById("SV" + i.toString());
+			var MSSV = document.getElementById("MaSV" + i.toString());
+			var NK = document.getElementById("NKSV" + i.toString());
+			var Khoa = document.getElementById("KhoaSV" + i.toString());
 			if(SV.style.display === "none"){
-				SV.style.display = "block";
+				SV.style.display = "initial";
 				SV.value="";
+				MSSV.style.display = "initial";
+				MSSV.value="";
+				NK.style.display = "initial";
+				NK.value="";
+				Khoa.style.display = "initial";
+				Khoa.value="";
 				break;
 			}
 		}
 	}
 	function disable() {
-		var GV = document.getElementById("GV");
 		for(var i = 1; i < 5; i++){
 			var SV = document.getElementById("SV" + i.toString());
 			SV.disabled=true;
+			var MSSV = document.getElementById("MaSV" + i.toString());
+			MSSV.disabled=true;
+			var NK = document.getElementById("NKSV" + i.toString());
+			NK.disabled=true;
+			var Khoa = document.getElementById("KhoaSV" + i.toString());
+			Khoa.disabled=true;
 		}
 		var suabtn = document.getElementById("sua");
 		var thembtn = document.getElementById("them");
 		var luubtn = document.getElementById("luu");
 		var xoabtn = document.getElementById("xoa");
-		GV.disabled=true;
 		thembtn.disabled=true;
 		luubtn.disabled=true;
 		xoabtn.disabled=true;
@@ -57,9 +74,18 @@
 	function deleteSV(){
 		for(var i = 4; i > 1; i--){
 			var SV = document.getElementById("SV" + i.toString());
-			if(SV.style.display === "block"){
+			var MSSV = document.getElementById("MaSV" + i.toString());
+			var NK = document.getElementById("NKSV" + i.toString());
+			var Khoa = document.getElementById("KhoaSV" + i.toString());
+			if(SV.style.display === "initial"){
 				SV.style.display = "none";
 				SV.value="";
+				MSSV.style.display = "none";
+				MSSV.value="";
+				NK.style.display = "none";
+				NK.value="";
+				Khoa.style.display = "none";
+				Khoa.value="";
 				break;
 			}
 		}
@@ -84,55 +110,117 @@
 			</div>
 			<div class="col-md-9">
 				<div class="row">
-					<div class="col-md-2"></div>
 					<div class="col-md-3">
 						<label style="margin-top:30px; font-size:20px;"><b>Tiêu đề</b></label><br>
-						<label style="margin-top:30px; font-size:20px;"><b>Giảng viên đảm nhận:</b></label><br>
-						<label style="margin-top:30px; font-size:20px;"><b>Danh sách sinh viên:</b></label>
 					</div>
-					<div class="col-md-4">
-						<textarea disabled style="margin-top:30px; font-size:20px; border:2px solid; width:300px" rows=1>ABC</textarea>
-						<textarea disabled style="margin-top:10px; font-size:20px; border:2px solid; width:300px" rows=1 id="GV">ABC</textarea>
-						<textarea disabled style="margin-top:10px; font-size:20px; border:2px solid; width:300px" rows=1 id="SV1">ABC</textarea>
-						<textarea disabled style="margin-top:10px; font-size:20px; border:2px solid; width:300px; display:none;" rows=1 id="SV2">ABC</textarea>
-						<textarea disabled style="margin-top:10px; font-size:20px; border:2px solid; width:300px; display:none;" rows=1 id="SV3">ABC</textarea>
-						<textarea disabled style="margin-top:10px; font-size:20px; border:2px solid; width:300px; display:none;" rows=1 id="SV4">ABC</textarea>
-					</div>
-					<div class="col-md-1">
-						<div class="row">
-							<button type="button" onclick="activate()"
-							style="margin-top:70px; border:1px solid; height:40px;" id="sua">Sửa</button>
-						</div>
-						<div class="row">
-							<button disabled type="button" onclick="add()"
-							style="margin-top:7px; border:1px solid; height:40px;" id="them">Thêm</button>
-						</div>
-						<div class="row">
-							<button disabled type="button" onclick="disable()"
-							style="margin-top:7px; border:1px solid; height:40px;" id="luu">Lưu</button>
-						</div>
-						<div class="row">
-							<button disabled type="button" onclick="deleteSV()"
-							style="margin-top:7px; border:1px solid; height:40px;" id="xoa">Xóa</button>
-						</div>
+					<div class="col-md-7">
+						<textarea disabled disabled
+							style="margin-top: 30px; font-size: 20px; border: 2px solid; width: 300px"
+							rows=1 id="tendedai"></textarea>
 					</div>
 				</div>
 				<div class="row">
-					<div class="col-md-2"></div>
+					<div class="col-md-3">
+						<label style="margin-top:30px; font-size:20px;"><b>Giảng viên đảm nhận:</b></label><br>
+						<label style="margin-top:30px; font-size:20px;"><b>Danh sách sinh viên:</b></label>
+					</div>
+					<div class="col-md-3">
+						<textarea disabled
+							style="margin-top: 30px; font-size: 20px; border: 2px solid; width: 250px"
+							rows=1 id="GV"></textarea>
+						<textarea disabled
+							style="margin-top: 10px; font-size: 20px; border: 2px solid; width: 250px"
+							rows=1 id="SV1" placeholder="Tên sinh viên"></textarea>
+						<textarea disabled
+							style="margin-top: 10px; font-size: 20px; border: 2px solid; width: 250px; display: none;"
+							rows=1 id="SV2" placeholder="Tên sinh viên"></textarea>
+						<textarea disabled
+							style="margin-top: 10px; font-size: 20px; border: 2px solid; width: 250px; display: none;"
+							rows=1 id="SV3" placeholder="Tên sinh viên"></textarea>
+						<textarea disabled
+							style="margin-top: 10px; font-size: 20px; border: 2px solid; width: 250px; display: none;"
+							rows=1 id="SV4" placeholder="Tên sinh viên"></textarea>
+					</div>
+					<div class="col-md-3">
+						<textarea disabled
+							style="margin-left: 5px; margin-top: 30px; font-size: 20px; border: 2px solid; width: 100px"
+							rows=1 id="MaGV"></textarea><br>
+						<textarea disabled
+							style="margin-left: 5px; margin-top: 10px; font-size: 20px; border: 2px solid; width: 100px"
+							rows=1 id="MaSV1" placeholder="mssv"></textarea>
+						<textarea disabled
+							style="margin-left: 5px; margin-top: 10px; font-size: 20px; border: 2px solid; width: 110px"
+							rows=1 id="NKSV1" placeholder="Niên khóa"></textarea><br>
+						<textarea disabled
+							style="margin-left: 5px; margin-top: 10px; font-size: 20px; border: 2px solid; width: 100px; display: none;"
+							rows=1 id="MaSV2" placeholder="mssv"></textarea>
+						<textarea disabled
+							style="margin-left: 5px; margin-top: 10px; font-size: 20px; border: 2px solid; width: 110px; display: none;"
+							rows=1 id="NKSV2" placeholder="Niên khóa"></textarea><br>
+						<textarea disabled
+							style="margin-left: 5px; margin-top: 10px; font-size: 20px; border: 2px solid; width: 100px; display: none;"
+							rows=1 id="MaSV3" placeholder="mssv"></textarea>
+						<textarea disabled
+							style="margin-left: 5px; margin-top: 10px; font-size: 20px; border: 2px solid; width: 110px; display: none;"
+							rows=1 id="NKSV3" placeholder="Niên khóa"></textarea><br>
+						<textarea disabled
+							style="margin-left: 5px; margin-top: 10px; font-size: 20px; border: 2px solid; width: 100px; display: none;"
+							rows=1 id="MaSV4" placeholder="mssv"></textarea>
+						<textarea disabled
+							style="margin-left: 5px; margin-top: 10px; font-size: 20px; border: 2px solid; width: 110px; display: none;"
+							rows=1 id="NKSV4" placeholder="Niên khóa"></textarea>
+					</div>
+					<div class="col-md-3">
+						<select disabled
+							style="margin-top:87px; font-size: 20px; border: 2px solid; width: 200px; height:40px;"
+							id="KhoaSV1">
+							<option disabled selected value="">Khoa...</option>
+							</select>
+						<select disabled
+							style="margin-top:17px; font-size: 20px; border: 2px solid; width: 200px; height:40px; display: none;"
+							id="KhoaSV2">
+							<option disabled selected value="">Khoa...</option>
+							</select>
+						<select disabled
+							style="margin-top:17px; font-size: 20px; border: 2px solid; width: 200px; height:40px; display: none;"
+							id="KhoaSV3">
+							<option disabled selected value="">Khoa...</option>
+							</select>
+						<select disabled
+							style="margin-top:17px; font-size: 20px; border: 2px solid; width: 200px; height:40px; display: none;"
+							id="KhoaSV4">
+							<option disabled selected value="">Khoa...</option> 
+							</select>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-3"></div>
+					<div class="col-md-7">
+							<button type="button" onclick="activate()"
+							style="margin-top:10px; border:1px solid; height:40px; width:70px;" id="sua">Sửa</button>
+							<button disabled type="button" onclick="add()"
+							style="margin-top:10px; border:1px solid; height:40px; width:70px;" id="them">Thêm</button>
+							<button disabled type="button" onclick="disable()"
+							style="margin-top:10px; border:1px solid; height:40px; width:70px;" id="luu">Lưu</button>
+							<button disabled type="button" onclick="deleteSV()"
+							style="margin-top:10px; border:1px solid; height:40px; width:70px;" id="xoa">Xóa</button>
+					</div>
+				</div>
+				<div class="row">
 					<div class="col-md-3">
 						<label style="margin-top:30px; font-size:20px;"><b>Kinh phí:</b></label><br>
 						<label style="margin-top:30px; font-size:20px;"><b>Mô tả:</b></label>
 					</div>
 					<div class="col-md-7">
-						<textarea disabled style="margin-top:25px; font-size:20px; border:2px solid; width:300px" rows=1>ABC</textarea>
-						<textarea id="mota" name="mota"
-							style="border:2px solid; margin-top: 20px; font-size: 20px; width: 500px; height: 250px;">ABC</textarea>
+						<textarea disabled style="margin-top:25px; font-size:20px; border:2px solid; width:300px" rows=1></textarea>
+						<textarea disabled id="mota" name="mota"
+							style="border:2px solid; margin-top: 20px; font-size: 20px; width: 500px; height: 250px;"></textarea>
 					</div>
 				</div>
 				<div class="row">
-					<div class="col-md-10"></div>
+					<div class="col-md-8"></div>
 					<div class="col-md-2">
-					<button style="font-size:20px; border:2px solid; border-radius:15% ; background-color:#ABC4FF" type="button">Đăng ký</button>
+					<button style="font-size:20px; border:2px solid; border-radius:15% ; background-color:#ABC4FF" type="submit">Đăng ký</button>
 					</div>
 				</div>
 			</div>

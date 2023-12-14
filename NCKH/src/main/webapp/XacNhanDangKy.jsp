@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -21,7 +22,7 @@
 				<jsp:include page="./listlink.jsp"></jsp:include>
 			</div>
 			<div class="col-md-9">
-			<form action="updateDK" method="post" accept-charset="UTF-8">
+			<form action="XacNhanDK" method="post">
 				<div class="row">
 					<div class="col-md-3">
 						<label style="margin-top:30px; font-size:20px;"><b>Tiêu đề</b></label><br>
@@ -33,6 +34,7 @@
 					</div>
 				</div>
 				<c:forEach var="listSV" items="${listSV}">
+				<c:set var="listSV" value="${listSV.split(', ')}" />
 				<div class="row">
 					<div class="col-md-3">
 						<label style="margin-top:30px; font-size:20px;"><b>Giảng viên đảm nhận:</b></label><br>
@@ -45,7 +47,7 @@
 						
 						<textarea readonly
 							style="margin-top: 10px; font-size: 20px; border: 2px solid; width: 250px"
-							rows=1 id="SV1" placeholder="Tên sinh viên"> ${listSV.hoTen}</textarea>
+							rows=1 id="SV1" placeholder="Tên sinh viên"> ${listSV[0]}</textarea>
 					</div>
 					<div class="col-md-3">
 						<textarea readonly
@@ -54,15 +56,15 @@
 						
 						<textarea readonly
 							style="margin-left: 5px; margin-top: 10px; font-size: 20px; border: 2px solid; width: 100px"
-							rows=1 id="MaSV1" placeholder="mssv"> ${listSV.mSSV}</textarea>
+							rows=1 id="MaSV1" placeholder="mssv"> ${listSV[1]}</textarea>
 						<textarea readonly
 							style="margin-left: 5px; margin-top: 10px; font-size: 20px; border: 2px solid; width: 110px"
-							rows=1 id="NKSV1" placeholder="Niên khóa"> ${listSV.nienKhoa}</textarea><br>
+							rows=1 id="NKSV1" placeholder="Niên khóa"> ${listSV[2]}</textarea><br>
 					</div>
 					<div class="col-md-3">
 						<textarea readonly
 							style="margin-top:87px; font-size: 20px; border: 2px solid; width: 200px; height:40px;"
-							rows=1 id="KhoaSV1" > ${listSV.tenKhoa}</textarea>
+							rows=1 id="KhoaSV1" > ${listSV[3]}</textarea>
 						
 					</div>
 				
@@ -82,6 +84,7 @@
 				<div class="row">
 					<div class="col-md-8"></div>
 					<div class="col-md-2">
+					<input type="hidden" name="TrangThai" value="true">
 					<button style="font-size:20px; border:2px solid; border-radius:15% ; background-color:#ABC4FF" type="submit">Xác nhận</button>
 					</div>
 				</div>

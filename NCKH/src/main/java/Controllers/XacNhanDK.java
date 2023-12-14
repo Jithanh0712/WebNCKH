@@ -1,6 +1,7 @@
 package Controllers;
 
 import java.io.IOException;
+import java.sql.Date;
 import java.sql.SQLException;
 import java.util.List;
 import javax.servlet.RequestDispatcher;
@@ -40,24 +41,28 @@ public class XacNhanDK extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String action = request.getPathInfo();
 		System.out.println("action error :"+ action );
+		HttpSession session = request.getSession();
+		String maDT = (String) session.getAttribute("MaDeTai");
 		try {
-				HttpSession session = request.getSession();
-				String maDT = (String) session.getAttribute("MaDT");
-				
-				DETAI dt = dtDAO.laychitietdetai(maDT);
-				List <String> listSV = dkDAO.laySV(maDT);
-				String MaDK = dkDAO.layMaDK(maDT);
-		        GIANGVIEN giangvien = dkDAO.layGV(MaDK);
-			
-	            boolean updated = dkDAO.CapNhatTrangThaiDK(MaDK);
-	            if (updated) {
-	            	RequestDispatcher dispatcher = request.getRequestDispatcher("/XacNhanDangKy.jsp");
-	            	request.setAttribute("detai", dt);
-	            	request.setAttribute("listSV", listSV);
-	            	request.setAttribute("giangvien", giangvien);
-	        		request.setAttribute("dangky", MaDK);
-	        		dispatcher.forward(request, response);
-	            }
+			DETAI dt = dtDAO.laychitietdetai(maDT);
+			List <String> listSV = dkDAO.laySV(maDT);
+			String MaDK = dkDAO.layMaDK(maDT);
+	        GIANGVIEN giangvien = dkDAO.layGV(MaDK);
+	        
+	        boolean TrangThai = Boolean.parseBoolean(request.getParameter("TrangThai"));
+            boolean update1 = dkDAO.CapNhatTrangThaiDK(TrangThai, MaDK);
+            Date NgayDKTC = new Date(System.currentTimeMillis());
+            boolean update2 = dkDAO.CapNhatNgayDKTC(NgayDKTC, maDT);
+            if(update1 && update2)
+            {
+	            RequestDispatcher dispatcher = request.getRequestDispatcher("/XacNhanDangKy.jsp");
+	            request.setAttribute("detai", dt);
+	        	request.setAttribute("listSV", listSV);
+	        	request.setAttribute("giangvien", giangvien);
+	    		request.setAttribute("dangky", MaDK);
+	        	dispatcher.forward(request, response);
+            }
+        	
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

@@ -14,6 +14,12 @@ public class DANGKY implements Serializable {
 		super();
 	}
 	
+	public DANGKY(String maDK, boolean trangThai) {
+		super();
+		this.maDK = maDK;
+		this.trangThai = trangThai;
+	}
+
 	public DANGKY(String maDK, String maDeTai, String maGV, String maNhom, boolean trangThai) {
 		super();
 		this.maDK = maDK;

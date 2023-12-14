@@ -1,6 +1,7 @@
 package DAO;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -8,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import Models.DANGKY;
+import Models.DETAI;
 import Models.GIANGVIEN;
 import Util.HandleException;
 import Util.JDBC;
@@ -15,18 +17,19 @@ import Util.JDBC;
 public class DangKyDAO {
 	private static final String INSERT_DANGKY_SQL = "INSERT INTO nckh.dangky" +
 	        "  (MaDK, MaDeTai, MaGV, MaNhom) VALUES " + " (?, ?, ?, ?);";
-	private static final String UPDATE_TrangThai_DK = "UPDATE nckh.dangky SET TrangThai = 1 WHERE MaDK = ?";
+	private static final String UPDATE_TrangThai_DK = "UPDATE nckh.dangky SET TrangThai = ? WHERE MaDK = ?";
+	private static final String UPDATE_NgayDKTC_DK = "UPDATE nckh.detai SET NgayDKTC = ? WHERE MaDeTai = ?";
 	private static final String SELECT_MaDK = "SELECT MaDK FROM nckh.dangky WHERE MaDeTai = ?";
 	private static final String SELECT_GV = "SELECT giangvien.MaGV, TenGV "
 												+ "FROM nckh.giangvien "
 												+ "INNER JOIN nckh.dangky "
 												+ "ON nckh.giangvien.MaGV = nckh.dangky.MaGV "
 												+ "WHERE nckh.dangky.MaDK = ?";
-	private static final String SELECT_NHOMSV = "SELECT sv.HoTen, sv.MSSV, sv.NienKhoa, kh.TenKhoa "
+	private static final String SELECT_NHOMSV = "SELECT sinhvien.HoTen, sinhvien.MSSV, sinhvien.NienKhoa, khoa.TenKhoa "
 												+ "FROM nckh.sinhvien "
-												+ "INNER JOIN nckh.dangky dk ON sv.MaNhom = dk.MaNhom "
-												+ "INNER JOIN nckh.khoa kh ON sv.MaKhoa = kh.MaKhoa "
-												+ "WHERE dk.MaDeTai = ?;";
+												+ "INNER JOIN nckh.dangky ON sinhvien.MaNhom = dangky.MaNhom "
+												+ "INNER JOIN nckh.khoa ON sinhvien.MaKhoa = khoa.MaKhoa "
+												+ "WHERE dangky.MaDeTai = ?;";
 	public DangKyDAO() {}
 	
 	public void insertDangKy(DANGKY dk) {
@@ -70,13 +73,13 @@ public class DangKyDAO {
 	    return "DK" + numberStr;
 	}
 	
-	public boolean CapNhatTrangThaiDK(String MaDK) throws SQLException{
-        boolean updated = false;
+	public boolean CapNhatTrangThaiDK(Boolean TrangThai, String MaDK) throws SQLException{
+		boolean updated = false;
         try (Connection connection = JDBC.getConnection(); PreparedStatement statement = connection.prepareStatement(UPDATE_TrangThai_DK);) {
-        	statement.setString(1, MaDK);
+        	statement.setBoolean(1, TrangThai);
+        	statement.setString(2, MaDK);
         	System.out.println(statement);
-        	//System.out.println(gv.getTenGV());
-            int rowsAffected = statement.executeUpdate();
+        	int rowsAffected = statement.executeUpdate();
             updated = (rowsAffected > 0);
         } catch (SQLException exception) {
             HandleException.printSQLException(exception);
@@ -134,16 +137,17 @@ public class DangKyDAO {
 	    try (Connection connection = JDBC.getConnection();
 	         PreparedStatement preparedStatement = connection.prepareStatement(SELECT_NHOMSV)) {
 	        // Step 3: Execute the query and process the ResultSet
+	    	preparedStatement.setString(1, MaDeTai);
 	        ResultSet rs = preparedStatement.executeQuery();
 	        System.out.println(preparedStatement);
 	        while (rs.next()) {
-	            String HoTen = rs.getString("HoTen");
-	            String MSSV = rs.getString("MSSV");
-	            String NienKhoa = rs.getString("NienKhoa");
-	            String TenKhoa = rs.getString("TenKhoa");
+	            String HoTen = rs.getString("sinhvien.HoTen");
+	            String MSSV = rs.getString("sinhvien.MSSV");
+	            String NienKhoa = rs.getString("sinhvien.NienKhoa");
+	            String TenKhoa = rs.getString("khoa.TenKhoa");
 	            
 
-	            String result = String.format("HoTen: %s, MSSV: %s, NienKhoa: %s, TenKhoa: %s", HoTen, MSSV, NienKhoa, TenKhoa);
+	            String result = String.format(" %s, %s, %s, %s", HoTen, MSSV, NienKhoa, TenKhoa);
 	            results.add(result);
 	        }
 	    } catch (SQLException exception) {
@@ -152,4 +156,18 @@ public class DangKyDAO {
 
 	    return results;
 	}
+	
+	public boolean CapNhatNgayDKTC(Date NgayDKTC, String MaDeTai) throws SQLException{
+		boolean updated = false;
+        try (Connection connection = JDBC.getConnection(); PreparedStatement statement = connection.prepareStatement(UPDATE_NgayDKTC_DK);) {
+        	statement.setDate(1, NgayDKTC);
+        	statement.setString(2, MaDeTai);
+        	System.out.println(statement);
+        	int rowsAffected = statement.executeUpdate();
+            updated = (rowsAffected > 0);
+        } catch (SQLException exception) {
+            HandleException.printSQLException(exception);
+        } 
+        return updated;
+    }
 }

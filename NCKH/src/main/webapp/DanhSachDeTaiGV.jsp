@@ -36,6 +36,7 @@
 					<h3>Danh sách đề tài</h3>
 					<button class="btn btn-primary" onclick="window.location.href='<%=request.getContextPath()%>/FromDL'">Đề tài của bạn</button>
 				</div>
+				<form method="post" action="dangky">
 				<table class="table">
 					<thead>
 						<tr>
@@ -53,15 +54,16 @@
 								<td class="<c:if test="${detai.trangThai}">green-row</c:if> <c:if test="${!detai.trangThai}">yellow-row</c:if>">
 								</td>
 								<td>
-									 <input type="radio" name="radiobutton" <c:if test="${detai.trangThai}">disabled</c:if> />
+									 <input value="${detai.maDeTai}" name="madetai" type="radio" name="radiobutton" <c:if test="${detai.trangThai}">disabled</c:if> />
 								</td>
 							</tr>
 						</c:forEach>
 					</tbody>
 				</table>
 				<div class="d-flex justify-content-end mb-3">
-					<button class="btn btn-primary">Đăng ký</button>
+					<button class="btn btn-primary" type="submit">Đăng ký</button>
 				</div>
+				</form>
 			</div>
 		</div>
 	</div>

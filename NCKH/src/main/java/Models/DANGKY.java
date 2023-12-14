@@ -22,6 +22,14 @@ public class DANGKY implements Serializable {
 		this.maNhom = maNhom;
 		this.trangThai = trangThai;
 	}
+	
+	public DANGKY(String maDK, String maDeTai, String maGV, String maNhom) {
+		super();
+		this.maDK = maDK;
+		this.maDeTai = maDeTai;
+		this.maGV = maGV;
+		this.maNhom = maNhom;
+	}
 
 	public String getMaDK() {
 		return maDK;

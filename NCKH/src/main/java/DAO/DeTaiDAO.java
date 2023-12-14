@@ -58,10 +58,10 @@ public class DeTaiDAO {
         return detais;
 	}
   
-  public DETAI laychitietdetai(DETAI dt) {
+  public DETAI laychitietdetai(String MaDT) {
 		DETAI detai = null;
 		try (Connection connection = JDBC.getConnection();PreparedStatement preparedStatement = connection.prepareStatement(SELECT_DETAI);) {
-			preparedStatement.setString(1, dt.getMaDeTai());
+			preparedStatement.setString(1, MaDT);
             System.out.println(preparedStatement);
             // Step 3: Execute the query or update query
             ResultSet rs = preparedStatement.executeQuery();

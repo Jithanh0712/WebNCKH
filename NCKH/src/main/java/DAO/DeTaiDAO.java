@@ -141,7 +141,7 @@ public class DeTaiDAO {
 
 	public String GenerateMaDeTai() {
 	    String sql = "SELECT MAX(MaDeTai) FROM nckh.detai";
-	    String nextMaDX = "DT001";
+	    String nextMaDT = "DT001";
 
 	    try {
 	    	Connection connection = JDBC.getConnection();
@@ -149,9 +149,13 @@ public class DeTaiDAO {
 	        ResultSet rs = pstmt.executeQuery();
 
 	        if (rs.next()) {
-	            nextMaDX = rs.getString(1);
+	            nextMaDT = rs.getString(1);
 	        }
-
+	        
+	        if(nextMaDT==null) {
+	        	return "DT001";
+	        }
+	        
 	        rs.close();
 	        pstmt.close();
 
@@ -159,7 +163,7 @@ public class DeTaiDAO {
 	        System.out.println("Error: " + e);
 	    }
 
-	    int number = Integer.parseInt(nextMaDX.substring(2)) + 1;
+	    int number = Integer.parseInt(nextMaDT.substring(2)) + 1;
 	    String numberStr = String.format("%03d", number);
 	    return "DT" + numberStr;
 	}

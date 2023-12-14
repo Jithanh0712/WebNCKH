@@ -36,7 +36,7 @@
 					<h3>Danh sách đề tài</h3>
 					<button class="btn btn-primary" onclick="window.location.href='<%=request.getContextPath()%>/detaicuatoi'">Đề tài của bạn</button>
 				</div>
-				<form action="<%=request.getContextPath()%>/tranfer" method="post">
+				<form action="tranfer/dangkydt" method="post">
 				<table class="table">
 					<thead>
 						<tr>

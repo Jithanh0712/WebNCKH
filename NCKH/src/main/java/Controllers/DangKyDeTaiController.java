@@ -66,7 +66,7 @@ public class DangKyDeTaiController extends HttpServlet {
             	int soluongtv = 0;
             	for(var i = 1; i < 5; i++) {
             		String mssv = (String) request.getParameter("MaSV" + i);
-            		if(mssv != null) {
+            		if(mssv != "") {
             			String ten = (String) request.getParameter("SV" + i);
             			String nienkhoa = (String) request.getParameter("NKSV" + i);
             			String khoa = (String) request.getParameter("KhoaSV" + i);

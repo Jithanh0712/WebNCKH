@@ -20,7 +20,7 @@
 </head>
 <body>
 	<jsp:include page="./headerAdmin.jsp"></jsp:include>
-	<jsp:include page="./tabGV.jsp"></jsp:include>
+	<jsp:include page="./tabAdmin.jsp"></jsp:include>
 	
 	<div class="container">
 	  <div class="row">

@@ -10,7 +10,7 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 <title>Trang chủ</title>
-<link rel="stylesheet" href="css/trangchu.css">
+<style><%@include file="/css/trangchu.css"%></style>
 </head>
 <body>
 	<jsp:include page="./headerBegin.jsp"></jsp:include>

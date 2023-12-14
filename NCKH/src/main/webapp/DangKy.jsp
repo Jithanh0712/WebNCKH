@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -116,7 +117,7 @@
 					<div class="col-md-7">
 						<textarea disabled disabled
 							style="margin-top: 30px; font-size: 20px; border: 2px solid; width: 300px"
-							rows=1 id="tendedai"></textarea>
+							rows=1 id="tendedai">${detai.tieuDe}</textarea>
 					</div>
 				</div>
 				<div class="row">
@@ -127,7 +128,7 @@
 					<div class="col-md-3">
 						<textarea disabled
 							style="margin-top: 30px; font-size: 20px; border: 2px solid; width: 250px"
-							rows=1 id="GV"></textarea>
+							rows=1 id="GV">${giangvien.tenGV}</textarea>
 						<textarea disabled
 							style="margin-top: 10px; font-size: 20px; border: 2px solid; width: 250px"
 							rows=1 id="SV1" placeholder="Tên sinh viên"></textarea>
@@ -144,7 +145,7 @@
 					<div class="col-md-3">
 						<textarea disabled
 							style="margin-left: 5px; margin-top: 30px; font-size: 20px; border: 2px solid; width: 100px"
-							rows=1 id="MaGV"></textarea><br>
+							rows=1 id="MaGV">${giangvien.maGV}</textarea><br>
 						<textarea disabled
 							style="margin-left: 5px; margin-top: 10px; font-size: 20px; border: 2px solid; width: 100px"
 							rows=1 id="MaSV1" placeholder="mssv"></textarea>
@@ -175,21 +176,33 @@
 							style="margin-top:87px; font-size: 20px; border: 2px solid; width: 200px; height:40px;"
 							id="KhoaSV1">
 							<option disabled selected value="">Khoa...</option>
-							</select>
+							<c:forEach items="${khoas}" var="item">
+								<option value="${item.maKhoa}">${item.tenKhoa}</option>
+							</c:forEach>
+						</select>
 						<select disabled
 							style="margin-top:17px; font-size: 20px; border: 2px solid; width: 200px; height:40px; display: none;"
 							id="KhoaSV2">
 							<option disabled selected value="">Khoa...</option>
+							<c:forEach items="${khoas}" var="item">
+								<option value="${item.maKhoa}">${item.tenKhoa}</option>
+							</c:forEach>
 							</select>
 						<select disabled
 							style="margin-top:17px; font-size: 20px; border: 2px solid; width: 200px; height:40px; display: none;"
 							id="KhoaSV3">
 							<option disabled selected value="">Khoa...</option>
+							<c:forEach items="${khoas}" var="item">
+								<option value="${item.maKhoa}">${item.tenKhoa}</option>
+							</c:forEach>
 							</select>
 						<select disabled
 							style="margin-top:17px; font-size: 20px; border: 2px solid; width: 200px; height:40px; display: none;"
 							id="KhoaSV4">
 							<option disabled selected value="">Khoa...</option> 
+							<c:forEach items="${khoas}" var="item">
+								<option value="${item.maKhoa}">${item.tenKhoa}</option>
+							</c:forEach>
 							</select>
 					</div>
 				</div>
@@ -212,9 +225,9 @@
 						<label style="margin-top:30px; font-size:20px;"><b>Mô tả:</b></label>
 					</div>
 					<div class="col-md-7">
-						<textarea disabled style="margin-top:25px; font-size:20px; border:2px solid; width:300px" rows=1></textarea>
+						<textarea disabled style="margin-top:25px; font-size:20px; border:2px solid; width:300px" rows=1>${detai.kinhPhi}</textarea>
 						<textarea disabled id="mota" name="mota"
-							style="border:2px solid; margin-top: 20px; font-size: 20px; width: 500px; height: 250px;"></textarea>
+							style="border:2px solid; margin-top: 20px; font-size: 20px; width: 500px; height: 250px;">${detai.moTa}</textarea>
 					</div>
 				</div>
 				<div class="row">

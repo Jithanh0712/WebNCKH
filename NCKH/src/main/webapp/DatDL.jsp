@@ -34,7 +34,7 @@
 					<input type="date" id="ngayktmoi" name="ngayktmoi" maxlength="30" class="form-control">
 				</div>
 				<div class="form-group">
-					<label for="magv" style= "color:black; font-size: 24px;">Thông báo: </label>
+					<label for="magv" style= "color:black; font-size: 24px; margin-top:10%">Thông báo: </label>
 				</div>
 				<div class="form-group">
 					<label for="TenThongBao" style = "color: black; font-size: 20px; margin-top: 15px;">Tên thông báo</label>

@@ -20,7 +20,7 @@ public class DeTaiDAO {
 	private static final String SELECT_DETAI = "SELECT * FROM nckh.detai WHERE MaDeTai = ?";
 	private static final String SELECT_TenDeTai = "SELECT TieuDe FROM nckh.detai WHERE MaNV = (SELECT MaNV FROM nckh.nvpqlkh WHERE ID = ?)";
 	private static final String UPDATE_TrangThai = "UPDATE nckh.detai SET TrangThai = '1' WHERE MaDeTai = ?";
-	private static final String Set_TrangThaiDeTai = "SELECT d.MaDeTai,"
+	private static final String Set_TrangThaiDeTai = "SELECT DISTINCT d.MaDeTai,"
 			+ "    COALESCE("
 			+ "        CASE"
 			+ "            WHEN d.TrangThai = '0' THEN '2'"

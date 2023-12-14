@@ -77,6 +77,7 @@ public class DangKyDeTaiController extends HttpServlet {
             			break;
             		}
             	}
+            	System.out.println(soluongtv);
 				if (soluongtv > 0) {
 					NHOMSINHVIEN nhom = new NHOMSINHVIEN(maNhom, soluongtv);
 					nhomdao.insertNhom(nhom);

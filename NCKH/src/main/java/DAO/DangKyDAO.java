@@ -11,7 +11,7 @@ import Util.JDBC;
 
 public class DangKyDAO {
 	private static final String INSERT_DANGKY_SQL = "INSERT INTO nckh.dangky" +
-	        "  (MaDangKy, MaDeTai, MaGV, MaNhom) VALUES " + " (?, ?, ?, ?);";
+	        "  (MaDK, MaDeTai, MaGV, MaNhom) VALUES " + " (?, ?, ?, ?);";
 	
 	public DangKyDAO() {}
 	
@@ -20,7 +20,7 @@ public class DangKyDAO {
 			preparedStatement.setString(1, dk.getMaDK());
 			preparedStatement.setString(2, dk.getMaDeTai());
 			preparedStatement.setString(3, dk.getMaGV());
-			preparedStatement.setString(3, dk.getMaNhom());
+			preparedStatement.setString(4, dk.getMaNhom());
             System.out.println(preparedStatement);
             preparedStatement.executeUpdate();
         } catch (SQLException exception) {
@@ -39,7 +39,11 @@ public class DangKyDAO {
 	        if (rs.next()) {
 	            nextMaDK = rs.getString(1);
 	        }
-
+	        
+	        if(nextMaDK == null) {
+	        	return "DK001";
+	        }
+	        
 	        rs.close();
 	        pstmt.close();
 

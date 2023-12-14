@@ -59,25 +59,33 @@ public class DangKyDeTaiController extends HttpServlet {
 		if (IDDangNhap != null) {
         	request.setCharacterEncoding("UTF-8");
             try {
-            	String maDT = (String) request.getAttribute("MaDT");
+            	String maDT = (String) session.getAttribute("MaDT");
             	String maNhom = nhomdao.GenerateMaNhom();
             	String maDK = dkdao.GenerateMaDK();
             	List<SINHVIEN> svlist = new ArrayList <> ();
-            	for(var i = 0; i < 5; i++) {
-            		String mssv = (String) request.getAttribute("MaSV" + i);
-            		if(!mssv.isEmpty()) {
-            			String ten = (String) request.getAttribute("SV" + i);
-            			String nienkhoa = (String) request.getAttribute("NKSV" + i);
-            			String khoa = (String) request.getAttribute("KhoaSV" + i);
+            	int soluongtv = 0;
+            	for(var i = 1; i < 5; i++) {
+            		String mssv = (String) request.getParameter("MaSV" + i);
+            		System.out.println("---------------" + mssv);
+            		if(mssv != null) {
+            			String ten = (String) request.getParameter("SV" + i);
+            			String nienkhoa = (String) request.getParameter("NKSV" + i);
+            			String khoa = (String) request.getParameter("KhoaSV" + i);
             			svlist.add(new SINHVIEN(mssv, ten, maNhom, nienkhoa, khoa));
+            			soluongtv++;
+            		}
+            		else {
+            			break;
             		}
             	}
-            	int soluongtv = svlist.size();
-            	NHOMSINHVIEN nhom = new NHOMSINHVIEN(maNhom, soluongtv);
-            	nhomdao.insertNhom(nhom);
-            	for(var i = 0; i < soluongtv; i++) {
-            		nhomdao.insertSinhVien(svlist.get(i));
-            	}
+				if (soluongtv > 0) {
+					NHOMSINHVIEN nhom = new NHOMSINHVIEN(maNhom, soluongtv);
+					nhomdao.insertNhom(nhom);
+					for(var i = 0; i < soluongtv; i++) {
+	            		nhomdao.insertSinhVien(svlist.get(i));
+	            	}
+					dtdao.setTrangThai(maDT);
+				}
             	
             	List<KHOA> khoas = khoadao.LayThongTinCacKhoa();
 				GIANGVIEN gv = gvdao.layThongTinGV(IDDangNhap);
@@ -102,8 +110,6 @@ public class DangKyDeTaiController extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		String MaDT = request.getParameter("madetai");
-		request.setAttribute("MaDT", MaDT);
 		doGet(request, response);
 	}
 

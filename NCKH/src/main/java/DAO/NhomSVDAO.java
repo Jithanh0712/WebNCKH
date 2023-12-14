@@ -57,6 +57,10 @@ public class NhomSVDAO {
 	        if (rs.next()) {
 	            nextMaNhom = rs.getString(1);
 	        }
+	        
+	        if(nextMaNhom == null) {
+	        	return "N0001";
+	        }
 
 	        rs.close();
 	        pstmt.close();

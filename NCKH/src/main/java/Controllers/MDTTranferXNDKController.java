@@ -24,7 +24,6 @@ import Models.GIANGVIEN;
 public class MDTTranferXNDKController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private DeTaiDAO dtDAO;
-	private GiangVienDAO gvDAO;
 	private DangKyDAO dkDAO; 
     
     public MDTTranferXNDKController() {
@@ -35,7 +34,6 @@ public class MDTTranferXNDKController extends HttpServlet {
 	
 	public void init()  {
 		dtDAO = new DeTaiDAO();
-		gvDAO = new GiangVienDAO();
 		dkDAO = new DangKyDAO();
 	}
 
@@ -53,9 +51,13 @@ public class MDTTranferXNDKController extends HttpServlet {
             try {
 
 				DETAI dt = dtDAO.laychitietdetai(MaDeTai);
+				System.out.println(dt);
 				String MaDK = dkDAO.layMaDK(MaDeTai);
+				System.out.println(MaDK);
 				GIANGVIEN gv = dkDAO.layGV(MaDK);
+				System.out.println(gv.getMaGV());
 				List<String> listsv = dkDAO.laySV(MaDeTai);
+				System.out.println(listsv);
 				
 				RequestDispatcher dispatcher = request.getRequestDispatcher("/XacNhanDK");
 				request.setAttribute("MaDK", MaDK);

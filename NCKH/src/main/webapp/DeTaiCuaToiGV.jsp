@@ -1,6 +1,7 @@
 <%@page contentType="text/html; charset=UTF-8"%>
 <%@page language="java"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ page import = "com.google.gson.Gson"%>
 <html>
 <head>
@@ -11,7 +12,7 @@
 	<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"></script>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-
+	<style><%@include file="/css/danhsachdetai.css"%></style>
 </head>
 
 <body>
@@ -24,31 +25,45 @@
 				<jsp:include page="./listlink.jsp"></jsp:include>
 			</div>
 			<div class="col-md-9">
+			<form action = "detaicuatoi" method = "post">
 				<div class="d-flex justify-content-between mb-3">
 					<table class="table table-bordered">
 					    <thead>
 					     <tr>
 					      <th style = "color: black;">Loại</th>
 					      <th style = "color: black;">Mã</th>
-					      <th style = "color: black;">Đặt thời gian</th>
+					      <th style = "color: black;">Trạng thái</th>
+					      <th style = "color: black;">Nộp bài</th>
 					      <th style = "color: black;">Xem chi tiết đề tài</th>
 					     </tr>
 					    </thead>
 					    <tbody>
-					     <c:forEach var="detaicanhan" items="${listdetai}">
-					      <tr>
-					       <td><c:out value="${detaicanhan.Loai}" /></td>
-						   <td><c:out value="${detaicanhan.Ma}" /></td>
-					       <td><a>Đặt deadline</a></td>
-					       <td&nbsp;&nbsp;&nbsp;&nbsp;> <a href="Xemchitiet.jsp?id=<c:out value='${detai.maDeTai}' />">Xem chi tiết</a></td>
-					
-					      </tr>
-					     </c:forEach>
+					     <c:forEach var="detaicanhan" items="${listDT}">
+					     	<c:set var="details" value="${detaicanhan.split(', ')}" />
+								<tr>
+									<td><c:out value="${details[0]}" /></td> 
+									<td><c:out value="${details[1]}" /></td>
+									<c:set var="trangThai" value="${details[2]}" />
+									<td <c:if test="${trangThai eq 'true'}">class="green-row"</c:if>
+									    <c:if test="${trangThai eq 'false'}">class="yellow-row"</c:if>>
+									</td>
+									<c:set var="maDeTai" value="${details[1]}" />
+									<td>
+										<button type="submit" class="btn_duyet" value="${maDeTai}"
+											name="madetai" id="madetai"
+											${fn:contains(maDeTai, 'DT') ? '' : 'disabled'}>Nộp báo cáo</button>
+									</td>
+									<td nbsp;nbsp;nbsp;nbsp;>
+										<a href="XemChiTietGV.jsp?id=<c:out value='${detai.maDeTai}' />">Xem chi tiết</a>
+									</td>
+								</tr>
+							</c:forEach>
 					     <!-- } -->
 					    </tbody>
 					
 					   </table>
-				</div>
+					</div>
+				</form>
 			</div>
 		</div>
 	</div>

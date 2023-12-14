@@ -34,16 +34,27 @@
 							</tr>
 						</thead>
 						<tbody>
-							<c:forEach var="dexuatdetai" items="${listDX}">
+							<c:forEach var="dexuatdetai" items="${listDX}" varStatus="loop">
 								<tr>
 									<td><c:out value="${dexuatdetai.tieuDeDeTai}" /></td>
 									<td><c:out value="${dexuatdetai.maGV}" /></td>
 									<td
 										class="<c:if test="${dexuatdetai.trangThai}">green-row</c:if> <c:if test="${!dexuatdetai.trangThai}">yellow-row</c:if>">
 									</td>
-									<td><a class="button" onmouseover="this.style.color='red'"
-										onmouseout="this.style.color=''" href="DeXuatGV.jsp"
-										style="text-decoration: underline;">Xem chi tiết</a>
+									<td>
+										<form method="post" action="MaDeXuatTranfer" id="madexuatform${loop.index}">
+										<input type="hidden" id="madexuat" name="madexuat" value="${dexuatdetai.maDeXuat}">
+										</form>
+										 <a class="button" onmouseover="this.style.color='red'"
+												type="submit" onmouseout="this.style.color=''"
+												onclick="submit(${loop.index})"
+												style="text-decoration: underline;">Xem chi tiết</a>
+										<script>
+											function submit(index){
+												var form = document.getElementById("madexuatform" + index);
+											    form.submit();
+											}
+										</script>
 									</td>
 								</tr>
 							</c:forEach>

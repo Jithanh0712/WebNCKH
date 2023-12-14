@@ -13,7 +13,7 @@ public class JDBC {
 			
 			String url = "jdbc:mysql://localhost:3306/nckh?useUnicode=true&characterEncoding=UTF-8";
 			String username = "root";
-			String password = "0984029574Phat!";
+			String password = "Nhi@2003";
 
 			
 			conn = DriverManager.getConnection(url, username, password);

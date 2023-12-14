@@ -22,6 +22,10 @@
     background-color: yellow;
   }
   
+  .table .red-row{
+    background-color: red;
+  }
+  
   .my-class{
   width: 750px;
   height: 100px;
@@ -154,3 +158,10 @@
         font-weight: bold;
         font-size: 26px;
     }
+    
+.btn_duyet
+{
+	border-radius: 10px;
+	background-color: #ABC4FF;
+	margin-left: 30%;
+	}

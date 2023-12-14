@@ -1,7 +1,9 @@
 <%@page contentType="text/html; charset=UTF-8"%>
 <%@page language="java"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ page import = "com.google.gson.Gson"%>
+<%@ page import = "Models.DETAI"%>
+<%@ page import = "java.util.List"%>
+<%@ page import = "java.util.ArrayList"%>
 <html>
 <head>
 	<meta charset="UTF-8">
@@ -34,15 +36,20 @@
 							<th>Mã đề tài</th>
 							<th>Tên đề tài</th>
 							<th>Trạng thái</th>
+							<th></th>
 						</tr>
 					</thead>
 					<tbody>
-						<c:forEach var="detai" items="${listDT}">
+						<% int i = 0; %>
+						<c:forEach var="detai" items="${listDT}" varStatus="loop">
 							<tr>
 								<td><c:out value="${detai.maDeTai}" /></td>
 								<td><c:out value="${detai.tieuDe}" /></td>
 								<td
-									class="<c:if test="${detai.trangThai}">green-row</c:if> <c:if test="${!detai.trangThai}">yellow-row</c:if>">
+									class="${listTT[loop.index] == '0' ? 'yellow-row' : listTT[loop.index] == '1' ? 'green-row' : listTT[loop.index] == '2' ? 'red-row' : ''}">
+								</td>
+								<td>
+									<button type = "submit" class = "btn_duyet" ${listTT[loop.index] == '0' ? '' : 'disabled'} value = "${detai.maDeTai}" name = "madetai" id = "madetai">Duyệt đề tài</button>
 								</td>
 							</tr>
 						</c:forEach>

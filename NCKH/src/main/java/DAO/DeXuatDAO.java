@@ -48,6 +48,10 @@ public class DeXuatDAO {
 	        if (rs.next()) {
 	            nextMaDX = rs.getString(1);
 	        }
+	        
+	        if (nextMaDX == null) {
+	        	return "DX001";
+	        }
 
 	        rs.close();
 	        pstmt.close();

@@ -49,7 +49,9 @@
 									class="${listTT[loop.index] == '0' ? 'yellow-row' : listTT[loop.index] == '1' ? 'green-row' : listTT[loop.index] == '2' ? 'red-row' : ''}">
 								</td>
 								<td>
-									<button type = "submit" class = "btn_duyet" ${listTT[loop.index] == '0' ? '' : 'disabled'} value = "${detai.maDeTai}" name = "madetai" id = "madetai">Duyệt đề tài</button>
+									<input type="hidden" name="madetai" value="${detai.maDeTai}">
+									<button type = "submit" class = "btn_duyet" ${listTT[loop.index] == '0' ? '' : 'disabled'} 
+									value = "${detai.maDeTai}" name = "madetai" id = "madetai" onclick="window.location.href='<%=request.getContextPath()%>/XacNhanDK/loaddata'">Duyệt đề tài</button>
 								</td>
 							</tr>
 						</c:forEach>
@@ -120,5 +122,6 @@
 			}
 		}
 	</script>
+	
 	<jsp:include page="./footer.jsp"></jsp:include>
 </body>

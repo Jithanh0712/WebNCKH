@@ -62,8 +62,8 @@
 					style="margin-top: 10px">
 					<div>
 						<input type="button" value="Chỉnh sửa thời gian đăng ký"
-							onclick="showForm()" class="my-class-2"> <input
-							type="button" value="Đăng đề tài" class="my-class-1">
+							onclick="showForm()" class="my-class-2"> 
+						<button type="submit" class="my-class-1"  onclick="window.location.href='<%=request.getContextPath()%>/DangDeTai'">Đăng đề tài</button>
 					</div>
 				</div>
 

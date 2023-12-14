@@ -110,6 +110,7 @@
 				<jsp:include page="./listlink.jsp"></jsp:include>
 			</div>
 			<div class="col-md-9">
+				<form method="post" action="dangky">
 				<div class="row">
 					<div class="col-md-3">
 						<label style="margin-top:30px; font-size:20px;"><b>Tiêu đề</b></label><br>
@@ -131,16 +132,16 @@
 							rows=1 id="GV">${giangvien.tenGV}</textarea>
 						<textarea disabled
 							style="margin-top: 10px; font-size: 20px; border: 2px solid; width: 250px"
-							rows=1 id="SV1" placeholder="Tên sinh viên"></textarea>
+							rows=1 id="SV1" name="SV1" placeholder="Tên sinh viên"></textarea>
 						<textarea disabled
 							style="margin-top: 10px; font-size: 20px; border: 2px solid; width: 250px; display: none;"
-							rows=1 id="SV2" placeholder="Tên sinh viên"></textarea>
+							rows=1 id="SV2" name="SV2" placeholder="Tên sinh viên"></textarea>
 						<textarea disabled
 							style="margin-top: 10px; font-size: 20px; border: 2px solid; width: 250px; display: none;"
-							rows=1 id="SV3" placeholder="Tên sinh viên"></textarea>
+							rows=1 id="SV3" name="SV3" placeholder="Tên sinh viên"></textarea>
 						<textarea disabled
 							style="margin-top: 10px; font-size: 20px; border: 2px solid; width: 250px; display: none;"
-							rows=1 id="SV4" placeholder="Tên sinh viên"></textarea>
+							rows=1 id="SV4" name="SV4" placeholder="Tên sinh viên"></textarea>
 					</div>
 					<div class="col-md-3">
 						<textarea disabled
@@ -148,33 +149,33 @@
 							rows=1 id="MaGV">${giangvien.maGV}</textarea><br>
 						<textarea disabled
 							style="margin-left: 5px; margin-top: 10px; font-size: 20px; border: 2px solid; width: 100px"
-							rows=1 id="MaSV1" placeholder="mssv"></textarea>
+							rows=1 id="MaSV1" name="MaSV1" placeholder="mssv"></textarea>
 						<textarea disabled
 							style="margin-left: 5px; margin-top: 10px; font-size: 20px; border: 2px solid; width: 110px"
-							rows=1 id="NKSV1" placeholder="Niên khóa"></textarea><br>
+							rows=1 id="NKSV1" name="NKSV1" placeholder="Niên khóa"></textarea><br>
 						<textarea disabled
 							style="margin-left: 5px; margin-top: 10px; font-size: 20px; border: 2px solid; width: 100px; display: none;"
-							rows=1 id="MaSV2" placeholder="mssv"></textarea>
+							rows=1 id="MaSV2" name="MaSV2" placeholder="mssv"></textarea>
 						<textarea disabled
 							style="margin-left: 5px; margin-top: 10px; font-size: 20px; border: 2px solid; width: 110px; display: none;"
-							rows=1 id="NKSV2" placeholder="Niên khóa"></textarea><br>
+							rows=1 id="NKSV2" name="NKSV2" placeholder="Niên khóa"></textarea><br>
 						<textarea disabled
 							style="margin-left: 5px; margin-top: 10px; font-size: 20px; border: 2px solid; width: 100px; display: none;"
-							rows=1 id="MaSV3" placeholder="mssv"></textarea>
+							rows=1 id="MaSV3" name="MaSV3" placeholder="mssv"></textarea>
 						<textarea disabled
 							style="margin-left: 5px; margin-top: 10px; font-size: 20px; border: 2px solid; width: 110px; display: none;"
-							rows=1 id="NKSV3" placeholder="Niên khóa"></textarea><br>
+							rows=1 id="NKSV3" name="NKSV3" placeholder="Niên khóa"></textarea><br>
 						<textarea disabled
 							style="margin-left: 5px; margin-top: 10px; font-size: 20px; border: 2px solid; width: 100px; display: none;"
-							rows=1 id="MaSV4" placeholder="mssv"></textarea>
+							rows=1 id="MaSV4" name="MaSV4" placeholder="mssv"></textarea>
 						<textarea disabled
 							style="margin-left: 5px; margin-top: 10px; font-size: 20px; border: 2px solid; width: 110px; display: none;"
-							rows=1 id="NKSV4" placeholder="Niên khóa"></textarea>
+							rows=1 id="NKSV4" name="NKSV4" placeholder="Niên khóa"></textarea>
 					</div>
 					<div class="col-md-3">
 						<select disabled
 							style="margin-top:87px; font-size: 20px; border: 2px solid; width: 200px; height:40px;"
-							id="KhoaSV1">
+							id="KhoaSV1" name="KhoaSV1">
 							<option disabled selected value="">Khoa...</option>
 							<c:forEach items="${khoas}" var="item">
 								<option value="${item.maKhoa}">${item.tenKhoa}</option>
@@ -182,7 +183,7 @@
 						</select>
 						<select disabled
 							style="margin-top:17px; font-size: 20px; border: 2px solid; width: 200px; height:40px; display: none;"
-							id="KhoaSV2">
+							id="KhoaSV2" name="KhoaSV2">
 							<option disabled selected value="">Khoa...</option>
 							<c:forEach items="${khoas}" var="item">
 								<option value="${item.maKhoa}">${item.tenKhoa}</option>
@@ -190,7 +191,7 @@
 							</select>
 						<select disabled
 							style="margin-top:17px; font-size: 20px; border: 2px solid; width: 200px; height:40px; display: none;"
-							id="KhoaSV3">
+							id="KhoaSV3" name="KhoaSV2">
 							<option disabled selected value="">Khoa...</option>
 							<c:forEach items="${khoas}" var="item">
 								<option value="${item.maKhoa}">${item.tenKhoa}</option>
@@ -198,7 +199,7 @@
 							</select>
 						<select disabled
 							style="margin-top:17px; font-size: 20px; border: 2px solid; width: 200px; height:40px; display: none;"
-							id="KhoaSV4">
+							id="KhoaSV4" name="KhoaSV3">
 							<option disabled selected value="">Khoa...</option> 
 							<c:forEach items="${khoas}" var="item">
 								<option value="${item.maKhoa}">${item.tenKhoa}</option>
@@ -233,9 +234,10 @@
 				<div class="row">
 					<div class="col-md-8"></div>
 					<div class="col-md-2">
-					<button style="font-size:20px; border:2px solid; border-radius:15% ; background-color:#ABC4FF" type="submit">Đăng ký</button>
+					<button style="font-size:20px; border:2px solid; border-radius:15% ; background-color:#ABC4FF" type="submit" onclick="activate()">Đăng ký</button>
 					</div>
 				</div>
+				</form>
 			</div>
 		</div>
 	</div>

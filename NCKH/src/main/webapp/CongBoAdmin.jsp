@@ -14,11 +14,11 @@
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 <title>Công bố khoa học</title>
-<link rel="stylesheet" href="css/congbo.css">
+<style><%@include file="/css/congbo.css"%></style>
 </head>
 <body>
 	<jsp:include page="./headerAdmin.jsp"></jsp:include>
-	<jsp:include page="./tabGV.jsp"></jsp:include>
+	<jsp:include page="./tabAdmin.jsp"></jsp:include>
 
 	<div class="container">
 		<div class="row">

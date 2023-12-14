@@ -58,17 +58,17 @@ public class DeTaiDAO {
         return detais;
 	}
   
-  public DETAI laychitietdetai(String MaDT) {
+  public DETAI laychitietdetai(String MaDeTai) {
 		DETAI detai = null;
 		try (Connection connection = JDBC.getConnection();PreparedStatement preparedStatement = connection.prepareStatement(SELECT_DETAI);) {
-			preparedStatement.setString(1, MaDT);
+			preparedStatement.setString(1, MaDeTai);
             System.out.println(preparedStatement);
             // Step 3: Execute the query or update query
             ResultSet rs = preparedStatement.executeQuery();
 
             // Step 4: Process the ResultSet object.
             while (rs.next()) {
-                String MaDeTai = rs.getString("MaDeTai");
+                MaDeTai = rs.getString("MaDeTai");
                 String TieuDe = rs.getString("TieuDe");
                 String MoTa = rs.getString("MoTa");
                 boolean TrangThai = rs.getBoolean("TrangThai");

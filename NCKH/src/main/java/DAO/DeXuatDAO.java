@@ -15,6 +15,8 @@ public class DeXuatDAO {
 	private static final String INSERT_DEXUATDETAI_SQL = "INSERT INTO nckh.dexuatdetai" +
 	        "  (MaDeXuat, TieuDeDeTai, MoTaDeTai, MaGV, MaDeTai) VALUES " + " (?, ?, ?, ?, ?);";
 	private static final String SELECT_ALL_DEXUAT = "SELECT * FROM nckh.dexuatdetai";
+	private static final String SELECT_DEXUAT = "SELECT * FROM nckh.dexuatdetai WHERE MaDeXuat=?";
+	private static final String SET_TRANGTHAI = "UPDATE nckh.dexuatdetai SET TrangThai=1 WHERE MaDeXuat=?";
 	
 	public DeXuatDAO() {}
 	
@@ -83,5 +85,37 @@ public class DeXuatDAO {
         	HandleException.printSQLException(exception);
         }
         return detais;
+	}
+	public DEXUATDETAI chitietdexuat(String MaDX) {
+		DEXUATDETAI dexuat = null;
+		try (Connection connection = JDBC.getConnection();PreparedStatement preparedStatement = connection.prepareStatement(SELECT_DEXUAT);) {
+			preparedStatement.setString(1, MaDX);
+            System.out.println(preparedStatement);
+            ResultSet rs = preparedStatement.executeQuery();
+            while (rs.next()) {
+                String MaDeXuat1 = rs.getString("MaDeXuat");
+                String TieuDeDeTai1 = rs.getString("TieuDeDeTai");
+                String MoTaDeTai1 = rs.getString("MoTaDeTai");
+                String MaGV1 = rs.getString("MaGV");
+                boolean TrangThai1 = rs.getBoolean("TrangThai");
+                String MaDeTai1 = rs.getString("MaDeTai");
+                
+                dexuat = new DEXUATDETAI(MaDeXuat1, TieuDeDeTai1, MoTaDeTai1, MaGV1, TrangThai1,MaDeTai1);
+            }
+        } catch (SQLException exception) {
+        	HandleException.printSQLException(exception);
+        }
+		return dexuat;
+	}
+	public void setTrangThai(String MaDeXuat) throws SQLException{
+		System.out.println(INSERT_DEXUATDETAI_SQL);
+		
+		try (Connection connection = JDBC.getConnection(); PreparedStatement preparedStatement = connection.prepareStatement(SET_TRANGTHAI)) {
+            preparedStatement.setString(1, MaDeXuat);
+            System.out.println(preparedStatement);
+            preparedStatement.executeUpdate();
+        } catch (SQLException exception) {
+            HandleException.printSQLException(exception);
+        }
 	}
 }

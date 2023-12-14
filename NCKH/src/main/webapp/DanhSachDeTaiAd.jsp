@@ -49,11 +49,6 @@
 				
 				<div class="d-flex justify-content-end mb-3 col-md-9"
 					style="margin-top: 10px">
-					<div>
-						<input type="button" value="Chỉnh sửa thời gian đăng ký"
-							onclick="showModal()" class="my-class-2"> 
-						<input type="button" value="Đăng đề tài" class="my-class-1">
-					</div>
 				</div>
 
 			</div>

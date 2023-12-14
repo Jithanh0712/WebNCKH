@@ -17,6 +17,7 @@ public class ThoiGianDAO {
 	private static final String SELECT_THOIGIAN_DK = "SELECT * FROM nckh.THOIGIAN WHERE LoaiTG = ?";
 
 	private static final String SELECT_THOIGIAN_BC = "SELECT * FROM nckh.THOIGIAN WHERE LoaiTG = ?";
+	
 	private static final String UPDATE_THOIGIAN_DK = "UPDATE nckh.THOIGIAN SET NgayBatDau = ?, NgayKetThuc = ? WHERE LoaiTG = ?";
 
 	

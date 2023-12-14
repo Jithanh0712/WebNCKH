@@ -41,7 +41,6 @@
 						</tr>
 					</thead>
 					<tbody>
-						<% int i = 0; %>
 						<c:forEach var="detai" items="${listDT}" varStatus="loop">
 							<tr>
 								<td><c:out value="${detai.maDeTai}" /></td>

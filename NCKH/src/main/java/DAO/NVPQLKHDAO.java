@@ -20,6 +20,19 @@ public class NVPQLKHDAO {
 	private static final String SELECT_NHANVIEN_BYID = "SELECT * FROM NVPQLKH WHERE ID = ?";
 	private static final String UPDATE_NV = "UPDATE NVPQLKH SET TenNV = ?, KinhNghiem = ?, Email = ? WHERE ID = ?";
 	private static final String SELECT_ALL_DETAICANHAN = "SELECT * FROM nckh.DETAI WHERE MaNV = ?";
+	private static final String SELECT_ALL_TrangThai = "SELECT DISTINCT d.MaDeTai,\r\n"
+			+ "  COALESCE("
+			+ "    CASE"
+			+ "      WHEN d.TrangThai = '0' THEN '2'"
+			+ "      WHEN dk.TrangThai = '0' THEN '0'"
+			+ "      WHEN dk.TrangThai = '1' THEN '1'"
+			+ "    END,"
+			+ "    '2'"
+			+ "  ) AS TrangThai"
+			+ " FROM nckh.DETAI d"
+			+ " LEFT JOIN nckh.DANGKY dk ON d.MaDeTai = dk.MaDeTai"
+			+ " where d.manv = ?";
+	
 	public NVPQLKHDAO() {}
 	public void insertNVPQLKH(NVPQLKH nv) throws SQLException {
 		System.out.println(INSERT_NVPQLKH_SQL);
@@ -120,5 +133,27 @@ public class NVPQLKHDAO {
         	 HandleException.printSQLException(exception);
         }
         return tendetais;
+	}
+	
+	public List<String> selectAllTrangThai(String MaNV) {
+		// using try-with-resources to avoid closing resources (boiler plate code)
+		List<String> trangthais = new ArrayList <> ();
+
+        // Step 1: Establishing a Connection
+        try (Connection connection = JDBC.getConnection();PreparedStatement preparedStatement = connection.prepareStatement(SELECT_ALL_TrangThai);) {
+        	preparedStatement.setString(1, MaNV);
+        	System.out.println(preparedStatement);
+            // Step 3: Execute the query or update query
+            ResultSet rs = preparedStatement.executeQuery();
+
+            // Step 4: Process the ResultSet object.
+            while (rs.next()) {
+                String trangthai = rs.getString("TrangThai");
+                trangthais.add(trangthai);
+            }
+        } catch (SQLException exception) {
+        	 HandleException.printSQLException(exception);
+        }
+        return trangthais;
 	}
 }

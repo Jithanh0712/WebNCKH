@@ -13,47 +13,37 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import DAO.DangKyDAO;
 import DAO.DeTaiDAO;
 import DAO.GiangVienDAO;
-import DAO.KhoaDAO;
 import Models.DETAI;
 import Models.GIANGVIEN;
-import Models.KHOA;
 
-/**
- * Servlet implementation class MaDeTaiTranferController
- */
-@WebServlet("/tranfer")
-public class MaDeTaiTranferController extends HttpServlet {
+
+@WebServlet("/MDTTranferXNDKController")
+public class MDTTranferXNDKController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private DeTaiDAO dtdao;
-	private GiangVienDAO gvdao;
-	private KhoaDAO khoadao;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public MaDeTaiTranferController() {
+	private DeTaiDAO dtDAO;
+	private GiangVienDAO gvDAO;
+	private DangKyDAO dkDAO; 
+    
+    public MDTTranferXNDKController() {
         super();
-        // TODO Auto-generated constructor stub
+        
     }
 
-	/**
-	 * @see Servlet#init(ServletConfig)
-	 */
-	public void init(ServletConfig config) throws ServletException {
-		dtdao = new DeTaiDAO();
-		khoadao = new KhoaDAO();
-		gvdao = new GiangVienDAO();
+	
+	public void init()  {
+		dtDAO = new DeTaiDAO();
+		gvDAO = new GiangVienDAO();
+		dkDAO = new DangKyDAO();
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
+	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String MaDT = request.getParameter("madetai");
+		String MaDeTai = request.getParameter("madetai");
 		HttpSession session = request.getSession();
-		session.setAttribute("MaDT", MaDT);
+		session.setAttribute("MaDeTai", MaDeTai);
         String IDDangNhap = (String) session.getAttribute("IDDangNhap");
         String action = request.getPathInfo();
 		System.out.println("action error :"+ action );
@@ -61,13 +51,17 @@ public class MaDeTaiTranferController extends HttpServlet {
 		if (IDDangNhap != null) {
         	request.setCharacterEncoding("UTF-8");
             try {
-            	List<KHOA> khoas = khoadao.LayThongTinCacKhoa();
-				GIANGVIEN gv = gvdao.layThongTinGV(IDDangNhap);
-				DETAI dt = dtdao.laychitietdetai(MaDT);
-				RequestDispatcher dispatcher = request.getRequestDispatcher("/dangky");
-				request.setAttribute("giangvien", gv);
+
+				DETAI dt = dtDAO.laychitietdetai(MaDeTai);
+				String MaDK = dkDAO.layMaDK(MaDeTai);
+				GIANGVIEN gv = dkDAO.layGV(MaDK);
+				List<String> listsv = dkDAO.laySV(MaDeTai);
+				
+				RequestDispatcher dispatcher = request.getRequestDispatcher("/XacNhanDK");
+				request.setAttribute("MaDK", MaDK);
 				request.setAttribute("detai", dt);
-				request.setAttribute("khoas", khoas);
+				request.setAttribute("gv", gv);
+				request.setAttribute("listsv", listsv);
 				dispatcher.forward(request, response);
             } catch (SQLException e) {
                 e.printStackTrace();

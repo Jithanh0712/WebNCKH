@@ -27,7 +27,7 @@
 						<label style="margin-top:30px; font-size:20px;"><b>Tiêu đề</b></label><br>
 					</div>
 					<div class="col-md-7">
-						<textarea disabled disabled
+						<textarea readonly
 							style="margin-top: 30px; font-size: 20px; border: 2px solid; width: 300px"
 							rows=1 id="tendedai">${detai.tieuDe}</textarea>
 					</div>
@@ -39,28 +39,28 @@
 						<label style="margin-top:30px; font-size:20px;"><b>Danh sách sinh viên:</b></label>
 					</div>
 					<div class="col-md-3">
-						<textarea disabled
+						<textarea readonly
 							style="margin-top: 30px; font-size: 20px; border: 2px solid; width: 250px"
 							rows=1 id="GV">${giangvien.tenGV}</textarea>
 						
-						<textarea disabled
+						<textarea readonly
 							style="margin-top: 10px; font-size: 20px; border: 2px solid; width: 250px"
 							rows=1 id="SV1" placeholder="Tên sinh viên"> ${listSV.hoTen}</textarea>
 					</div>
 					<div class="col-md-3">
-						<textarea disabled
+						<textarea readonly
 							style="margin-left: 5px; margin-top: 30px; font-size: 20px; border: 2px solid; width: 100px"
 							rows=1 id="MaGV">${giangvien.maGV}</textarea><br>
 						
-						<textarea disabled
+						<textarea readonly
 							style="margin-left: 5px; margin-top: 10px; font-size: 20px; border: 2px solid; width: 100px"
 							rows=1 id="MaSV1" placeholder="mssv"> ${listSV.mSSV}</textarea>
-						<textarea disabled
+						<textarea readonly
 							style="margin-left: 5px; margin-top: 10px; font-size: 20px; border: 2px solid; width: 110px"
 							rows=1 id="NKSV1" placeholder="Niên khóa"> ${listSV.nienKhoa}</textarea><br>
 					</div>
 					<div class="col-md-3">
-						<textarea disabled
+						<textarea readonly
 							style="margin-top:87px; font-size: 20px; border: 2px solid; width: 200px; height:40px;"
 							rows=1 id="KhoaSV1" > ${listSV.tenKhoa}</textarea>
 						
@@ -74,8 +74,8 @@
 						<label style="margin-top:30px; font-size:20px;"><b>Mô tả:</b></label>
 					</div>
 					<div class="col-md-7">
-						<textarea disabled style="margin-top:25px; font-size:20px; border:2px solid; width:300px" rows=1> ${detai.kinhPhi}</textarea>
-						<textarea disabled id="mota" name="mota"
+						<textarea readonly style="margin-top:25px; font-size:20px; border:2px solid; width:300px" rows=1> ${detai.kinhPhi}</textarea>
+						<textarea readonly id="mota" name="mota"
 							style="border:2px solid; margin-top: 20px; font-size: 20px; width: 500px; height: 250px;"> ${detai.moTa}</textarea>
 					</div>
 				</div>

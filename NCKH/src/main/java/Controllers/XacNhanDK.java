@@ -20,7 +20,7 @@ import Models.GIANGVIEN;
 
 
 
-@WebServlet("/XacNhanDK/*")
+@WebServlet("/XacNhanDK")
 public class XacNhanDK extends HttpServlet {
 	private static final long serialVersionUID = 1L;
     private DeTaiDAO dtDAO;  
@@ -41,26 +41,23 @@ public class XacNhanDK extends HttpServlet {
 		String action = request.getPathInfo();
 		System.out.println("action error :"+ action );
 		try {
-			if (action.equals("/loaddata"))
-			{
-				LayChiTietDT(request, response);
-				listSV(request, response);
-				LayGV(request, response);
-			}
-			if (action.equals("/updateDK"))
-			{
-				String MaDeTai = request.getParameter("MaDeTai");
-				String MaDK = dkDAO.layMaDK(MaDeTai);
-	            
-	
-	
+				HttpSession session = request.getSession();
+				String maDT = (String) session.getAttribute("MaDT");
+				
+				DETAI dt = dtDAO.laychitietdetai(maDT);
+				List <String> listSV = dkDAO.laySV(maDT);
+				String MaDK = dkDAO.layMaDK(maDT);
+		        GIANGVIEN giangvien = dkDAO.layGV(MaDK);
+			
 	            boolean updated = dkDAO.CapNhatTrangThaiDK(MaDK);
 	            if (updated) {
 	            	RequestDispatcher dispatcher = request.getRequestDispatcher("/XacNhanDangKy.jsp");
+	            	request.setAttribute("detai", dt);
+	            	request.setAttribute("listSV", listSV);
+	            	request.setAttribute("giangvien", giangvien);
 	        		request.setAttribute("dangky", MaDK);
 	        		dispatcher.forward(request, response);
 	            }
-			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -72,39 +69,4 @@ public class XacNhanDK extends HttpServlet {
 
 		doGet(request, response);
 	}
-	
-	private void LayChiTietDT(HttpServletRequest request, HttpServletResponse response)
-		    throws SQLException, ServletException, IOException {
-				HttpSession session = request.getSession();
-				String maDT = (String) session.getAttribute("MaDT");
-		        DETAI dt = dtDAO.laychitietdetai(maDT);
-		        RequestDispatcher dispatcher = request.getRequestDispatcher("/XacNhanDangKy.jsp");
-		        request.setAttribute("detai", dt);
-		        dispatcher.forward(request, response);
-
-	}
-	
-	private void listSV(HttpServletRequest request, HttpServletResponse response)
-		    throws SQLException, IOException, ServletException {
-				HttpSession session = request.getSession();
-				String maDT = (String) session.getAttribute("MaDT");
-		        List <String> listSV = dkDAO.laySV(maDT);
-		        
-		        request.setAttribute("listSV", listSV);
-		        RequestDispatcher dispatcher = request.getRequestDispatcher("/XacNhanDangKy.jsp");
-		        dispatcher.forward(request, response);
-    }
-	
-	private void LayGV(HttpServletRequest request, HttpServletResponse response)
-		    throws SQLException, IOException, ServletException {
-				HttpSession session = request.getSession();
-				String maDT = (String) session.getAttribute("MaDT");
-				
-				String MaDK = dkDAO.layMaDK(maDT);
-		        GIANGVIEN giangvien = dkDAO.layGV(MaDK);
-		        
-		        request.setAttribute("giangvien", giangvien);
-		        RequestDispatcher dispatcher = request.getRequestDispatcher("/XacNhanDangKy.jsp");
-		        dispatcher.forward(request, response);
-    }
 }

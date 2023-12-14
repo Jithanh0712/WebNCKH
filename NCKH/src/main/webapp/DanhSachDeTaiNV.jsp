@@ -30,6 +30,7 @@
 					<h3>Danh sách đề tài</h3>
 					<button class="btn btn-primary" onclick="window.location.href='<%=request.getContextPath()%>/detaicuatoiNV'">Đề tài của bạn</button>
 				</div>
+				<form action="<%=request.getContextPath()%>/MDTTranferXNDKController" method="post">
 				<table class="table">
 					<thead>
 						<tr>
@@ -49,14 +50,14 @@
 									class="${listTT[loop.index] == '0' ? 'yellow-row' : listTT[loop.index] == '1' ? 'green-row' : listTT[loop.index] == '2' ? 'red-row' : ''}">
 								</td>
 								<td>
-									<input type="hidden" name="madetai" value="${detai.maDeTai}">
 									<button type = "submit" class = "btn_duyet" ${listTT[loop.index] == '0' ? '' : 'disabled'} 
-									value = "${detai.maDeTai}" name = "madetai" id = "madetai" onclick="window.location.href='<%=request.getContextPath()%>/XacNhanDK/loaddata'">Duyệt đề tài</button>
+									value = "${detai.maDeTai}" name = "madetai" id = "madetai">Duyệt đề tài</button>
 								</td>
 							</tr>
 						</c:forEach>
 					</tbody>
 				</table>
+				</form>
 
 				<div class="d-flex justify-content-end mb-3 col-md-9"
 					style="margin-top: 10px">

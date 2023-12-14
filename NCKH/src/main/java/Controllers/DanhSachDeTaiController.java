@@ -1,6 +1,7 @@
 package Controllers;
 
 import java.io.IOException;
+import java.sql.Array;
 import java.sql.Date;
 import java.sql.SQLException;
 import java.text.DateFormat;
@@ -84,9 +85,11 @@ public class DanhSachDeTaiController extends HttpServlet {
 		    throws SQLException, IOException, ServletException {
 		    	HttpSession session = request.getSession();
 		        List <DETAI> listDT = detaiDAO.selectAllDeTais();
+		        List<String> listTT = detaiDAO.selectAllTrangThai();
 		        THOIGIAN thoigian = tgDAO.layThoiGian();
 				request.setAttribute("thoigian", thoigian);
 		        request.setAttribute("listDT", listDT);
+		        request.setAttribute("listTT", listTT);
 		        RequestDispatcher dispatcher = request.getRequestDispatcher("/DanhSachDeTaiNV.jsp");
 		        dispatcher.forward(request, response);
     }

@@ -17,11 +17,15 @@ public class DangKyDAO {
 	        "  (MaDK, MaDeTai, MaGV, MaNhom) VALUES " + " (?, ?, ?, ?);";
 	private static final String UPDATE_TrangThai_DK = "UPDATE nckh.dangky SET TrangThai = 1 WHERE MaDK = ?";
 	private static final String SELECT_MaDK = "SELECT MaDK FROM nckh.dangky WHERE MaDeTai = ?";
-	private static final String SELECT_GV = "SELECT MaGV, TenGV FROM nckh.giangvien WHERE  MaGV = (SELECT MaGV FROM nckh.dangky MaDK = ?)";
-	private static final String SELECT_NHOMSV = "SELECT sv.HoTen, sv.MSSV, sv.NienKhoa, kh.TenKhoa"
+	private static final String SELECT_GV = "SELECT giangvien.MaGV, TenGV "
+												+ "FROM nckh.giangvien "
+												+ "INNER JOIN nckh.dangky "
+												+ "ON nckh.giangvien.MaGV = nckh.dangky.MaGV "
+												+ "WHERE nckh.dangky.MaDK = ?";
+	private static final String SELECT_NHOMSV = "SELECT sv.HoTen, sv.MSSV, sv.NienKhoa, kh.TenKhoa "
 												+ "FROM nckh.sinhvien "
-												+ "INNER JOIN nckh.dangky dk ON sv.MaNhom = dk.MaNhom"
-												+ "INNER JOIN nckh.khoa kh ON sv.MaKhoa = kh.MaKhoa"
+												+ "INNER JOIN nckh.dangky dk ON sv.MaNhom = dk.MaNhom "
+												+ "INNER JOIN nckh.khoa kh ON sv.MaKhoa = kh.MaKhoa "
 												+ "WHERE dk.MaDeTai = ?;";
 	public DangKyDAO() {}
 	
@@ -70,6 +74,7 @@ public class DangKyDAO {
         boolean updated = false;
         try (Connection connection = JDBC.getConnection(); PreparedStatement statement = connection.prepareStatement(UPDATE_TrangThai_DK);) {
         	statement.setString(1, MaDK);
+        	System.out.println(statement);
         	//System.out.println(gv.getTenGV());
             int rowsAffected = statement.executeUpdate();
             updated = (rowsAffected > 0);
@@ -86,9 +91,11 @@ public class DangKyDAO {
         try (Connection connection = JDBC.getConnection();PreparedStatement preparedStatement = connection.prepareStatement(SELECT_MaDK);)
         {
         	preparedStatement.setString(1, MaDeTai);
+        	System.out.println(preparedStatement);
         	rs = preparedStatement.executeQuery();
         	while (rs.next()) {
-                MaDK = rs.getString("MaDK");     
+                MaDK = rs.getString("MaDK");  
+                System.out.println(MaDK);
             }
             
         } catch (SQLException exception) {
@@ -104,11 +111,13 @@ public class DangKyDAO {
         try (Connection connection = JDBC.getConnection();PreparedStatement preparedStatement = connection.prepareStatement(SELECT_GV);)
         {
         	preparedStatement.setString(1, MaDK);
+        	System.out.println(preparedStatement);
         	rs = preparedStatement.executeQuery();
         	while (rs.next()) {
                 String MaGV = rs.getString("MaGV");   
                 String TenGV = rs.getString("TenGV");
                 gv = new GIANGVIEN(MaGV, TenGV);
+                System.out.println(TenGV);
             }
             
         } catch (SQLException exception) {
@@ -126,6 +135,7 @@ public class DangKyDAO {
 	         PreparedStatement preparedStatement = connection.prepareStatement(SELECT_NHOMSV)) {
 	        // Step 3: Execute the query and process the ResultSet
 	        ResultSet rs = preparedStatement.executeQuery();
+	        System.out.println(preparedStatement);
 	        while (rs.next()) {
 	            String HoTen = rs.getString("HoTen");
 	            String MSSV = rs.getString("MSSV");

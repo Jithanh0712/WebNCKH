@@ -66,7 +66,6 @@ public class DangKyDeTaiController extends HttpServlet {
             	int soluongtv = 0;
             	for(var i = 1; i < 5; i++) {
             		String mssv = (String) request.getParameter("MaSV" + i);
-            		System.out.println("---------------" + mssv);
             		if(mssv != null) {
             			String ten = (String) request.getParameter("SV" + i);
             			String nienkhoa = (String) request.getParameter("NKSV" + i);
@@ -110,6 +109,7 @@ public class DangKyDeTaiController extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+
 		doGet(request, response);
 	}
 

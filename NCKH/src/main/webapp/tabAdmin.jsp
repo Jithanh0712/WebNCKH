@@ -21,6 +21,7 @@
 			<a href="<%=request.getContextPath()%>/listDSDT_Ad" class="list-group-item tab-1 px-3 border-0 rounded-0 list-group-item-info mb-2 pointer">Đề tài NCKH</a>
 			<a href="<%=request.getContextPath()%>/CongBoAdmin.jsp" class="list-group-item tab-1 px-3 border-0 rounded-0 list-group-item-info mb-2 pointer">Công bố khoa học</a>
 			<a href="" class="list-group-item tab-1 px-3 border-0 rounded-0 list-group-item-info mb-2 pointer">Đề xuất đề tài</a>
+			<a href="" class="list-group-item tab-1 px-3 border-0 rounded-0 list-group-item-info mb-2 pointer" onclick="alert('Không có thông báo nào ở đây'); return false;">Thông báo</a>
 	    </div>
 	  </div>	 
 	</section>

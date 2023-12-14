@@ -49,83 +49,13 @@
 						</tbody>
 					</table>
 				</div>
-				<div class="d-flex justify-content-end mb-3">
-					<button class="btn btn-primary" type="submit" onclick="showForm()">Đặt thời gian báo cáo</button>
-				</div>
-				
-				<form id="edit-time-form" style="display: none;">
-					<div class="row">
-						<div class="col-md-2">
-							<div class="form-group">
-								<label for="magv">Chọn loại báo cáo: </label>
-							</div>
-						</div>
-						<div class="col-md-5">
-							<div class="form-group">
-								<input type="radio" id="bcdk" name="bcdk" placeholder = "Báo cáo định kỳ"> Báo cáo định kỳ
-							</div>
-						</div>
-						<div class="col-md-5">
-							<div class="form-group">
-								<input type="radio" id="bcnt" name="bcnt" placeholder = "Báo cáo định kỳ"> Báo cáo nghiệm thu
-							</div>
-						</div>
-					</div>
-					
-					<div class="row">
-						<div class="col-md-2">
-							<div class="form-group">
-								<label for="magv">Thời gian hiện tại: </label>
-							</div>
-						</div>
-						<div class="col-md-5">
-							<div class="form-group">
-								<input type="text" id="ngaybd" name="ngaybd" maxlength="30" class="form-control" value="${thoigian.ngayBatDau.toLocalDate().toString()}" readonly>
-							</div>
-						</div>
-						<div class="col-md-5">
-							<div class="form-group">
-								<input type="text" id="ngaykt" name="ngaykt" maxlength="30" class="form-control" value="${thoigian.ngayKetThuc.toLocalDate().toString()}" readonly>
-							</div>
-						</div>
-					</div>
-					
-					<div class="row">
-						<div class="col-md-2">
-							<div class="form-group">
-								<label for="magv">Thời gian mới: </label>
-							</div>
-						</div>
-						<div class="col-md-5">
-							<div class="form-group">
-								<input type="date" id="ngaybdmoi" name="ngaybdmoi" maxlength="30" class="form-control">
-							</div>
-						</div>
-						<div class="col-md-5">
-							<div class="form-group">
-								<input type="date" id="ngayktmoi" name="ngayktmoi" maxlength="30" class="form-control">
-							</div>
-						</div>
-					</div>
-					<input type="submit" value="Xác nhận" class="my-class-1" style = "margin-left:90%;  margin-top:2%">
+				<form action="thoigian/update" method="post">
+				  <button class="btn btn-primary" type="submit">Đặt thời gian báo cáo</button>
 				</form>
+								
 			</div>
 		</div>
 	</div>
-	
-	<script>
-		let form = document.getElementById('edit-time-form');
-	  	let formVisible = false;
-		function showForm() {
-			formVisible = !formVisible; // Đảo ngược trạng thái hiển thị
-
-			if (formVisible) {
-				form.style.display = 'block';
-			} else {
-				form.style.display = 'none';
-			}
-		}
-	</script>
 	
 	<jsp:include page="./footer.jsp"></jsp:include>
 </body>

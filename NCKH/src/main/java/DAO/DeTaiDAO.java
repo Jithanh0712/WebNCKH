@@ -19,6 +19,7 @@ public class DeTaiDAO {
 	private static final String SELECT_ALL_DETAI = "SELECT * FROM nckh.detai";
 	private static final String SELECT_DETAI = "SELECT * FROM nckh.detai WHERE MaDeTai = ?";
 	private static final String SELECT_TenDeTai = "SELECT TieuDe FROM nckh.detai WHERE MaNV = (SELECT MaNV FROM nckh.nvpqlkh WHERE ID = ?)";
+	private static final String UPDATE_TrangThai = "UPDATE nckh.detai SET TrangThai = '1' WHERE MaDeTai = ?";
 	private static final String Set_TrangThaiDeTai = "SELECT d.MaDeTai,"
 			+ "    COALESCE("
 			+ "        CASE"
@@ -126,7 +127,18 @@ public class DeTaiDAO {
         }
         return trangthais;
   }
-	
+  
+	public void setTrangThai(String madt) {
+		try (Connection connection = JDBC.getConnection();PreparedStatement preparedStatement = connection.prepareStatement(UPDATE_TrangThai);) {
+            preparedStatement.setString(1, madt);
+			System.out.println(preparedStatement);
+            // Step 3: Execute the query or update query
+            preparedStatement.executeUpdate();
+        } catch (SQLException exception) {
+        	 HandleException.printSQLException(exception);
+    }
+  }
+
 	public String GenerateMaDeTai() {
 	    String sql = "SELECT MAX(MaDeTai) FROM nckh.detai";
 	    String nextMaDX = "DT001";

@@ -25,8 +25,8 @@ public class KhoaDAO {
 
             // Step 4: Process the ResultSet object.
             while (rs.next()) {
-                String MaKhoa = rs.getString(0);
-                String TenKhoa = rs.getString(1);
+                String MaKhoa = rs.getString(1);
+                String TenKhoa = rs.getString(2);
                 khoas.add(new KHOA(MaKhoa, TenKhoa));
             }
         } catch (SQLException exception) {

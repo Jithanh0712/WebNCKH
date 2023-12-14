@@ -20,7 +20,7 @@ import Models.GIANGVIEN;
 
 
 
-@WebServlet("/XacNhanDK")
+@WebServlet("/XacNhanDK/*")
 public class XacNhanDK extends HttpServlet {
 	private static final long serialVersionUID = 1L;
     private DeTaiDAO dtDAO;  
@@ -75,8 +75,9 @@ public class XacNhanDK extends HttpServlet {
 	
 	private void LayChiTietDT(HttpServletRequest request, HttpServletResponse response)
 		    throws SQLException, ServletException, IOException {
-		        String MaDeTai = request.getParameter("MaDeTai");
-		        DETAI dt = dtDAO.laychitietdetai(MaDeTai);
+				HttpSession session = request.getSession();
+				String maDT = (String) session.getAttribute("MaDT");
+		        DETAI dt = dtDAO.laychitietdetai(maDT);
 		        RequestDispatcher dispatcher = request.getRequestDispatcher("/XacNhanDangKy.jsp");
 		        request.setAttribute("detai", dt);
 		        dispatcher.forward(request, response);
@@ -85,8 +86,9 @@ public class XacNhanDK extends HttpServlet {
 	
 	private void listSV(HttpServletRequest request, HttpServletResponse response)
 		    throws SQLException, IOException, ServletException {
-				String MaDeTai = request.getParameter("MaDeTai");
-		        List <String> listSV = dkDAO.laySV(MaDeTai);
+				HttpSession session = request.getSession();
+				String maDT = (String) session.getAttribute("MaDT");
+		        List <String> listSV = dkDAO.laySV(maDT);
 		        
 		        request.setAttribute("listSV", listSV);
 		        RequestDispatcher dispatcher = request.getRequestDispatcher("/XacNhanDangKy.jsp");
@@ -95,8 +97,10 @@ public class XacNhanDK extends HttpServlet {
 	
 	private void LayGV(HttpServletRequest request, HttpServletResponse response)
 		    throws SQLException, IOException, ServletException {
-				String MaDeTai = request.getParameter("MaDeTai");
-				String MaDK = dkDAO.layMaDK(MaDeTai);
+				HttpSession session = request.getSession();
+				String maDT = (String) session.getAttribute("MaDT");
+				
+				String MaDK = dkDAO.layMaDK(maDT);
 		        GIANGVIEN giangvien = dkDAO.layGV(MaDK);
 		        
 		        request.setAttribute("giangvien", giangvien);

@@ -1,4 +1,4 @@
-@charset "ISO-8859-1";
+@charset "UTF-8";
 
 .rectangle{
 	display: flex;
@@ -36,6 +36,7 @@
 }
 
 .textarena:disabled{
-	color: gray;
-	background-color: lightgray;
+	color: lightgray !important;
+	background-color: lightgray !important;
+	border:1px lightgray !important;
 }

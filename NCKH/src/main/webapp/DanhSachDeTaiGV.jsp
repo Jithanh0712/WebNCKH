@@ -34,7 +34,7 @@
 			<div class="col-md-9 <c:if test="${thoigian.ngayBatDau.time > System.currentTimeMillis() || System.currentTimeMillis() > thoigian.ngayKetThuc.time}">hidden</c:if>">
 				<div class="d-flex justify-content-between mb-3">
 					<h3>Danh sách đề tài</h3>
-					<button class="btn btn-primary" onclick="window.location.href='<%=request.getContextPath()%>/FromDL'">Đề tài của bạn</button>
+					<button class="btn btn-primary" onclick="window.location.href='<%=request.getContextPath()%>/detaicuatoi'">Đề tài của bạn</button>
 				</div>
 				<form method="post" action="dangky">
 				<table class="table">

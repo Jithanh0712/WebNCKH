@@ -51,7 +51,11 @@ public class XacNhanDK extends HttpServlet {
 	        
 	        boolean TrangThai = Boolean.parseBoolean(request.getParameter("TrangThai"));
             boolean update1 = dkDAO.CapNhatTrangThaiDK(TrangThai, MaDK);
-            Date NgayDKTC = new Date(System.currentTimeMillis());
+            Date NgayDKTC = null;
+            if(TrangThai == true)
+            {
+            	NgayDKTC = new Date(System.currentTimeMillis());
+            }
             boolean update2 = dkDAO.CapNhatNgayDKTC(NgayDKTC, maDT);
             if(update1 && update2)
             {

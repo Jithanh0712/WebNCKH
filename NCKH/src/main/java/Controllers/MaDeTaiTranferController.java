@@ -64,7 +64,7 @@ public class MaDeTaiTranferController extends HttpServlet {
             	List<KHOA> khoas = khoadao.LayThongTinCacKhoa();
 				GIANGVIEN gv = gvdao.layThongTinGV(IDDangNhap);
 				DETAI dt = dtdao.laychitietdetai(MaDT);
-				RequestDispatcher dispatcher = request.getRequestDispatcher("/dangky");
+				RequestDispatcher dispatcher = request.getRequestDispatcher("/DangKy.jsp");
 				request.setAttribute("giangvien", gv);
 				request.setAttribute("detai", dt);
 				request.setAttribute("khoas", khoas);

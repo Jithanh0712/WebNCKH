@@ -23,6 +23,16 @@
 			<div class="col-md-9">
 				<form method="post" action="dexuat">
 				<div class="row">
+					<div class="horizontal-label">
+						<label> <img
+							src="https://i.pinimg.com/564x/42/77/9a/42779a94b8a7da888fb537425ba8949c.jpg"
+							alt="Image" class="label-image"> <span class="label-text">
+								<a>ĐỀ XUẤT ĐỀ TÀI </a>
+						</span>
+						</label>
+					</div>
+				</div>
+				<div class="row">
 					<div class="col-md-2"></div>
 					<div class="col-md-2">
 						<label for="tendetai"
@@ -30,7 +40,7 @@
 					</div>
 					<div class="col-md-8">
 						<input type="text" id="tendetai" name="tendetai"
-							style="border: solid; margin-top: 100px; font-size: 20px; width: 500px;">
+							style="margin-top: 100px; font-size: 20px; width: 500px;" class = "border-style">
 					</div>
 				</div>
 				<div class="row">
@@ -41,7 +51,7 @@
 					</div>
 					<div class="col-md-8">
 						<textarea id="mota" name="mota"
-							style="border: solid; margin-top: 50px; font-size: 20px; width: 500px; height: 250px;"></textarea>
+							style="margin-top: 50px; font-size: 20px; width: 500px; height: 250px;" class = "border-style"></textarea>
 					</div>
 				</div>
 				<div class="row">

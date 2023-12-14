@@ -14,7 +14,7 @@
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 <title>Công bố khoa học</title>
-<link rel="stylesheet" href="css/congbo.css">
+<style><%@include file="/css/congbo.css"%></style>
 </head>
 <body>
 	<jsp:include page="./headerBegin.jsp"></jsp:include>
@@ -26,24 +26,8 @@
 				<jsp:include page="./listlink.jsp"></jsp:include>
 			</div>
 			<div class="col-md-9">
-				<div class="row">
-					<div class="form-group personal-info-form">
-						<label for="id">TÌM KIẾM CÔNG BỐ KH&CN</label>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-md-2"></div>
-					<div class="col-md-9">
-						<div class="form-group personal-info-form">
-							<input type="text" id="timkiem" name="timkiem" maxlength="30"
-								class="form-control">
-						</div>
-					</div>
-					<div class="col-md-1">
-						<input type="button" value="Tìm kiếm" class="setbtn">
-					</div>
-				</div>
-				<div class="row" style="margin-top: 5%">
+
+				<div class="row" style="margin-top: 2%">
 					<div class="form-group personal-info-form">
 						<label for="id">CÁC CÔNG BỐ KH&CN</label>
 					</div>

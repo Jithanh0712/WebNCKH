@@ -1,6 +1,5 @@
 package DAO;
 
-import java.sql.Array;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
@@ -10,6 +9,7 @@ import java.util.ArrayList;
 
 import java.util.List;
 import Models.DETAI;
+import Models.DEXUATDETAI;
 import Util.HandleException;
 import Util.JDBC;
 
@@ -29,6 +29,8 @@ public class DeTaiDAO {
 			+ "        '2'"
 			+ "    ) AS TrangThai"
 			+ " FROM nckh.DETAI d LEFT JOIN nckh.DANGKY dk ON d.MaDeTai = dk.MaDeTai";
+	
+	private static final String Insert_DeTai = "INSERT INTO nckh.detai (MaDeTai, TieuDe, MoTa, TrangThai, KinhPhi, MaNV) VALUES " + " (?, ?, ?, ?, ?, ?); ";
 	public DeTaiDAO() {}
 	
 	public List<DETAI> selectAllDeTais() {
@@ -124,4 +126,46 @@ public class DeTaiDAO {
         }
         return trangthais;
   }
+	
+	public String GenerateMaDeTai() {
+	    String sql = "SELECT MAX(MaDeTai) FROM nckh.detai";
+	    String nextMaDX = "DT001";
+
+	    try {
+	    	Connection connection = JDBC.getConnection();
+	        PreparedStatement pstmt = connection.prepareStatement(sql);
+	        ResultSet rs = pstmt.executeQuery();
+
+	        if (rs.next()) {
+	            nextMaDX = rs.getString(1);
+	        }
+
+	        rs.close();
+	        pstmt.close();
+
+	    } catch (SQLException e) {
+	        System.out.println("Error: " + e);
+	    }
+
+	    int number = Integer.parseInt(nextMaDX.substring(2)) + 1;
+	    String numberStr = String.format("%03d", number);
+	    return "DT" + numberStr;
+	}
+	
+	public void DangDeTai(DETAI dt) throws SQLException{
+		System.out.println(Insert_DeTai);
+		
+		try (Connection connection = JDBC.getConnection(); PreparedStatement preparedStatement = connection.prepareStatement(Insert_DeTai)) {
+            preparedStatement.setString(1, dt.getMaDeTai());
+            preparedStatement.setString(2, dt.getTieuDe());
+            preparedStatement.setString(3, dt.getMoTa());
+            preparedStatement.setBoolean(4, dt.getTrangThai());
+            preparedStatement.setInt(5, dt.getKinhPhi());
+            preparedStatement.setString(6, dt.getMaNV());
+            System.out.println(preparedStatement);
+            preparedStatement.executeUpdate();
+        } catch (SQLException exception) {
+            HandleException.printSQLException(exception);
+        }
+	}
 }

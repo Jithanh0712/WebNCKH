@@ -78,12 +78,12 @@ public class ThoiGianController extends HttpServlet {
 
 	    try {
 	        // Chuyển đổi chuỗi ngày bắt đầu mới thành đối tượng java.util.Date
-	        java.util.Date utilDate_bd = sdf.parse(ngaybdmoi);
-	        Date tgBDMoi = new Date(utilDate_bd.getTime());
+	        //java.util.Date utilDate_bd = sdf.parse(ngaybdmoi);
+	        Date tgBDMoi = new java.sql.Date(sdf.parse(ngaybdmoi).getTime());
 
 	        // Chuyển đổi chuỗi ngày kết thúc mới thành đối tượng java.util.Date
 	        java.util.Date utilDate_kt = sdf.parse(ngayktmoi);
-	        Date tgKTMoi = new Date(utilDate_kt.getTime());
+	        Date tgKTMoi = new java.sql.Date(sdf.parse(ngayktmoi).getTime());
 
 	        THOIGIAN thoigian = new THOIGIAN("TGDK", tgBDMoi, tgKTMoi);
 

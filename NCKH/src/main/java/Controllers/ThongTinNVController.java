@@ -33,7 +33,7 @@ public class ThongTinNVController extends HttpServlet {
         String IDDangNhap = (String) session.getAttribute("IDDangNhap");
         String action = request.getPathInfo();
 		System.out.println("action error :"+ action );
-		
+		request.setCharacterEncoding("UTF-8");
 		if (IDDangNhap != null) {
 			try {
 				if (action.equals("/thongtin"))

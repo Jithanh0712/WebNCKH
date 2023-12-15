@@ -41,7 +41,8 @@
 									<td><c:out value="${listDTCN.tieuDe}" /></td>
 									<td class="${listTT[loop.index] == '0' ? 'yellow-row' : (listTT[loop.index] == '1' ? 'green-row' : (listTT[loop.index] == '2' ? 'red-row' : ''))}">
 									</td>
-									<td &nbsp;&nbsp;&nbsp;&nbsp;><a href="XemChiTietNV.jsp?id=<c:out value='${detai.maDeTai}'/>">Xem chi tiết</a>
+									<td>
+									    <a href="XemChiTietNV.jsp?id=<c:out value='${detai.maDeTai}'/>" style="${listTT[loop.index] == '2' ? 'display: none;' : ''}">Xem chi tiết</a>
 									</td>
 								</tr>
 							</c:forEach>

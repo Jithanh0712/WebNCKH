@@ -47,15 +47,16 @@
 									    <c:if test="${trangThai eq 'false'}">class="yellow-row"</c:if>>
 									</td>
 									<c:set var="maDeTai" value="${details[1]}" />
-									<td>
-										<button type="submit" class="btn_duyet" value="${maDeTai}"
-											name="madetai" id="madetai"
-											${fn:contains(maDeTai, 'DT') ? '' : 'disabled'}>Nộp báo cáo</button>
-									</td>
-									<form action = "MDTTranferXCTController" method = "post">
-									<td>
-										<button type="submit" class="btn_duyet" value="${maDeTai}"
-											name="madetai" id="madetai">Xem chi tiết</button>
+										<td>
+											<button type="submit" class="btn_duyet" value="${maDeTai}"
+												name="madetai" id="madetai"
+												style="${fn:contains(maDeTai, 'DT') && trangThai eq 'true' ? 'display: inline-block;' : 'display: none;'}"
+												${thoigian.ngayBatDau.time > System.currentTimeMillis() || System.currentTimeMillis() > thoigian.ngayKetThuc.time ? 'disabled' : ''}>Nộp
+												báo cáo</button>
+										</td>
+                    <form action = "MDTTranferXCTController" method = "post">
+										<td>
+									    <button type="submit" class="btn_duyet" value="${maDeTai}" name="madetai" id="madetai" style="${fn:contains(maDeTai, 'DT') ? 'display: inline-block;' : 'display: none;'}">Xem chi tiết</button>
 									</td>
 									</form>
 								</tr>

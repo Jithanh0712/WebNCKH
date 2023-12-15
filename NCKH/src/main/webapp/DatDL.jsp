@@ -35,10 +35,10 @@
 				<input type="date" id="ngayktbc" name="ngayktbc" maxlength="30" class="form-control">
 			</div>
 			<div class="form-group">
-				<input type="radio" id="bc" name="bc" placeholder="Báo cáo định kỳ" style = "margin-top:5%"> Báo cáo định kỳ
+				<input type="radio" id="bcdk" name="bc" placeholder="Báo cáo định kỳ" style = "margin-top:5%" onclick="setFieldValue('Báo cáo định kỳ')"> Báo cáo định kỳ
 			</div>
 			<div class="form-group">
-				<input type="radio" id="bc" name="bc" placeholder = "Báo cáo nghiệm thu" style = "margin-top:3%"> Báo cáo nghiệm thu
+				<input type="radio" id="bcnt" name="bc" placeholder = "Báo cáo nghiệm thu" style = "margin-top:3%" onclick="setFieldValue('Báo cáo nghiệm thu')"> Báo cáo nghiệm thu
 			</div>
 			<div class="form-group">
 				<label for="magv" style= "color:black; font-size: 24px; margin-top:8%">Thông báo: </label>
@@ -56,5 +56,11 @@
 			</div>
 		</div>
 	</div>
+	<script>
+	    function setFieldValue(value) {
+	        var tenThongBaoInput = document.getElementById('TenThongBao');
+	        tenThongBaoInput.value = value;
+	    }
+	</script>
 	<jsp:include page="./footer.jsp"></jsp:include>
 </body>

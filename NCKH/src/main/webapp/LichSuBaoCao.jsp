@@ -48,7 +48,6 @@
 							<th>Loại báo cáo</th>
 							<th>Ngày nộp</th>
 							<th>File</th>
-							<th></th>
 						</tr>
 					</thead>
 						<c:forEach var="filebaocao" items="${listBC}">

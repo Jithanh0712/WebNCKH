@@ -24,7 +24,7 @@
 			</div>
 			<div class="col-md-9">
 				<div class="col-md-3">
-					<form action="FromDL" method="post">
+					<form action="/nopbaocao" method="post">
 						
 					    <textarea name="my-text-area-${thongbao.maThongBao}" id="my-text-area-${thongbao.maThongBao}" cols="125"
 					        rows="7.5" readonly>Tên thông báo: ${thongbao.tenThongBao}

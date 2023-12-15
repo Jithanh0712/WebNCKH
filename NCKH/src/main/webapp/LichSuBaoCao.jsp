@@ -14,18 +14,6 @@
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"></script>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 	<style><%@include file="/css/danhsachdetai.css"%></style>
-<script>
-	function downloadFile(url) {
-		var a = document.createElement('a');
-		//var convertedURL = url.replace(/\\\\/g, '\\');
-		a.href = url;
-		var filename = url.substring(url.lastIndexOf('\') + 1);
-		a.download = filename;
-		document.body.appendChild(a);
-		a.click();
-		document.body.removeChild(a);
-	}
-</script>
 </head>
 
 <body>
@@ -57,12 +45,20 @@
 								<td><c:out value="${filebaocao.ngayNop}" /></td>
 								<td>
 									<p>Ấn vào để tài về</p><a onmouseover="this.style.color='red'" onmouseout="this.style.color=''" 
-							style="font-size: 20px; text-decoration: underline;" class="button" onclick="downloadFile('${filebaocao.fileURL}')"> tại đây</a>
+							style="font-size: 20px; text-decoration: underline;" class="button" type="button" onclick="downloadFile('${filebaocao.fileURL}')"> tại đây</a>
 								</td>
 							</tr>
 						</c:forEach>
 					</tbody>
 				</table>
+					<script>
+	function downloadFile(filepath) {
+		var a = document.createElement('a');
+		a.href = filepath;
+	    a.download = filepath.split('/').pop();
+	    a.click();
+	}
+</script>
 				</form>
 			</div>
 		</div>

@@ -28,7 +28,10 @@
 			</div>
 			<c:if test="${thoigian.ngayBatDau.time > System.currentTimeMillis() || System.currentTimeMillis() > thoigian.ngayKetThuc.time}">
 				<div class="col-md-9">
-					<div class="message"><p>Hiện không trong thời gian đăng ký</p></div>
+					<div class="d-flex justify-content-between mb-3">
+						<div class="message"><p>Hiện không trong thời gian đăng ký</p></div>
+						<button class="btn btn-primary" onclick="window.location.href='<%=request.getContextPath()%>/detaicuatoi'">Đề tài của bạn</button>
+					</div>
 				</div>
 			</c:if>
 			<div class="col-md-9 <c:if test="${thoigian.ngayBatDau.time > System.currentTimeMillis() || System.currentTimeMillis() > thoigian.ngayKetThuc.time}">hidden</c:if>">

@@ -5,6 +5,7 @@ import java.sql.Date;
 import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -14,14 +15,21 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import DAO.NVPQLKHDAO;
 import DAO.ThoiGianDAO;
+import DAO.ThongBaoNVDAO;
+import Models.GIANGVIEN;
 import Models.THOIGIAN;
+import Models.THONGBAO;
 
 @WebServlet("/thoigian/*")
 public class ThoiGianController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
     
 	private ThoiGianDAO tgDAO;
+	private NVPQLKHDAO nvDAO;
+	private ThongBaoNVDAO tbnvDAO;
+	
     public ThoiGianController() {
         super();
     }
@@ -29,6 +37,8 @@ public class ThoiGianController extends HttpServlet {
     public void init()
     {
     	tgDAO = new ThoiGianDAO();
+    	nvDAO = new NVPQLKHDAO();
+    	tbnvDAO = new ThongBaoNVDAO();
     }
     
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -66,11 +76,8 @@ public class ThoiGianController extends HttpServlet {
 
 	private void update_TGBC(HttpServletRequest request, HttpServletResponse response)
 		    throws SQLException, IOException, ServletException {
-				/*DateTimeFormatter df_bd = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-		        LocalDate tgBDMoi = LocalDate.parse(request.getParameter("ngaybdmoi"),df_bd);
-		        DateTimeFormatter df_kt = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-		        DateFormat tgKTMoi = DateFormat.(request.getParameter("ngayktmoi"),df_kt);
-		        */
+		HttpSession session = request.getSession();
+		String IDDangNhap = (String) session.getAttribute("IDDangNhap");
 		String ngaybdmoi = request.getParameter("ngaybdbc");
 	    String ngayktmoi = request.getParameter("ngayktbc");
 
@@ -84,15 +91,36 @@ public class ThoiGianController extends HttpServlet {
 	        // Chuyển đổi chuỗi ngày kết thúc mới thành đối tượng java.util.Date
 	        java.util.Date utilDate_kt = sdf.parse(ngayktmoi);
 	        Date tgKTMoi = new java.sql.Date(sdf.parse(ngayktmoi).getTime());
-
+	        
 	        THOIGIAN thoigian = new THOIGIAN("TGDC", tgBDMoi, tgKTMoi);
-
+	        String MaNV = nvDAO.layThongTinNV(IDDangNhap).getMaNV();
+	        List <GIANGVIEN> listGV = nvDAO.selectAllGVs(MaNV);
+	        
 	        boolean updated = tgDAO.capNhatThoiGianBC(thoigian);
 
 	        if (updated) {            
 	            request.setAttribute("thoigian", thoigian);
 	            RequestDispatcher dispatcher = request.getRequestDispatcher("/listDSDT_NV");
 				dispatcher.forward(request, response);
+	        }
+	        
+	        if (listGV != null) {
+	        	
+	            String TenThongBao = request.getParameter("TenThongBao");
+	            String NoiDung = request.getParameter("NoiDung");
+	            Date NgayGui = new Date(System.currentTimeMillis());
+	            
+	            for (GIANGVIEN NguoiNhan : listGV) {
+	            	String MaGV = NguoiNhan.getMaGV();
+	            	String MaThongBao = tbnvDAO.findNextMaTB();
+	            	THONGBAO tb = new THONGBAO(MaThongBao, TenThongBao, NoiDung, NgayGui, MaGV, MaNV);
+
+	                try {
+	                    tbnvDAO.insertTB(tb);
+	                } catch (SQLException e) {
+	                    // Handle exception
+	                }
+	            }   
 	        }
 	    } catch (ParseException e) {
 	        e.printStackTrace();

@@ -33,6 +33,11 @@ public class NVPQLKHDAO {
 			+ " LEFT JOIN nckh.DANGKY dk ON d.MaDeTai = dk.MaDeTai"
 			+ " where d.manv = ?";
 	
+	private static final String SELECT_ALL_GVNhanTB = "SELECT DISTINCT DK.MaGV "
+			+ "FROM nckh.DANGKY DK "
+			+ "INNER JOIN nckh.DETAI DT ON DK.MaDeTai = DT.MaDeTai "
+			+ "WHERE DK.TrangThai = '1' AND DT.MaNV = ?";
+			
 	public NVPQLKHDAO() {}
 	public void insertNVPQLKH(NVPQLKH nv) throws SQLException {
 		System.out.println(INSERT_NVPQLKH_SQL);
@@ -159,5 +164,26 @@ public class NVPQLKHDAO {
         	 HandleException.printSQLException(exception);
         }
         return trangthais;
+	}
+	
+	public List<GIANGVIEN> selectAllGVs(String MaNV) throws SQLException {
+		List<GIANGVIEN> GVs = new ArrayList<>();
+		
+		// Establish a connection
+		try (Connection connection = JDBC.getConnection();
+			PreparedStatement preparedStatement = connection.prepareStatement(SELECT_ALL_GVNhanTB)) {
+			preparedStatement.setString(1, MaNV);
+			System.out.println(preparedStatement);
+
+			ResultSet rs = preparedStatement.executeQuery();
+			
+			while (rs.next()) {
+			String MaGV = rs.getString("MaGV");
+			GVs.add(new GIANGVIEN(MaGV));
+			}
+		} catch (SQLException exception) {
+			HandleException.printSQLException(exception);
+		}
+		return GVs;
 	}
 }

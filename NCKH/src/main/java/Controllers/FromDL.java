@@ -24,7 +24,7 @@ import Models.BAOCAO;
 import Models.GIANGVIEN;
 
 
-@WebServlet("/FromDL")
+@WebServlet("/FromDL/*")
 public class FromDL extends HttpServlet {
 	private static final long serialVersionUID = 1L;
     private ThoiGianDAO tgDAO;
@@ -51,8 +51,15 @@ public class FromDL extends HttpServlet {
 		String action = request.getPathInfo();
 		System.out.println("action error :"+ action );
 		try {
+			String MaDT = null;
+			if(action.contains("/redirect")) {
+				MaDT = (String) request.getParameter("madetai");
+				session.setAttribute("madetai", MaDT);
+			}
+			else {
+				MaDT = (String) session.getAttribute("madetai");
+			}
 			String FileURL = (String) session.getAttribute("filename");
-			String MaDT = (String) request.getParameter("madetai");
 			THOIGIAN tg = tgDAO.layThoiGianBaoCao();
 			request.setAttribute("thoigian", tg);
 			GIANGVIEN gv = gvdao.layThongTinGV(IDDangNhap);
@@ -71,13 +78,15 @@ public class FromDL extends HttpServlet {
 				}
 			}
 			if(action.contains("/redirect")) {
-				RequestDispatcher dispatcher = request.getRequestDispatcher("FromNopDL.jsp");
+				RequestDispatcher dispatcher = request.getRequestDispatcher("/FromNopDL.jsp");
 				dispatcher.forward(request, response);
 			}
 			if(action.contains("/nopbaocao")) {
 				String MaBC = bcdao.GenerateMaBaoCao();
 				Date ngaynop = Date.valueOf(LocalDate.now());
 				bcdao.insertbaocao(new BAOCAO(MaBC, MaDT, ngaynop, Loai, FileURL));
+				RequestDispatcher dispatcher = request.getRequestDispatcher("/DanhSachDeTai.jsp");
+				dispatcher.forward(request, response);
 			}
         } catch (SQLException ex) {
             throw new ServletException(ex);

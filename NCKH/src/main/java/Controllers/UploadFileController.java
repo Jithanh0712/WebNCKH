@@ -7,6 +7,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
@@ -43,8 +44,9 @@ public class UploadFileController extends HttpServlet {
             }
         }
         HttpSession session = request.getSession();
-        session.setAttribute("filename", uploadDirectory+"/"+fileName);
-        response.sendRedirect("DanhSachDeTaiGV.jsp");
+        session.setAttribute("filename", uploadDirectory+"\\"+fileName);
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/FromDL/nopbaocao");
+		dispatcher.forward(request, response);
     }
 
     private String getFileName(Part part) {

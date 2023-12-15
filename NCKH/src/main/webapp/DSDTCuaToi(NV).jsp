@@ -43,9 +43,9 @@
 									<td class="${listTT[loop.index] == '0' ? 'yellow-row' : (listTT[loop.index] == '1' ? 'green-row' : (listTT[loop.index] == '2' ? 'red-row' : ''))}">
 									</td>
 									<form action = "MDTTranferXCTNVController" method = "post">
-									<td &nbsp;&nbsp;&nbsp;&nbsp;>
+									<td>
 									<button type="submit" class="btn_duyet" value="${listDTCN.maDeTai}"
-											name="madetai" id="madetai">Xem chi tiết</button>
+											name="madetai" id="madetai" style="${listTT[loop.index] == '2' ? 'display: none;' : ''}">Xem chi tiết</button>
 									</td>
 									</form>
 								</tr>

@@ -191,7 +191,7 @@
 							</select>
 						<select disabled
 							style="margin-top:17px; font-size: 20px; border: 2px solid; width: 200px; height:40px; display: none;"
-							id="KhoaSV3" name="KhoaSV2">
+							id="KhoaSV3" name="KhoaSV3">
 							<option disabled selected value="">Khoa...</option>
 							<c:forEach items="${khoas}" var="item">
 								<option value="${item.maKhoa}">${item.tenKhoa}</option>
@@ -199,7 +199,7 @@
 							</select>
 						<select disabled
 							style="margin-top:17px; font-size: 20px; border: 2px solid; width: 200px; height:40px; display: none;"
-							id="KhoaSV4" name="KhoaSV3">
+							id="KhoaSV4" name="KhoaSV4">
 							<option disabled selected value="">Khoa...</option> 
 							<c:forEach items="${khoas}" var="item">
 								<option value="${item.maKhoa}">${item.tenKhoa}</option>

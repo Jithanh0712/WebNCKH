@@ -15,6 +15,13 @@ public class BAOCAO implements Serializable {
 		super();
 	}
 	
+	public BAOCAO(String loaiBaoCao, Date ngayNop, String fileURL) {
+		super();
+		this.ngayNop = ngayNop;
+		this.loaiBaoCao = loaiBaoCao;
+		this.fileURL = fileURL;
+	}
+	
 	public BAOCAO(String maBaoCao, String maDeTai, Date ngayNop, String loaiBaoCao, String fileURL) {
 		super();
 		this.maBaoCao = maBaoCao;

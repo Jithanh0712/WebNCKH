@@ -33,6 +33,7 @@
 								<th style="color: black;">Tiêu đề</th>
 								<th style="color: black;">Trạng thái</th>
 								<th style="color: black;">Xem chi tiết đề tài</th>
+								<th style="color: black;">Lịch sử báo cáo</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -42,12 +43,21 @@
 									<td><c:out value="${listDTCN.tieuDe}" /></td>
 									<td class="${listTT[loop.index] == '0' ? 'yellow-row' : (listTT[loop.index] == '1' ? 'green-row' : (listTT[loop.index] == '2' ? 'red-row' : ''))}">
 									</td>
-									<form action = "MDTTranferXCTNVController" method = "post">
+									
 									<td>
-									<button type="submit" class="btn_duyet" value="${listDTCN.maDeTai}"
-											name="madetai" id="madetai" style="${listTT[loop.index] == '2' ? 'display: none;' : ''}">Xem chi tiết</button>
+										<form action = "MDTTranferXCTNVController" method = "post">
+										<button type="submit" class="btn_duyet" value="${listDTCN.maDeTai}"
+												name="madetai" id="madetai" style="${listTT[loop.index] == '2' ? 'display: none;' : ''}">Xem chi tiết</button>
+										
+										</form>
 									</td>
-									</form>
+									<td>
+										<form action = "lichsunop" method = "post">
+										<button type="submit" class="btn_duyet" value="${listDTCN.maDeTai}"
+												name="baocao" id="baocao" style="${listTT[loop.index] == '2' ? 'display: none;' : ''}">Xem lịch sử báo cáo</button>
+										
+										</form>
+									</td>
 								</tr>
 							</c:forEach>
 							<!-- } -->

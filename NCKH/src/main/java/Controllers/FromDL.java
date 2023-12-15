@@ -85,7 +85,7 @@ public class FromDL extends HttpServlet {
 				String MaBC = bcdao.GenerateMaBaoCao();
 				Date ngaynop = Date.valueOf(LocalDate.now());
 				bcdao.insertbaocao(new BAOCAO(MaBC, MaDT, ngaynop, Loai, FileURL));
-				RequestDispatcher dispatcher = request.getRequestDispatcher("/DanhSachDeTai.jsp");
+				RequestDispatcher dispatcher = request.getRequestDispatcher("/listDSDT_GV");
 				dispatcher.forward(request, response);
 			}
         } catch (SQLException ex) {

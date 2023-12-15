@@ -110,7 +110,7 @@
 				<jsp:include page="./listlink.jsp"></jsp:include>
 			</div>
 			<div class="col-md-9">
-				<form method="post" action="dangky">
+				<form method="post" action="${pageContext.request.contextPath}/dangky">
 				<div class="row">
 					<div class="col-md-3">
 						<label style="margin-top:30px; font-size:20px;"><b>Tiêu đề</b></label><br>

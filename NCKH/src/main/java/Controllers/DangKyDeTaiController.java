@@ -94,7 +94,7 @@ public class DangKyDeTaiController extends HttpServlet {
 				DANGKY dk = new DANGKY(maDK, maDT, gv.getMaGV(), maNhom);
 				dkdao.insertDangKy(dk);
 				
-				RequestDispatcher dispatcher = request.getRequestDispatcher("/DangKy.jsp");
+				RequestDispatcher dispatcher = request.getRequestDispatcher("/TrangChuUser.jsp");
 				request.setAttribute("giangvien", gv);
 				request.setAttribute("detai", dt);
 				request.setAttribute("khoas", khoas);

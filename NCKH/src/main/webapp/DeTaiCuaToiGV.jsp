@@ -48,17 +48,19 @@
 									</td>
 									<c:set var="maDeTai" value="${details[1]}" />
 										<td>
+											<form action="FromDL/redirect" method="post">
 											<button type="submit" class="btn_duyet" value="${maDeTai}"
 												name="madetai" id="madetai"
 												style="${fn:contains(maDeTai, 'DT') && trangThai eq 'true' ? 'display: inline-block;' : 'display: none;'}"
 												${thoigian.ngayBatDau.time > System.currentTimeMillis() || System.currentTimeMillis() > thoigian.ngayKetThuc.time ? 'disabled' : ''}>Nộp
 												báo cáo</button>
+											</form>
 										</td>
-                    <form action = "MDTTranferXCTController" method = "post">
 										<td>
+										<form action = "MDTTranferXCTController" method = "post">
 									    <button type="submit" class="btn_duyet" value="${maDeTai}" name="madetai" id="madetai" style="${fn:contains(maDeTai, 'DT') ? 'display: inline-block;' : 'display: none;'}">Xem chi tiết</button>
-									</td>
-									</form>
+										</form>
+										</td>
 								</tr>
 							</c:forEach>
 					     <!-- } -->

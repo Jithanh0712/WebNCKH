@@ -1,19 +1,12 @@
 package Controllers;
 
-import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.UnsupportedEncodingException;
-import java.net.URL;
-import java.net.URLDecoder;
-import java.nio.file.FileSystem;
-import java.nio.file.FileSystems;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 
-import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
@@ -38,9 +31,9 @@ public class UploadFileController extends HttpServlet {
         if (!Files.exists(uploadDirectory)) {
             Files.createDirectories(uploadDirectory);
         }
-
+        String fileName = null;
         for (Part part : request.getParts()) {
-            String fileName = getFileName(part);
+            fileName = getFileName(part);
             if (!fileName.isEmpty()) {
                 Path uploadedFile = uploadDirectory.resolve(fileName);
                 try (InputStream inputStream = part.getInputStream()) {
@@ -48,6 +41,7 @@ public class UploadFileController extends HttpServlet {
                 }
             }
         }
+        
         
         response.sendRedirect("DanhSachDeTaiGV.jsp");
     }

@@ -17,9 +17,9 @@
 <script>
 	function downloadFile(url) {
 		var a = document.createElement('a');
-		var convertedURL = url.replace(/\\\\/g, '\\');
-		a.href = convertedURL;
-		var filename = convertedURL.substring(convertedURL.lastIndexOf('\') + 1);
+		//var convertedURL = url.replace(/\\\\/g, '\\');
+		a.href = url;
+		var filename = url.substring(url.lastIndexOf('\') + 1);
 		a.download = filename;
 		document.body.appendChild(a);
 		a.click();
@@ -56,7 +56,8 @@
 								<td><c:out value="${filebaocao.loaiBaoCao}" /></td>
 								<td><c:out value="${filebaocao.ngayNop}" /></td>
 								<td>
-									<p>Ấn vào để tài về</p><a class="button" type="button" onclick="downloadFile('${filebaocao.fileURL}')"> tại đây</a>
+									<p>Ấn vào để tài về</p><a onmouseover="this.style.color='red'" onmouseout="this.style.color=''" 
+							style="font-size: 20px; text-decoration: underline;" class="button" onclick="downloadFile('${filebaocao.fileURL}')"> tại đây</a>
 								</td>
 							</tr>
 						</c:forEach>

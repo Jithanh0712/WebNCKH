@@ -58,8 +58,12 @@
 	</div>
 	<script>
 	    function setFieldValue(value) {
-	        var tenThongBaoInput = document.getElementById('TenThongBao');
-	        tenThongBaoInput.value = value;
+	    	var tenThongBaoInput = document.getElementById('TenThongBao');
+	        var ngayBDBCInput = document.getElementById('ngaybdbc');
+	        var ngayKTBCInput = document.getElementById('ngayktbc');
+	        
+	        var tenThongBaoValue = value + ' từ ' + ngayBDBCInput.value + ' đến ' + ngayKTBCInput.value;
+	        tenThongBaoInput.value = tenThongBaoValue;
 	    }
 	</script>
 	<jsp:include page="./footer.jsp"></jsp:include>

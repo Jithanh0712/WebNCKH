@@ -18,6 +18,8 @@ public class ThoiGianDAO {
 
 	private static final String SELECT_THOIGIAN_BC = "SELECT * FROM nckh.THOIGIAN WHERE LoaiTG = ?";
 	
+	private static final String UPDATE_THOIGIAN_BC = "UPDATE nckh.THOIGIAN SET NgayBatDau = ?, NgayKetThuc = ? WHERE LoaiTG = ?";
+	
 	private static final String UPDATE_THOIGIAN_DK = "UPDATE nckh.THOIGIAN SET NgayBatDau = ?, NgayKetThuc = ? WHERE LoaiTG = ?";
 
 	
@@ -69,9 +71,25 @@ public class ThoiGianDAO {
         boolean updated = false;
         try (Connection connection = JDBC.getConnection(); PreparedStatement statement = connection.prepareStatement(UPDATE_THOIGIAN_DK);) {
         	statement.setDate(1, tg.getNgayBatDau());
-        	//System.out.println(gv.getTenGV());
+        	
         	statement.setDate(2, tg.getNgayKetThuc());
         	statement.setString(3, "TGDK");
+            int rowsAffected = statement.executeUpdate();
+            updated = (rowsAffected > 0);
+        } catch (SQLException exception) {
+            HandleException.printSQLException(exception);
+        } 
+        return updated;
+    }
+	
+	public boolean capNhatThoiGianBC(THOIGIAN tg) throws SQLException{
+        boolean updated = false;
+        System.out.println(UPDATE_THOIGIAN_BC);
+        try (Connection connection = JDBC.getConnection(); PreparedStatement statement = connection.prepareStatement(UPDATE_THOIGIAN_BC);) {
+        	statement.setDate(1, tg.getNgayBatDau());
+        	//System.out.println(gv.getTenGV());
+        	statement.setDate(2, tg.getNgayKetThuc());
+        	statement.setString(3, "TGBC");
             int rowsAffected = statement.executeUpdate();
             updated = (rowsAffected > 0);
         } catch (SQLException exception) {

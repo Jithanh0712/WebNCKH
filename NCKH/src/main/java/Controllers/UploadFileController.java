@@ -13,6 +13,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import javax.servlet.http.Part;
 
 @WebServlet("/UploadFileServlet")
@@ -41,8 +42,8 @@ public class UploadFileController extends HttpServlet {
                 }
             }
         }
-        
-        
+        HttpSession session = request.getSession();
+        session.setAttribute("filename", uploadDirectory+"/"+fileName);
         response.sendRedirect("DanhSachDeTaiGV.jsp");
     }
 

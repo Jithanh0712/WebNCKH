@@ -15,24 +15,27 @@ import javax.servlet.http.HttpSession;
 
 
 import DAO.GiangVienDAO;
+import DAO.ThoiGianDAO;
+import Models.THOIGIAN;
 
 
 @WebServlet("/detaicuatoi")
 public class DeTaiCuaToiGVConTroller extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private GiangVienDAO gvDAO;
-
+	private ThoiGianDAO tgDAO;
+	
     public DeTaiCuaToiGVConTroller() {
         super();
     }
 
 	public void init(ServletConfig config) throws ServletException {
 		gvDAO = new GiangVienDAO();
+		tgDAO = new ThoiGianDAO();
 	}
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
-		
 		String IDDangNhap = (String) session.getAttribute("IDDangNhap");
 		System.out.println( IDDangNhap);
         String action = request.getPathInfo();
@@ -42,6 +45,8 @@ public class DeTaiCuaToiGVConTroller extends HttpServlet {
 			 try {
 				 String MaGV = gvDAO.layThongTinGV(IDDangNhap).getMaGV();
 				 List <String> listDT = gvDAO.retrieveResults(MaGV);
+				 THOIGIAN thoigian = tgDAO.layThoiGianBaoCao();
+				 request.setAttribute("thoigian", thoigian);
 				 request.setAttribute("listDT", listDT);
 				 RequestDispatcher dispatcher = request.getRequestDispatcher("/DeTaiCuaToiGV.jsp");
 				 dispatcher.forward(request, response);

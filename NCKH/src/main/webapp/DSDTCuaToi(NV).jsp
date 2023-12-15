@@ -25,6 +25,7 @@
 			</div>
 			<div class="col-md-9">
 				<div class="d-flex justify-content-between mb-3">
+				
 					<table class="table table-bordered">
 						<thead>
 							<tr>
@@ -41,8 +42,12 @@
 									<td><c:out value="${listDTCN.tieuDe}" /></td>
 									<td class="${listTT[loop.index] == '0' ? 'yellow-row' : (listTT[loop.index] == '1' ? 'green-row' : (listTT[loop.index] == '2' ? 'red-row' : ''))}">
 									</td>
-									<td &nbsp;&nbsp;&nbsp;&nbsp;><a href="XemChiTietNV.jsp?id=<c:out value='${detai.maDeTai}'/>">Xem chi tiết</a>
+									<form action = "MDTTranferXCTNVController" method = "post">
+									<td>
+									<button type="submit" class="btn_duyet" value="${listDTCN.maDeTai}"
+											name="madetai" id="madetai" style="${listTT[loop.index] == '2' ? 'display: none;' : ''}">Xem chi tiết</button>
 									</td>
+									</form>
 								</tr>
 							</c:forEach>
 							<!-- } -->

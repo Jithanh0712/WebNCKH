@@ -41,6 +41,11 @@ public class ThoiGianController extends HttpServlet {
 		if (IDDangNhap != null) {
 		    request.setCharacterEncoding("UTF-8");
 		    try {
+		    	if (action.equals("/direct"))
+				 {
+		    		RequestDispatcher dispatcher = request.getRequestDispatcher("/DatDL.jsp");
+					dispatcher.forward(request, response);
+				 }
 				if (action.equals("/update"))
 				{
 					update_TGBC(request, response);
@@ -54,12 +59,7 @@ public class ThoiGianController extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		 String action = request.getPathInfo();
-		 if (action.equals("/update"))
-		 {
-			 RequestDispatcher dispatcher = request.getRequestDispatcher("/DatDL.jsp");
-			 dispatcher.forward(request, response);
-		 }
+		 
 		doGet(request, response);
 		
 	}
@@ -72,28 +72,27 @@ public class ThoiGianController extends HttpServlet {
 		        DateFormat tgKTMoi = DateFormat.(request.getParameter("ngayktmoi"),df_kt);
 		        */
 		String ngaybdmoi = request.getParameter("ngaybdbc");
-	    System.out.println(ngaybdmoi);
 	    String ngayktmoi = request.getParameter("ngayktbc");
 
 	    SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 
 	    try {
 	        // Chuyển đổi chuỗi ngày bắt đầu mới thành đối tượng java.util.Date
-	        java.util.Date utilDate_bd = sdf.parse(ngaybdmoi);
-	        Date tgBDMoi = new Date(utilDate_bd.getTime());
+	        //java.util.Date utilDate_bd = sdf.parse(ngaybdmoi);
+	        Date tgBDMoi = new java.sql.Date(sdf.parse(ngaybdmoi).getTime());
 
 	        // Chuyển đổi chuỗi ngày kết thúc mới thành đối tượng java.util.Date
 	        java.util.Date utilDate_kt = sdf.parse(ngayktmoi);
-	        Date tgKTMoi = new Date(utilDate_kt.getTime());
+	        Date tgKTMoi = new java.sql.Date(sdf.parse(ngayktmoi).getTime());
 
 	        THOIGIAN thoigian = new THOIGIAN("TGDK", tgBDMoi, tgKTMoi);
 
 	        boolean updated = tgDAO.capNhatThoiGianDK(thoigian);
 
-	        if (updated) {
-	            
+	        if (updated) {            
 	            request.setAttribute("thoigian", thoigian);
-	            
+	            RequestDispatcher dispatcher = request.getRequestDispatcher("/DanhSachDeTaiNV");
+				dispatcher.forward(request, response);
 	        }
 	    } catch (ParseException e) {
 	        e.printStackTrace();

@@ -49,7 +49,7 @@
 						</tbody>
 					</table>
 				</div>
-				<form action="thoigian/update" method="post">
+				<form action="thoigian/direct" method="post">
 				  <button class="btn btn-primary" type="submit">Đặt thời gian báo cáo</button>
 				</form>
 								

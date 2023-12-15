@@ -96,7 +96,7 @@ public class ThongBaoNVDAO {
 	
 	public String findNextMaTB() {
 	    String sql = "SELECT MAX(MaThongBao) FROM nckh.thongbao";
-	    String nextMaTB = "TB000";
+	    String nextMaTB = "TB001";
 
 	    try {
 	    	Connection connection = JDBC.getConnection();
@@ -105,6 +105,10 @@ public class ThongBaoNVDAO {
 
 	        if (rs.next()) {
 	            nextMaTB = rs.getString(1);
+	        }
+	        
+	        if (nextMaTB == null) {
+	        	return "TB001";
 	        }
 
 	        rs.close();

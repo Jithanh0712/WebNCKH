@@ -1,10 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Đề xuất đề tài</title>
+<title>Xem chi tiết</title>
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
 	rel="stylesheet">
@@ -29,12 +30,14 @@
 						<label style="margin-top:30px; font-size:20px;"><b>Danh sách sinh viên:</b></label>
 					</div>
 					<div class="col-md-7">
-						<textarea disabled style="margin-top:30px; font-size:20px; border:2px solid; width:300px" rows=1>ABC</textarea>
-						<textarea disabled style="margin-top:10px; font-size:20px; border:2px solid; width:300px" rows=1>ABC</textarea>
-						<textarea disabled style="margin-top:10px; font-size:20px; border:2px solid; width:300px" rows=1>ABC</textarea>
-						<textarea disabled style="margin-top:10px; font-size:20px; border:2px solid; width:300px" rows=1>ABC</textarea>
-						<textarea disabled style="margin-top:10px; font-size:20px; border:2px solid; width:300px" rows=1>ABC</textarea>
-						<textarea disabled style="margin-top:10px; font-size:20px; border:2px solid; width:300px" rows=1>ABC</textarea>
+						<textarea readonly style="margin-top:30px; font-size:20px; border:2px solid; width:300px" rows=1>${detai.tieuDe}</textarea>
+						
+						<textarea readonly style="margin-top:10px; font-size:20px; border:2px solid; width:300px" rows=1>${giangvien.tenGV}</textarea>
+						<c:forEach var="listSV" items="${listSV}">
+						<c:set var="listSV" value="${listSV.split(', ')}" />
+						<textarea readonly style="margin-top:10px; font-size:20px; border:2px solid; width:300px" rows=1>${listSV[0]}</textarea>
+						</c:forEach>
+						
 					</div>
 				</div>
 				<div class="row">
@@ -45,10 +48,10 @@
 						<label style="margin-top:30px; font-size:20px;"><b>Mô tả:</b></label>
 					</div>
 					<div class="col-md-7">
-						<textarea disabled style="margin-top:25px; font-size:20px; border:2px solid; width:300px" rows=1>ABC</textarea>
-						<textarea disabled style="margin-top:10px; font-size:20px; border:2px solid; width:300px" rows=1>ABC</textarea>
-						<textarea disabled id="mota" name="mota"
-							style="border:2px solid; margin-top: 20px; font-size: 20px; width: 500px; height: 250px;">ABC</textarea>
+						<textarea readonly style="margin-top:25px; font-size:20px; border:2px solid; width:300px" rows=1>${detai.kinhPhi}</textarea>
+						<textarea readonly style="margin-top:10px; font-size:20px; border:2px solid; width:300px" rows=1>${detai.ngayDKTC}</textarea>
+						<textarea readonly id="mota" name="mota"
+							style="border:2px solid; margin-top: 20px; font-size: 20px; width: 500px; height: 250px;">${detai.moTa}</textarea>
 					</div>
 				</div>
 			</div>

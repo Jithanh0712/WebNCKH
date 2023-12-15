@@ -51,7 +51,7 @@ public class NVPQLKHDAO {
 	}
 	public String findNextMaNV() {
 	    String sql = "SELECT MAX(MaNV) FROM nckh.nvpqlkh";
-	    String nextMaNV = "NV000";
+	    String nextMaNV = "NV001";
 
 	    try {
 	    	Connection connection = JDBC.getConnection();
@@ -61,7 +61,11 @@ public class NVPQLKHDAO {
 	        if (rs.next()) {
 	            nextMaNV = rs.getString(1);
 	        }
-
+	        
+	        if (nextMaNV == null) {
+	        	return "NV001";
+	        }
+	        
 	        rs.close();
 	        pstmt.close();
 

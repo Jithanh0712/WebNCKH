@@ -43,7 +43,7 @@ public class GiangVienDAO {
 	}
 	public String findNextMaGV() {
 	    String sql = "SELECT MAX(MaGV) FROM nckh.giangvien";
-	    String nextMaGV = "GV000";
+	    String nextMaGV = "GV001";
 
 	    try {
 	    	Connection connection = JDBC.getConnection();
@@ -52,6 +52,10 @@ public class GiangVienDAO {
 
 	        if (rs.next()) {
 	            nextMaGV = rs.getString(1);
+	        }
+	        
+	        if (nextMaGV == null) {
+	        	return "GV001";
 	        }
 
 	        rs.close();

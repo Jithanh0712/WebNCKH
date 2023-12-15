@@ -25,7 +25,7 @@
 				<jsp:include page="./listlink.jsp"></jsp:include>
 			</div>
 			<div class="col-md-9">
-			<form action = "detaicuatoi" method = "post">
+			<form action = "MDTTranferXCTController" method = "post">
 				<div class="d-flex justify-content-between mb-3">
 					<table class="table table-bordered">
 					    <thead>
@@ -54,14 +54,15 @@
 											${fn:contains(maDeTai, 'DT') ? '' : 'disabled'}>Nộp báo cáo</button>
 									</td>
 									<td nbsp;nbsp;nbsp;nbsp;>
-										<a href="XemChiTietGV.jsp?id=<c:out value='${detai.maDeTai}' />">Xem chi tiết</a>
+										<button type="submit" class="btn_duyet" value="${maDeTai}"
+											name="madetai" id="madetai">Xem chi tiết</button>
 									</td>
 								</tr>
 							</c:forEach>
 					     <!-- } -->
 					    </tbody>
 					
-					   </table>
+					   </table> 
 					</div>
 				</form>
 			</div>

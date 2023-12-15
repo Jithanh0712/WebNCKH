@@ -10,12 +10,14 @@ import java.util.List;
 
 import Models.THONGBAO;
 import Models.BAOCAO;
+import Models.GIANGVIEN;
 import Util.HandleException;
 import Util.JDBC;
 
 public class BaoCaoDAO {
 	private static final String SELECT_ALL_THONGBAO_DESC = "SELECT * FROM nckh.thongbao where nguoinhan = ? ORDER BY MaThongBao DESC;";
 	private static final String INSERT_BAOCAO = "INSERT INTO baocao VALUES (?, ?, ?, ?, ?)";
+	private static final String LAY_BAOCAO = "select LoaiBaoCao, NgayNop, FileURL from nckh.baocao where MaDeTai = ?";
 	
 	public BaoCaoDAO() {}
 	
@@ -87,5 +89,27 @@ public class BaoCaoDAO {
 	    int number = Integer.parseInt(nextMaBC.substring(2)) + 1;
 	    String numberStr = String.format("%03d", number);
 	    return "BC" + numberStr;
+	}
+	
+	public List<BAOCAO> layThongTinBaoCao(String MaDeTai) throws SQLException{
+		
+		List<BAOCAO> bcs = new ArrayList<>();
+        ResultSet rs = null;
+        
+        try (Connection connection = JDBC.getConnection();PreparedStatement preparedStatement = connection.prepareStatement(LAY_BAOCAO);)
+        {
+        	preparedStatement.setString(1, MaDeTai);
+        	rs = preparedStatement.executeQuery();
+        	while (rs.next()) {
+                String loaiBC = rs.getString("LoaiBaoCao");
+                Date ngayNop = rs.getDate("NgayNop");
+                String fileURL = rs.getString("FileURL");
+                bcs.add(new BAOCAO(loaiBC, ngayNop, fileURL));
+            }
+            
+        } catch (SQLException exception) {
+            HandleException.printSQLException(exception);
+        }
+        return bcs;
 	}
 }

@@ -24,7 +24,7 @@
 			</div>
 			<div class="col-md-9">
 				<div class="col-md-3">
-					<form action="/nopbaocao" method="post">
+					<form action="FromDL/redirect" method="post" id="baocaoform">
 						
 					    <textarea name="my-text-area-${thongbao.maThongBao}" id="my-text-area-${thongbao.maThongBao}" cols="125"
 					        rows="7.5" readonly>Tên thông báo: ${thongbao.tenThongBao}
@@ -42,7 +42,7 @@ Nội dung: ${thongbao.noiDung}
 						</div>
 					</form>
 					<div class="rectangle" style = "margin-top: 10px">
-						<form method="post" action="UploadFileServlet"
+						<form method="post" action="${pageContext.request.contextPath}/UploadFileServlet"
 							enctype="multipart/form-data"
 							id="uploadform">
 							Select file to upload: <input type="file" name="file">

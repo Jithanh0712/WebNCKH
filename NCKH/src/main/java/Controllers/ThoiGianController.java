@@ -85,13 +85,13 @@ public class ThoiGianController extends HttpServlet {
 	        java.util.Date utilDate_kt = sdf.parse(ngayktmoi);
 	        Date tgKTMoi = new java.sql.Date(sdf.parse(ngayktmoi).getTime());
 
-	        THOIGIAN thoigian = new THOIGIAN("TGDK", tgBDMoi, tgKTMoi);
+	        THOIGIAN thoigian = new THOIGIAN("TGDC", tgBDMoi, tgKTMoi);
 
-	        boolean updated = tgDAO.capNhatThoiGianDK(thoigian);
+	        boolean updated = tgDAO.capNhatThoiGianBC(thoigian);
 
 	        if (updated) {            
 	            request.setAttribute("thoigian", thoigian);
-	            RequestDispatcher dispatcher = request.getRequestDispatcher("/DanhSachDeTaiNV");
+	            RequestDispatcher dispatcher = request.getRequestDispatcher("/listDSDT_NV");
 				dispatcher.forward(request, response);
 	        }
 	    } catch (ParseException e) {

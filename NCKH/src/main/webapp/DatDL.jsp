@@ -24,7 +24,7 @@
 				<jsp:include page="./listlink.jsp"></jsp:include>
 			</div>
 			<div class="col-md-9" style = "margin-top: 20px">
-			
+			<form action="update" method = "post">
 			<div class="form-group">
 				<label for="t" style= "color:black; font-size: 24px;">Thời gian: </label>
 			</div>
@@ -35,10 +35,10 @@
 				<input type="date" id="ngayktbc" name="ngayktbc" maxlength="30" class="form-control">
 			</div>
 			<div class="form-group">
-				<input type="radio" id="bc" name="bcdk" placeholder="Báo cáo định kỳ" style = "margin-top:5%"> Báo cáo định kỳ
+				<input type="radio" id="bc" name="bc" placeholder="Báo cáo định kỳ" style = "margin-top:5%"> Báo cáo định kỳ
 			</div>
 			<div class="form-group">
-				<input type="radio" id="bc" name="bcnt" placeholder = "Báo cáo nghiệm thu" style = "margin-top:3%"> Báo cáo nghiệm thu
+				<input type="radio" id="bc" name="bc" placeholder = "Báo cáo nghiệm thu" style = "margin-top:3%"> Báo cáo nghiệm thu
 			</div>
 			<div class="form-group">
 				<label for="magv" style= "color:black; font-size: 24px; margin-top:8%">Thông báo: </label>
@@ -48,7 +48,6 @@
 	           	style = "width:500px; height: 50px; margin-top: 15px;" placeholder="Nhập tiêu đề thông báo">
 			</div>
 			<input type="text" id="NoiDung" name="NoiDung" class="my-class" style = "margin-top: 15px;" placeholder="Nội dung">
-			<form action="update" method = "post">
 			<div class="form-group">
 				<button type="submit" style = "margin-top: 15px; background-color: #ABC4FF; margin-left: 65%;
  						border: 2px solid #ABC4FF; border-radius: 5px; font-size: 13pt; color: black;">Commit</button>

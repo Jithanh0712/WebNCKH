@@ -41,6 +41,11 @@ public class ThoiGianController extends HttpServlet {
 		if (IDDangNhap != null) {
 		    request.setCharacterEncoding("UTF-8");
 		    try {
+		    	if (action.equals("/direct"))
+				 {
+		    		RequestDispatcher dispatcher = request.getRequestDispatcher("/DatDL.jsp");
+					dispatcher.forward(request, response);
+				 }
 				if (action.equals("/update"))
 				{
 					update_TGBC(request, response);
@@ -54,12 +59,7 @@ public class ThoiGianController extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		 String action = request.getPathInfo();
-		 if (action.equals("/update"))
-		 {
-			 RequestDispatcher dispatcher = request.getRequestDispatcher("/DatDL.jsp");
-			 dispatcher.forward(request, response);
-		 }
+		 
 		doGet(request, response);
 		
 	}
@@ -72,7 +72,6 @@ public class ThoiGianController extends HttpServlet {
 		        DateFormat tgKTMoi = DateFormat.(request.getParameter("ngayktmoi"),df_kt);
 		        */
 		String ngaybdmoi = request.getParameter("ngaybdbc");
-	    System.out.println(ngaybdmoi);
 	    String ngayktmoi = request.getParameter("ngayktbc");
 
 	    SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
@@ -90,10 +89,10 @@ public class ThoiGianController extends HttpServlet {
 
 	        boolean updated = tgDAO.capNhatThoiGianDK(thoigian);
 
-	        if (updated) {
-	            
+	        if (updated) {            
 	            request.setAttribute("thoigian", thoigian);
-	            
+	            RequestDispatcher dispatcher = request.getRequestDispatcher("/DanhSachDeTaiNV");
+				dispatcher.forward(request, response);
 	        }
 	    } catch (ParseException e) {
 	        e.printStackTrace();

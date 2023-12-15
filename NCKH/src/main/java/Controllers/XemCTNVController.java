@@ -18,15 +18,15 @@ import Models.DETAI;
 import Models.GIANGVIEN;
 
 
-@WebServlet("/XemChiTetController")
-public class XemChiTetController extends HttpServlet {
+@WebServlet("/XemCTNVController")
+public class XemCTNVController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private DeTaiDAO dtDAO;  
     private DangKyDAO dkDAO;   
-
-    public XemChiTetController() {
+  
+    public XemCTNVController() {
         super();
-        
+  
     }
 
 
@@ -48,7 +48,7 @@ public class XemChiTetController extends HttpServlet {
 			String MaDK = dkDAO.layMaDK(maDT);
 	        GIANGVIEN giangvien = dkDAO.layGV(MaDK);
 
-            RequestDispatcher dispatcher = request.getRequestDispatcher("/XemChiTietGV.jsp");
+            RequestDispatcher dispatcher = request.getRequestDispatcher("/XemChiTietNV.jsp");
             request.setAttribute("detai", dt);
         	request.setAttribute("listSV", listSV);
         	request.setAttribute("giangvien", giangvien);
@@ -62,7 +62,6 @@ public class XemChiTetController extends HttpServlet {
 
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
 		doGet(request, response);
 	}
 

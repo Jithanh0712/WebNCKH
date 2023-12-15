@@ -33,7 +33,7 @@ public class FromDL extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		try {
-			THOIGIAN tg = tgDAO.layThoiGian();
+			THOIGIAN tg = tgDAO.layThoiGianBaoCao();
 			request.setAttribute("thoigian", tg);
 			RequestDispatcher dispatcher = request.getRequestDispatcher("FromNopDL.jsp");
 			dispatcher.forward(request, response);

@@ -36,7 +36,6 @@ public class DeTaiCuaToiGVConTroller extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
-		
 		String IDDangNhap = (String) session.getAttribute("IDDangNhap");
 		System.out.println( IDDangNhap);
         String action = request.getPathInfo();
